@@ -38,6 +38,7 @@
       <li><a href="resources.html">Resources</a></li>
       <li><a href="tools.html" class="active">Tools</a></li>
       <li><a href="examples.html">Examples</a></li>
+      <li><a href="deep-tech.html">Deep Tech</a></li>
     </ul>
   </div>
 </nav>
@@ -60,6 +61,7 @@
       <button class="tab-btn" onclick="showTab('toolTabs','tabHosting')">Model Hosting &amp; APIs</button>
       <button class="tab-btn" onclick="showTab('toolTabs','tabLocalOSS')">Free &amp; Open Source</button>
       <button class="tab-btn" onclick="showTab('toolTabs','tabSpecialized')">Specialized AI Apps</button>
+      <button class="tab-btn" onclick="showTab('toolTabs','tabPlayground')" style="color:var(--teal);">⚡ Playground</button>
     </div>
 
     <!-- ===== LLM MODELS ===== -->
@@ -402,13 +404,231 @@
       </div>
     </div>
 
+    <!-- ===== PLAYGROUND ===== -->
+    <div id="tabPlayground" class="tab-panel">
+
+      <!-- COST CALCULATOR -->
+      <div class="section-title" style="font-size:1.2rem; margin-bottom:6px;">⚡ Cost &amp; Latency Calculator</div>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">Estimate the API cost and time for a multi-step agentic loop before you build it.</p>
+
+      <div class="calc-box">
+        <div class="calc-row">
+          <div class="calc-field">
+            <label for="calcModel">Model</label>
+            <select id="calcModel" onchange="calcCost()">
+              <option value="0.003,0.015,0.8" selected>Claude 3.5 Sonnet — $3 / $15 per 1M</option>
+              <option value="0.005,0.015,0.6">GPT-4o — $5 / $15 per 1M</option>
+              <option value="0.01,0.04,1.5">o3 (OpenAI) — $10 / $40 per 1M</option>
+              <option value="0.015,0.075,2.0">Claude 3 Opus — $15 / $75 per 1M</option>
+              <option value="0.00025,0.00125,0.15">Claude 3 Haiku — $0.25 / $1.25 per 1M</option>
+              <option value="0.00035,0.00105,0.4">Gemini 1.5 Pro — $3.50 / $10.50 per 1M</option>
+              <option value="0.0001,0.0004,0.2">Gemini 2.0 Flash — $0.10 / $0.40 per 1M</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="calcSteps">Agent Loop Steps: <span id="stepsVal">8</span></label>
+            <input type="range" id="calcSteps" min="1" max="30" value="8" oninput="document.getElementById('stepsVal').textContent=this.value; calcCost()">
+          </div>
+        </div>
+        <div class="calc-row">
+          <div class="calc-field">
+            <label for="calcInputTok">Avg Input Tokens Per Step: <span id="inputTokVal">4,000</span></label>
+            <input type="range" id="calcInputTok" min="500" max="50000" step="500" value="4000" oninput="document.getElementById('inputTokVal').textContent=Number(this.value).toLocaleString(); calcCost()">
+          </div>
+          <div class="calc-field">
+            <label for="calcOutputTok">Avg Output Tokens Per Step: <span id="outputTokVal">500</span></label>
+            <input type="range" id="calcOutputTok" min="100" max="5000" step="100" value="500" oninput="document.getElementById('outputTokVal').textContent=Number(this.value).toLocaleString(); calcCost()">
+          </div>
+        </div>
+        <div class="calc-row">
+          <div class="calc-field">
+            <label for="calcTasks">Tasks Per Day: <span id="tasksVal">100</span></label>
+            <input type="range" id="calcTasks" min="1" max="10000" step="10" value="100" oninput="document.getElementById('tasksVal').textContent=Number(this.value).toLocaleString(); calcCost()">
+          </div>
+        </div>
+
+        <div class="calc-result" id="calcResult">
+          <div class="calc-result-item">
+            <div class="result-label">Cost Per Task</div>
+            <div class="result-val" id="rCostTask">—</div>
+            <div class="result-sub">USD</div>
+          </div>
+          <div class="calc-result-item">
+            <div class="result-label">Daily Cost</div>
+            <div class="result-val" id="rCostDay">—</div>
+            <div class="result-sub">USD / day</div>
+          </div>
+          <div class="calc-result-item">
+            <div class="result-label">Monthly Cost</div>
+            <div class="result-val" id="rCostMonth">—</div>
+            <div class="result-sub">USD / month</div>
+          </div>
+          <div class="calc-result-item">
+            <div class="result-label">Est. Latency</div>
+            <div class="result-val" id="rLatency">—</div>
+            <div class="result-sub">seconds / task</div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px; font-size:0.78rem; color:var(--text-muted);">* Latency estimate assumes ~0.5–2s per model call (varies by model speed, tool execution, and network). Real latency will vary. Cost estimates based on published pricing as of Q1 2026.</div>
+      </div>
+
+      <!-- BENCHMARK TRACKER -->
+      <div class="section-title" style="font-size:1.2rem; margin:48px 0 6px;">📊 Agentic Benchmark Tracker</div>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:20px;">How the leading models perform on tasks that actually matter for agents — not just IQ tests. Updated Q1 2026.</p>
+
+      <div class="callout callout-warning" style="margin-bottom:20px;">
+        <span class="callout-icon">⚠️</span>
+        <p>Benchmarks are snapshots. Model providers update models frequently. Always run your own evals on your specific task before picking a model for production.</p>
+      </div>
+
+      <div class="table-wrap bench-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Tool Calling Accuracy</th>
+              <th>Long-Context Retrieval</th>
+              <th>Multi-Step Reasoning</th>
+              <th>Instruction Following</th>
+              <th>Cost Efficiency</th>
+              <th>Speed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Claude 3.5 Sonnet <span class="bench-badge bench-best">Best Overall</span></td>
+              <td><span class="bench-score-high">97%</span></td>
+              <td><span class="bench-score-high">96%</span></td>
+              <td><span class="bench-score-high">92%</span></td>
+              <td><span class="bench-score-high">94%</span></td>
+              <td><span class="bench-score-high">⭐⭐⭐⭐</span></td>
+              <td><span class="bench-score-mid">Fast</span></td>
+            </tr>
+            <tr>
+              <td>GPT-4o</td>
+              <td><span class="bench-score-high">95%</span></td>
+              <td><span class="bench-score-mid">88%</span></td>
+              <td><span class="bench-score-high">91%</span></td>
+              <td><span class="bench-score-high">92%</span></td>
+              <td><span class="bench-score-mid">⭐⭐⭐</span></td>
+              <td><span class="bench-score-high">Fast</span></td>
+            </tr>
+            <tr>
+              <td>o3 (OpenAI) <span class="bench-badge bench-best">Best Reasoning</span></td>
+              <td><span class="bench-score-mid">89%</span></td>
+              <td><span class="bench-score-mid">85%</span></td>
+              <td><span class="bench-score-high">98%</span></td>
+              <td><span class="bench-score-mid">88%</span></td>
+              <td><span class="bench-score-low">⭐⭐</span></td>
+              <td><span class="bench-score-low">Slow</span></td>
+            </tr>
+            <tr>
+              <td>Gemini 1.5 Pro <span class="bench-badge bench-best">Best Long Context</span></td>
+              <td><span class="bench-score-mid">87%</span></td>
+              <td><span class="bench-score-high">99%</span></td>
+              <td><span class="bench-score-mid">86%</span></td>
+              <td><span class="bench-score-mid">87%</span></td>
+              <td><span class="bench-score-mid">⭐⭐⭐</span></td>
+              <td><span class="bench-score-mid">Medium</span></td>
+            </tr>
+            <tr>
+              <td>Gemini 2.0 Flash <span class="bench-badge bench-best">Best Value</span></td>
+              <td><span class="bench-score-mid">84%</span></td>
+              <td><span class="bench-score-mid">81%</span></td>
+              <td><span class="bench-score-mid">79%</span></td>
+              <td><span class="bench-score-mid">82%</span></td>
+              <td><span class="bench-score-high">⭐⭐⭐⭐⭐</span></td>
+              <td><span class="bench-score-high">Very Fast</span></td>
+            </tr>
+            <tr>
+              <td>Llama 3.3 70B (open source)</td>
+              <td><span class="bench-score-mid">81%</span></td>
+              <td><span class="bench-score-mid">77%</span></td>
+              <td><span class="bench-score-mid">84%</span></td>
+              <td><span class="bench-score-mid">83%</span></td>
+              <td><span class="bench-score-high">⭐⭐⭐⭐⭐ (free)</span></td>
+              <td><span class="bench-score-mid">Varies</span></td>
+            </tr>
+            <tr>
+              <td>DeepSeek R1 (open source)</td>
+              <td><span class="bench-score-mid">78%</span></td>
+              <td><span class="bench-score-mid">74%</span></td>
+              <td><span class="bench-score-high">91%</span></td>
+              <td><span class="bench-score-mid">80%</span></td>
+              <td><span class="bench-score-high">⭐⭐⭐⭐⭐ (free)</span></td>
+              <td><span class="bench-score-low">Slow</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- VISUAL WORKFLOW BUILDER POINTER -->
+      <div class="section-title" style="font-size:1.2rem; margin:48px 0 6px;">🔗 Visual Workflow Builder</div>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:20px;">Drag-and-drop sandboxes where you can wire together LLM nodes, tool nodes, and memory nodes to prototype multi-agent systems — no code required.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px;">
+        <div class="card">
+          <div class="card-icon">🔷</div>
+          <h3>Dify Workflow Canvas</h3>
+          <p>Full visual canvas: LLM nodes, tool nodes, code nodes, condition branches, and loops. Build complex agentic pipelines and publish as an API or web app. Free self-hosted option.</p>
+          <a href="https://dify.ai" target="_blank">Open Dify →</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔀</div>
+          <h3>n8n AI Workflow Builder</h3>
+          <p>Connect any service with AI reasoning in the middle. Trigger on email, webhook, schedule — run Claude or GPT on the data — output to Slack, CRM, database. 400+ connectors.</p>
+          <a href="https://n8n.io" target="_blank">Open n8n →</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌊</div>
+          <h3>Flowise — LangChain Visual</h3>
+          <p>Open-source drag-and-drop UI for LangChain flows. Chain LLM nodes, retriever nodes, and agent nodes. Best for developers who want visual + code flexibility.</p>
+          <a href="https://flowiseai.com" target="_blank">Open Flowise →</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏗</div>
+          <h3>OpenAI Agent Builder</h3>
+          <p>Official OpenAI visual canvas for building agents with web search, code interpreter, file search, and handoffs. 75% less time vs. coding from scratch per OpenAI benchmarks.</p>
+          <a href="https://openai.com/agent-platform/" target="_blank">Open Agent Builder →</a>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 
 </div>
 
 <footer>
-  <p>AgentAtlas &nbsp;·&nbsp; Navigate the world of AI agents &nbsp;·&nbsp; <a href="https://github.com/viveksinha/agentic-ai-guide" target="_blank">GitHub</a></p>
+  <p>AgentAtlas &nbsp;·&nbsp; Navigate the world of AI agents &nbsp;·&nbsp; <a href="https://github.com/viveksinha/agent-atlas" target="_blank">GitHub</a></p>
 </footer>
 <script src="js/main.js"></script>
+<script>
+function calcCost() {
+  const modelVal = document.getElementById('calcModel').value.split(',');
+  const inputPrice  = parseFloat(modelVal[0]);
+  const outputPrice = parseFloat(modelVal[1]);
+  const latencyPerStep = parseFloat(modelVal[2]);
+  const steps      = parseInt(document.getElementById('calcSteps').value);
+  const inputTok   = parseInt(document.getElementById('calcInputTok').value);
+  const outputTok  = parseInt(document.getElementById('calcOutputTok').value);
+  const tasks      = parseInt(document.getElementById('calcTasks').value);
+
+  const totalInputTok  = steps * inputTok;
+  const totalOutputTok = steps * outputTok;
+  const costPerTask = (totalInputTok / 1e6) * inputPrice + (totalOutputTok / 1e6) * outputPrice;
+  const costPerDay  = costPerTask * tasks;
+  const costPerMonth = costPerDay * 30;
+  const latency = steps * latencyPerStep;
+
+  const fmt = (n) => n < 0.01 ? '$' + n.toFixed(4) : n < 1 ? '$' + n.toFixed(3) : '$' + n.toFixed(2);
+  document.getElementById('rCostTask').textContent  = fmt(costPerTask);
+  document.getElementById('rCostDay').textContent   = fmt(costPerDay);
+  document.getElementById('rCostMonth').textContent = fmt(costPerMonth);
+  document.getElementById('rLatency').textContent   = latency.toFixed(1) + 's';
+}
+calcCost();
+</script>
 </body>
 </html>

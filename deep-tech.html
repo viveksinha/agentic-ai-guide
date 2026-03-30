@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deep Tech — AgentAtlas</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ---- DEEP TECH page-specific overrides ---- */
+    .dt-hero {
+      background: linear-gradient(135deg, #070c1a 0%, #0d1b36 60%, #1a0538 100%);
+      padding: 56px 24px 48px;
+      text-align: center;
+      border-bottom: 1px solid rgba(0,212,240,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .dt-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,58,237,0.18) 0%, transparent 70%),
+                  radial-gradient(ellipse 60% 50% at 80% 100%, rgba(0,212,240,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .dt-hero h1 { font-size: 2.4rem; color: #fff; font-weight: 800; margin-bottom: 12px; position: relative; }
+    .dt-hero h1 span { background: linear-gradient(135deg, #00d4f0, #b197fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .dt-hero p { color: #94a3b8; font-size: 1.1rem; max-width: 680px; margin: 0 auto 28px; position: relative; }
+    .dt-hero .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; position: relative; }
+    .dt-hero .hero-tag { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: #b0c4de; font-size: 0.8rem; padding: 5px 14px; border-radius: 20px; }
+
+    /* ---- QUICK NAV ---- */
+    .quick-nav {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      position: sticky;
+      top: 64px;
+      z-index: 90;
+    }
+    .quick-nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+    }
+    .quick-nav a {
+      display: block;
+      padding: 14px 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .quick-nav a:hover { color: var(--purple); border-bottom-color: var(--purple); }
+
+    /* ---- PAPER CARD ---- */
+    .paper-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .paper-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .paper-year {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--purple);
+      background: rgba(124,58,237,0.08);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 6px;
+      padding: 4px 8px;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+    .paper-body h3 { font-size: 0.97rem; font-weight: 700; margin-bottom: 4px; color: var(--text); }
+    .paper-body .paper-authors { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 6px; }
+    .paper-body p { font-size: 0.85rem; color: #4a5568; line-height: 1.55; margin-bottom: 8px; }
+    .paper-body a { font-size: 0.82rem; color: var(--purple); font-weight: 600; text-decoration: none; }
+    .paper-body a:hover { text-decoration: underline; }
+    .paper-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .paper-tag {
+      font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 4px;
+      background: var(--off-white); color: var(--text-muted); border: 1px solid var(--border);
+    }
+    .paper-tag.must { background: rgba(0,212,240,0.08); color: var(--teal-dark); border-color: rgba(0,212,240,0.3); }
+    .paper-tag.seminal { background: rgba(249,115,22,0.08); color: #c2410c; border-color: rgba(249,115,22,0.25); }
+    .paper-tag.new { background: rgba(16,185,129,0.08); color: #065f46; border-color: rgba(16,185,129,0.25); }
+
+    /* ---- BENCHMARK TABLE ---- */
+    .benchmark-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    .benchmark-table th {
+      background: var(--navy-mid);
+      color: var(--teal-light);
+      padding: 10px 16px;
+      text-align: left;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .benchmark-table td { padding: 10px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .benchmark-table tr:last-child td { border-bottom: none; }
+    .benchmark-table tr:hover td { background: #f7f9fc; }
+    .bm-name { font-weight: 700; color: var(--text); }
+    .bm-link { font-size: 0.78rem; color: var(--purple); }
+    .bm-link a { color: var(--purple); text-decoration: none; }
+    .bm-link a:hover { text-decoration: underline; }
+    .bm-badge { display: inline-block; font-size: 0.68rem; font-weight: 700; padding: 2px 7px; border-radius: 4px; }
+    .bm-badge.reasoning { background: rgba(124,58,237,0.1); color: var(--purple); }
+    .bm-badge.coding { background: rgba(0,212,240,0.1); color: var(--teal-dark); }
+    .bm-badge.knowledge { background: rgba(249,115,22,0.1); color: #c2410c; }
+    .bm-badge.agent { background: rgba(16,185,129,0.1); color: #065f46; }
+    .bm-badge.safety { background: rgba(239,68,68,0.1); color: #b91c1c; }
+    .bm-badge.multimodal { background: rgba(236,72,153,0.1); color: #9d174d; }
+    .bm-badge.embed { background: rgba(99,102,241,0.1); color: #4338ca; }
+
+    /* ---- CONCEPT CARD (for architecture, patterns) ---- */
+    .concept-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--teal);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+    }
+    .concept-card.purple { border-left-color: var(--purple); }
+    .concept-card.orange { border-left-color: var(--orange); }
+    .concept-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .concept-card .mono { font-family: 'Courier New', monospace; font-size: 0.82rem; color: var(--teal-dark); background: rgba(0,212,240,0.06); padding: 2px 7px; border-radius: 4px; }
+    .concept-card p { font-size: 0.875rem; color: #4a5568; line-height: 1.6; margin-top: 8px; }
+    .concept-card ul { font-size: 0.875rem; color: #4a5568; line-height: 1.7; padding-left: 20px; margin-top: 8px; }
+
+    /* ---- LEADERBOARD CARD ---- */
+    .leaderboard-card {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border: 1px solid rgba(0,212,240,0.2);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      color: #fff;
+    }
+    .leaderboard-card h3 { font-size: 1rem; font-weight: 700; color: var(--teal-light); margin-bottom: 6px; }
+    .leaderboard-card p { font-size: 0.85rem; color: #94a3b8; line-height: 1.55; margin-bottom: 12px; }
+    .leaderboard-card a { display: inline-block; font-size: 0.82rem; font-weight: 700; color: var(--teal); text-decoration: none; border: 1px solid rgba(0,212,240,0.3); border-radius: 6px; padding: 5px 14px; }
+    .leaderboard-card a:hover { background: rgba(0,212,240,0.1); }
+    .lb-stat { font-size: 1.4rem; font-weight: 800; color: #fff; }
+    .lb-stat-label { font-size: 0.75rem; color: #64748b; }
+
+    /* ---- BLOG CARD ---- */
+    .blog-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .blog-card:hover { box-shadow: var(--shadow); }
+    .blog-author { display: flex; align-items: center; gap: 10px; }
+    .blog-avatar { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .blog-author-name { font-size: 0.85rem; font-weight: 700; }
+    .blog-author-role { font-size: 0.75rem; color: var(--text-muted); }
+    .blog-card h3 { font-size: 0.95rem; font-weight: 700; line-height: 1.4; }
+    .blog-card p { font-size: 0.84rem; color: #4a5568; line-height: 1.55; }
+    .blog-card a { font-size: 0.82rem; color: var(--purple); font-weight: 600; text-decoration: none; }
+    .blog-card a:hover { text-decoration: underline; }
+
+    /* ---- SECTION ANCHOR ---- */
+    .section-anchor { scroll-margin-top: 120px; }
+
+    @media (max-width: 640px) {
+      .dt-hero h1 { font-size: 1.7rem; }
+      .paper-card { flex-direction: column; }
+      .benchmark-table { font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <span class="logo-icon">
+        <svg width="18" height="18" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logo-g" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#00d4f0"/>
+              <stop offset="100%" stop-color="#b197fc"/>
+            </linearGradient>
+          </defs>
+          <line x1="14" y1="14" x2="14" y2="5" stroke="url(#logo-g)" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="14" y1="14" x2="22.5" y2="20" stroke="url(#logo-g)" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="14" y1="14" x2="5.5" y2="20" stroke="url(#logo-g)" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="14" y1="5" x2="22.5" y2="20" stroke="rgba(177,151,252,0.4)" stroke-width="1" stroke-linecap="round"/>
+          <line x1="22.5" y1="20" x2="5.5" y2="20" stroke="rgba(177,151,252,0.4)" stroke-width="1" stroke-linecap="round"/>
+          <line x1="5.5" y1="20" x2="14" y2="5" stroke="rgba(177,151,252,0.4)" stroke-width="1" stroke-linecap="round"/>
+          <circle cx="14" cy="5" r="2.5" fill="#00d4f0"/>
+          <circle cx="22.5" cy="20" r="2.5" fill="#b197fc"/>
+          <circle cx="5.5" cy="20" r="2.5" fill="#b197fc"/>
+          <circle cx="14" cy="14" r="3" fill="white"/>
+        </svg>
+      </span>
+      Agent<span>Atlas</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="tools.html">Tools</a></li>
+      <li><a href="examples.html">Examples</a></li>
+      <li><a href="deep-tech.html" class="active">Deep Tech</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="dt-hero">
+  <div style="font-size:2.8rem; margin-bottom:12px;">⚗️</div>
+  <h1>Deep Tech &amp; <span>Research</span></h1>
+  <p>Foundational papers, live benchmarks, architecture internals, agent reasoning patterns, and safety research — for engineers and researchers who want to go beyond the surface.</p>
+  <div class="hero-tags">
+    <span class="hero-tag">Transformer Architecture</span>
+    <span class="hero-tag">RLHF &amp; Fine-Tuning</span>
+    <span class="hero-tag">RAG &amp; Retrieval</span>
+    <span class="hero-tag">Agent Patterns</span>
+    <span class="hero-tag">Benchmarks &amp; Evals</span>
+    <span class="hero-tag">Multi-Agent Systems</span>
+    <span class="hero-tag">AI Safety &amp; Alignment</span>
+    <span class="hero-tag">LLMOps</span>
+  </div>
+</div>
+
+<!-- STICKY SECTION NAV -->
+<div class="quick-nav">
+  <div class="quick-nav-inner">
+    <a href="#papers">📄 Seminal Papers</a>
+    <a href="#architecture">🏗 Architecture Internals</a>
+    <a href="#agent-patterns">🔁 Agent Patterns</a>
+    <a href="#benchmarks">📊 Benchmarks</a>
+    <a href="#leaderboards">🏆 Live Leaderboards</a>
+    <a href="#blogs">✍️ Expert Blogs</a>
+    <a href="#safety">🛡 Safety &amp; Alignment</a>
+    <a href="#llmops">⚙️ LLMOps &amp; Production</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ============================================================
+       1. SEMINAL PAPERS
+  ============================================================ -->
+  <section class="section section-anchor" id="papers">
+    <div class="section-title">📄 Seminal Papers — Must Read</div>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">The papers that shaped how modern LLMs and agents work. Not optional reading — these are the foundations everything else builds on.</p>
+
+    <div style="font-size:0.875rem; font-weight:700; color:var(--text-muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:.04em;">🏛 Foundational Architecture</div>
+    <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:32px;">
+
+      <div class="paper-card">
+        <div class="paper-year">2017</div>
+        <div class="paper-body">
+          <h3>Attention Is All You Need</h3>
+          <div class="paper-authors">Vaswani et al. · Google Brain · NeurIPS 2017</div>
+          <p>The paper that started everything. Introduces the Transformer architecture — multi-head self-attention, positional encodings, and the encoder-decoder stack. Every LLM in existence today descends from this architecture. 100,000+ citations.</p>
+          <div class="paper-tags">
+            <span class="paper-tag must">Essential</span>
+            <span class="paper-tag seminal">Seminal</span>
+            <span class="paper-tag">Transformers</span>
+            <span class="paper-tag">Attention</span>
+          </div>
+          <a href="https://arxiv.org/abs/1706.03762" target="_blank">arXiv:1706.03762 →</a>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-year">2020</div>
+        <div class="paper-body">
+          <h3>Language Models are Few-Shot Learners (GPT-3)</h3>
+          <div class="paper-authors">Brown et al. · OpenAI · NeurIPS 2020</div>
+          <p>Introduces GPT-3 (175B parameters) and demonstrates that scale alone enables emergent few-shot and zero-shot learning. The first paper to show that you don't need task-specific fine-tuning if you scale far enough. Changed the entire research paradigm.</p>
+          <div class="paper-tags">
+            <span class="paper-tag must">Essential</span>
+            <span class="paper-tag seminal">Seminal</span>
+            <span class="paper-tag">Scaling</span>
+            <span class="paper-tag">Few-Shot</span>
+            <span class="paper-tag">GPT</span>
+          </div>
+          <a href="https://arxiv.org/abs/2005.14165" target="_blank">arXiv:2005.14165 →</a>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-year">2022</div>
+        <div class="paper-body">
+          <h3>Training Language Models to Follow Instructions with Human Feedback (InstructGPT / RLHF)</h3>
+          <div class="paper-authors">Ouyang et al. · OpenAI</div>
+          <p>Introduces RLHF (Reinforcement Learning from Human Feedback) — the technique that turns a base language model into an assistant. A 1.3B InstructGPT model outperforms raw GPT-3 (175B) in human preference. This paper is why ChatGPT is useful.</p>
+          <div class="paper-tags">
+            <span class="paper-tag must">Essential</span>
+            <span class="paper-tag seminal">Seminal</span>
+            <span class="paper-tag">RLHF</span>
+            <span class="paper-tag">Alignment</span>
+            <span class="paper-tag">Fine-Tuning</span>
+          </div>
+          <a href="https://arxiv.org/abs/2203.02155" target="_blank">arXiv:2203.02155 →</a>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-year">2022</div>
+        <div class="paper-body">
+          <h3>Scaling Laws for Neural Language Models</h3>
+          <div class="paper-authors">Kaplan et al. · OpenAI · 2020 / Hoffmann et al. (Chinchilla) · DeepMind · 2022</div>
+          <p>Two related papers that explain exactly how model performance scales with parameters, data, and compute. The Chinchilla paper corrects original Kaplan scaling laws and shows most large models were undertrained. Every major lab uses these laws to decide how to spend their training budget.</p>
+          <div class="paper-tags">
+            <span class="paper-tag must">Essential</span>
+            <span class="paper-tag">Scaling</span>
+            <span class="paper-tag">Compute</span>
+          </div>
+          <a href="https://arxiv.org/abs/2001.08361" target="_blank">Kaplan: arXiv:2001.08361 →</a>
+          &nbsp; <a href="https://arxiv.org/abs/2203.15556" target="_blank">Chinchilla: arXiv:2203.15556 →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="font-size:0.875rem; font-weight:700; color:var(--text-muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:.04em;">💡 Reasoning &amp; Prompting</div>
+    <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:32px;">
+
+      <div class="paper-card">
+        <div class="paper-year">2022</div>
+        <div class="paper-body">
+          <h3>Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</h3>
+          <div class="paper-authors">Wei et al. · Google Brain · NeurIPS 2022</div>
+          <p>Shows that simply adding "Let's think step by step" dramatically improves LLM reasoning on math, logic, and commonsense tasks. The paper that legitimized prompt engineering as a research discipline and is the basis for all CoT and reasoning-model work today.</p>
+          <div class="paper-tags">
+            <span class="paper-tag must">Essential</span>
+            <span class="paper-tag">Chain of Thought</span>
+            <span class="paper-tag">Reasoning</span>
+            <span class="paper-tag">Prompting</span>
+          </div>
+          <a href="https://arxiv.org/abs/2201.11903" target="_blank">arXiv:2201.11903 →</a>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-year">2023</div>
+        <div class="paper-body">
+          <h3>Tree of Thoughts: Deliberate Problem Solving with Large Language Models</h3>
+          <div class="paper-authors">Yao et al. · Princeton + Google DeepMind</div>
+          <p>Extends Chain-of-Thought to a tree search: the LLM generates multiple candidate reasoning paths, evaluates them, and expands the most promising ones. Significantly improves performance on tasks where linear reasoning fails (game of 24, creative writing, miniCrossword). The basis for o1/o3-style thinking models.</p>
+          <div class="paper-tags">
+            <span class="paper-tag">Tree of Thoughts</span>
+            <span class="paper-tag">Search</span>
+            <span class="paper-tag">Reasoning</span>
+          </div>
+          <a href="https://arxiv.org/abs/2305.10601" target="_blank">arXiv:2305.10601 →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="font-size:0.875rem; font-weight:700; color:var(--text-muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:.04em;">🤖 Agents &amp; Tool Use</div>
+    <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:32px;">
+
+      <div class="paper-card">
+        <div class="paper-year">2022</div>
+        <div class="paper-body">
+          <h3>ReAct: Synergizing Reasoning and Acting in Language Models</h3>
+          <div class="paper-authors">Yao et al. · Princeton + Google Research</div>
+          <p>Introduces the ReAct pattern: Thought → Action → Observation loop. The agent reasons about what to do, takes an action (e.g., search Wikipedia), observes the result, then reasons again. The foundational paper for all tool-using agent systems. Still the default pattern in LangChain, LlamaIndex, and most agent frameworks.</p>
+          <div class="paper-tags">
+            <span class="paper-tag must">Essential</span>
+            <span class="paper-tag">ReAct</span>
+            <span class="paper-tag">Tool Use</span>
+            <span class="paper-tag">Agents</span>
+          </div>
+          <a href="https://arxiv.org/abs/2210.03629" target="_blank">arXiv:2210.03629 →</a>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-year">2023</div>
+        <div class="paper-body">
+          <h3>Reflexion: Language Agents with Verbal Reinforcement Learning</h3>
+          <div class="paper-authors">Shinn et al. · Northeastern + MIT</div>
+          <p>Agents that learn from their own mistakes without gradient updates — the model critiques its own past failures and stores them as natural language memory for the next attempt. Achieves 91% on HumanEval benchmarks vs. 80% for GPT-4 alone. Highly practical for production agents.</p>
+          <div class="paper-tags">
+            <span class="paper-tag">Reflexion</span>
+            <span class="paper-tag">Self-Critique</span>
+            <span class="paper-tag">Memory</span>
+            <span class="paper-tag">Agents</span>
+          </div>
+          <a href="https://arxiv.org/abs/2303.11366" target="_blank">arXiv:2303.11366 →</a>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-year">2023</div>
+        <div class="paper-body">
+          <h3>Toolformer: Language Models Can Teach Themselves to Use Tools</h3>
+          <div class="paper-authors">Schick et al. · Meta AI</div>
+          <p>Shows that LLMs can self-supervise their own tool use — the model learns when and how to call APIs (calculator, search, calendar) without human-labeled data. The precursor to function calling in GPT-4 and Claude tool use.</p>
+          <div class="paper-tags">
+            <span class="paper-tag">Tool Use</span>
+            <span class="paper-tag">Self-Supervised</span>
+            <span class="paper-tag">API Calls</span>
+          </div>
+          <a href="https://arxiv.org/abs/2302.04761" target="_blank">arXiv:2302.04761 →</a>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-year">2023</div>
+        <div class="paper-body">
+          <h3>AgentBench: Evaluating LLMs as Agents</h3>
+          <div class="paper-authors">Liu et al. · Tsinghua University</div>
+          <p>The first systematic benchmark for evaluating LLMs as real-world agents across 8 environments: web shopping, household tasks, digital card games, lateral thinking puzzles, databases, operating systems, web browsing, and knowledge graphs. GPT-4 outperforms open-source models by a huge margin on all tasks.</p>
+          <div class="paper-tags">
+            <span class="paper-tag">Benchmark</span>
+            <span class="paper-tag">Agents</span>
+            <span class="paper-tag">Evaluation</span>
+          </div>
+          <a href="https://arxiv.org/abs/2308.03688" target="_blank">arXiv:2308.03688 →</a>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-year">2024</div>
+        <div class="paper-body">
+          <h3>SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</h3>
+          <div class="paper-authors">Jimenez et al. · Princeton</div>
+          <p>Evaluates LLMs on 2,294 real GitHub issues requiring code changes to pass existing tests. In 2023, best models solved ~4% of issues. By 2025, top systems solve over 70%. Arguably the most important benchmark for measuring real-world software engineering capability in AI agents.</p>
+          <div class="paper-tags">
+            <span class="paper-tag must">Essential</span>
+            <span class="paper-tag">Coding</span>
+            <span class="paper-tag">Benchmark</span>
+            <span class="paper-tag new">Active Leaderboard</span>
+          </div>
+          <a href="https://arxiv.org/abs/2310.06770" target="_blank">arXiv:2310.06770 →</a>
+          &nbsp; <a href="https://www.swebench.com" target="_blank">Live Leaderboard →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="font-size:0.875rem; font-weight:700; color:var(--text-muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:.04em;">📚 RAG &amp; Memory</div>
+    <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:8px;">
+
+      <div class="paper-card">
+        <div class="paper-year">2020</div>
+        <div class="paper-body">
+          <h3>Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (RAG)</h3>
+          <div class="paper-authors">Lewis et al. · Meta AI / Facebook · NeurIPS 2020</div>
+          <p>The original RAG paper. Combines a parametric memory (the LLM) with a non-parametric memory (retrieved documents). The LLM generates conditioned on retrieved context — grounding outputs in real documents. Every RAG system you've seen is based on this architecture.</p>
+          <div class="paper-tags">
+            <span class="paper-tag must">Essential</span>
+            <span class="paper-tag seminal">Seminal</span>
+            <span class="paper-tag">RAG</span>
+            <span class="paper-tag">Retrieval</span>
+            <span class="paper-tag">Memory</span>
+          </div>
+          <a href="https://arxiv.org/abs/2005.11401" target="_blank">arXiv:2005.11401 →</a>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-year">2023</div>
+        <div class="paper-body">
+          <h3>Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection</h3>
+          <div class="paper-authors">Asai et al. · University of Washington · ICLR 2024</div>
+          <p>Standard RAG always retrieves, even when it's unnecessary. Self-RAG trains the model to decide when to retrieve and then evaluate whether the retrieved content is actually relevant, grounded, and useful using reflection tokens (IsRet, IsRel, IsSup, IsUse). Significantly outperforms RAG on factual tasks.</p>
+          <div class="paper-tags">
+            <span class="paper-tag">Self-RAG</span>
+            <span class="paper-tag">Reflection</span>
+            <span class="paper-tag">Grounding</span>
+          </div>
+          <a href="https://arxiv.org/abs/2310.11511" target="_blank">arXiv:2310.11511 →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. ARCHITECTURE INTERNALS
+  ============================================================ -->
+  <section class="section section-anchor" id="architecture">
+    <div class="section-title">🏗 Architecture Internals</div>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">How LLMs actually work under the hood — the components, tradeoffs, and optimizations that matter for engineers.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:16px; margin-bottom:32px;">
+
+      <div class="concept-card">
+        <h3>Tokenization &amp; Vocabulary</h3>
+        <span class="mono">BPE · SentencePiece · tiktoken</span>
+        <p>LLMs operate on tokens (subword units), not characters or words. GPT-4 uses ~100K token vocabulary via byte-pair encoding. "Tokenization matters" — the same word can be 1–4 tokens depending on context. Context windows (4K–2M tokens) define how much the model can "see" at once.</p>
+        <ul>
+          <li>GPT-4: ~100K vocab (cl100k)</li>
+          <li>Llama 3: 128K vocab</li>
+          <li>Claude: ~100K vocab</li>
+          <li>1 token ≈ 0.75 words on average</li>
+        </ul>
+      </div>
+
+      <div class="concept-card purple">
+        <h3>Multi-Head Self-Attention</h3>
+        <span class="mono">Q · K · V · softmax(QKᵀ/√d_k)</span>
+        <p>The core computation of every transformer. Each token attends to every other token in the sequence — "queries" look for relevant "keys" and retrieve weighted "values." Multiple attention heads let the model attend to different aspects simultaneously (syntax, semantics, coreference).</p>
+        <ul>
+          <li>O(n²) memory &amp; compute with sequence length</li>
+          <li>Flash Attention reduces memory to O(n) via tiling</li>
+          <li>Grouped Query Attention (GQA) cuts KV heads for efficiency</li>
+          <li>Sliding Window Attention enables longer contexts</li>
+        </ul>
+      </div>
+
+      <div class="concept-card orange">
+        <h3>KV Cache — Inference Speedup</h3>
+        <span class="mono">K, V cached · Q recomputed per token</span>
+        <p>During autoregressive generation, without optimization every new token requires re-computing Keys and Values for all previous tokens — O(n²) total work. The KV Cache computes K,V once per token and stores them. Result: 10,000-token generation runs at constant per-token cost instead of growing quadratically. This is why inference cost is dominated by sequence length.</p>
+        <ul>
+          <li>Memory: [layers × 2 × seq_len × kv_heads × head_dim]</li>
+          <li>Enables 100–1,000x more concurrent users</li>
+          <li>PagedAttention (vLLM) virtualizes KV cache like OS paging</li>
+        </ul>
+      </div>
+
+      <div class="concept-card">
+        <h3>Positional Encodings</h3>
+        <span class="mono">RoPE · ALiBi · Absolute · Relative</span>
+        <p>Transformers have no inherent notion of word order — positional encodings inject position information. Modern models use Rotary Position Embeddings (RoPE) which encode position as a rotation in complex space and generalize better to sequences longer than training. ALiBi adds linear distance penalties to attention scores instead of embedding positions.</p>
+        <ul>
+          <li>RoPE used by: Llama, Mistral, Qwen, Gemma</li>
+          <li>ALiBi used by: BLOOM, MPT</li>
+          <li>YaRN extends RoPE to longer contexts without full retraining</li>
+        </ul>
+      </div>
+
+      <div class="concept-card purple">
+        <h3>Feed-Forward Networks (FFN) &amp; MoE</h3>
+        <span class="mono">SwiGLU · SoLU · GeLU · Mixture of Experts</span>
+        <p>After attention, each token passes through a position-wise feed-forward network (2 linear layers + activation). FFNs store "factual knowledge" in their weights. Modern models use SwiGLU activation. Mixture of Experts (MoE) replaces a single FFN with N experts — each token routes to top-K experts, multiplying capacity without multiplying compute. Mixtral 8x7B and GPT-4 are believed to be MoE models.</p>
+        <ul>
+          <li>Mixtral 8x7B: 46.7B total params, 12.9B active per token</li>
+          <li>MoE enables 10x parameter scale at ~2x compute cost</li>
+        </ul>
+      </div>
+
+      <div class="concept-card orange">
+        <h3>Training: Pre-Training → SFT → RLHF → DPO</h3>
+        <span class="mono">Next-token prediction → alignment → preference</span>
+        <p>Modern LLMs are trained in stages: (1) <strong>Pre-training</strong> on trillions of tokens — learns language. (2) <strong>Supervised Fine-Tuning (SFT)</strong> on instruction/response pairs — learns to be helpful. (3) <strong>RLHF</strong> — human raters rank outputs, trains reward model, PPO optimizes against it. (4) <strong>DPO</strong> (Direct Preference Optimization) — simpler alternative to RLHF, directly learns from preference pairs without a separate reward model.</p>
+        <ul>
+          <li>RLVR (Reinforcement from Verifiable Rewards) — used in DeepSeek R1, o1/o3</li>
+          <li>Constitutional AI (Anthropic) — model critiques itself using principles</li>
+        </ul>
+      </div>
+
+      <div class="concept-card">
+        <h3>Context Window &amp; Long-Context Techniques</h3>
+        <span class="mono">4K → 8K → 128K → 1M tokens</span>
+        <p>Context windows have expanded dramatically: GPT-3 (4K) → GPT-4 Turbo (128K) → Claude 3.5 (200K) → Gemini 1.5 Pro (1M). Larger windows don't mean equal attention to all tokens — "lost in the middle" phenomenon shows models attend better to tokens at the start/end. Techniques like RAG, chunk summarization, and hierarchical memory address this.</p>
+        <ul>
+          <li>Gemini 2.0: 2M token context</li>
+          <li>RULER benchmark tests real long-context retrieval vs. just fitting</li>
+        </ul>
+      </div>
+
+      <div class="concept-card purple">
+        <h3>Quantization &amp; Efficient Inference</h3>
+        <span class="mono">FP16 → INT8 → INT4 → GGUF</span>
+        <p>Running a 70B model in FP32 requires ~280GB VRAM. Quantization reduces precision to cut memory: INT8 (half), INT4 (quarter). GPTQ, AWQ, and GGUF (llama.cpp) are common formats. LoRA and QLoRA enable fine-tuning on consumer hardware by only training small low-rank adapter matrices, leaving base weights frozen.</p>
+        <ul>
+          <li>GGUF: run Llama 70B on a Mac with 64GB RAM</li>
+          <li>QLoRA: fine-tune 65B model on a single 48GB GPU</li>
+          <li>Speculative decoding: draft model generates tokens, large model verifies</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="callout callout-info" style="margin-bottom:0;">
+      <span class="callout-icon">📖</span>
+      <p><strong>Deep read:</strong> Sebastian Raschka's <a href="https://sebastianraschka.com/blog/2025/coding-the-kv-cache-in-llms.html" target="_blank">Coding the KV Cache from Scratch</a> and Lilian Weng's <a href="https://lilianweng.github.io/posts/2023-01-27-the-transformer-family-v2/" target="_blank">The Transformer Family v2</a> are the two best technical deep-dives available for free.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. AGENT PATTERNS
+  ============================================================ -->
+  <section class="section section-anchor" id="agent-patterns">
+    <div class="section-title">🔁 Agent Reasoning Patterns</div>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">The design patterns that separate well-behaved production agents from brittle demos. Each pattern trades off token cost, reliability, and task complexity.</p>
+
+    <div style="overflow-x:auto; margin-bottom:24px;">
+      <table style="width:100%; border-collapse:collapse; font-size:0.875rem; background:#fff; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);">
+        <thead>
+          <tr style="background:var(--navy-mid);">
+            <th style="padding:12px 16px; color:var(--teal-light); text-align:left; font-size:0.78rem; letter-spacing:.05em; text-transform:uppercase;">Pattern</th>
+            <th style="padding:12px 16px; color:var(--teal-light); text-align:left; font-size:0.78rem; letter-spacing:.05em; text-transform:uppercase;">Loop</th>
+            <th style="padding:12px 16px; color:var(--teal-light); text-align:left; font-size:0.78rem; letter-spacing:.05em; text-transform:uppercase;">Best For</th>
+            <th style="padding:12px 16px; color:var(--teal-light); text-align:left; font-size:0.78rem; letter-spacing:.05em; text-transform:uppercase;">Min Model</th>
+            <th style="padding:12px 16px; color:var(--teal-light); text-align:left; font-size:0.78rem; letter-spacing:.05em; text-transform:uppercase;">Token Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 16px; font-weight:700;">Prompt Chaining</td>
+            <td style="padding:12px 16px; font-family:monospace; font-size:0.82rem;">A → B → C (linear)</td>
+            <td style="padding:12px 16px; color:#4a5568;">Sequential tasks with clear stages. Document processing pipelines.</td>
+            <td style="padding:12px 16px;">Any</td>
+            <td style="padding:12px 16px; color:var(--success);">Low</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 16px; font-weight:700;">ReAct</td>
+            <td style="padding:12px 16px; font-family:monospace; font-size:0.82rem;">Think → Act → Observe (loop)</td>
+            <td style="padding:12px 16px; color:#4a5568;">Multi-step tool use. Research agents, data lookup, web search.</td>
+            <td style="padding:12px 16px;">4B+</td>
+            <td style="padding:12px 16px; color:var(--warning);">Medium</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 16px; font-weight:700;">Chain of Thought (CoT)</td>
+            <td style="padding:12px 16px; font-family:monospace; font-size:0.82rem;">Think step-by-step → Answer</td>
+            <td style="padding:12px 16px; color:#4a5568;">Math, logic, structured reasoning. Improves accuracy on MMLU, GSM8K.</td>
+            <td style="padding:12px 16px;">7B+</td>
+            <td style="padding:12px 16px; color:var(--warning);">Medium</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 16px; font-weight:700;">Tree of Thoughts (ToT)</td>
+            <td style="padding:12px 16px; font-family:monospace; font-size:0.82rem;">Generate branches → Score → Expand best</td>
+            <td style="padding:12px 16px; color:#4a5568;">Creative, ambiguous, or open-ended problems. Planning with uncertainty.</td>
+            <td style="padding:12px 16px;">14B+</td>
+            <td style="padding:12px 16px; color:#ef4444;">High</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 16px; font-weight:700;">Reflexion</td>
+            <td style="padding:12px 16px; font-family:monospace; font-size:0.82rem;">Act → Critique → Store → Retry</td>
+            <td style="padding:12px 16px; color:#4a5568;">Code generation, multi-step reasoning where feedback is available.</td>
+            <td style="padding:12px 16px;">7B+</td>
+            <td style="padding:12px 16px; color:var(--warning);">Medium</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 16px; font-weight:700;">Parallelization</td>
+            <td style="padding:12px 16px; font-family:monospace; font-size:0.82rem;">Spawn N agents in parallel → Aggregate</td>
+            <td style="padding:12px 16px; color:#4a5568;">Tasks decomposable into independent subtasks. Research synthesis.</td>
+            <td style="padding:12px 16px;">Any</td>
+            <td style="padding:12px 16px; color:#ef4444;">High (parallel)</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 16px; font-weight:700;">Orchestrator + Sub-agents</td>
+            <td style="padding:12px 16px; font-family:monospace; font-size:0.82rem;">Planner → delegate → collect results</td>
+            <td style="padding:12px 16px; color:#4a5568;">Complex workflows. One agent plans, specialist agents execute.</td>
+            <td style="padding:12px 16px;">13B+ orchestrator</td>
+            <td style="padding:12px 16px; color:#ef4444;">High</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px;">
+
+      <div class="concept-card">
+        <h3>RAG Architecture Variants</h3>
+        <span class="mono">Naive → Advanced → Modular → Agentic</span>
+        <p>RAG has matured well beyond naive chunking. Key patterns:</p>
+        <ul>
+          <li><strong>Naive RAG:</strong> Chunk → Embed → Retrieve → Generate</li>
+          <li><strong>HyDE:</strong> Generate hypothetical answer → use it as query</li>
+          <li><strong>Multi-query RAG:</strong> Rewrite query N ways, merge results</li>
+          <li><strong>Recursive RAG:</strong> Agent decides when retrieval is needed</li>
+          <li><strong>Graph RAG (Microsoft):</strong> Build knowledge graph, query it</li>
+          <li><strong>Self-RAG:</strong> Reflection tokens decide if retrieval helped</li>
+        </ul>
+      </div>
+
+      <div class="concept-card purple">
+        <h3>Memory Architecture for Agents</h3>
+        <span class="mono">In-context · External · Procedural · Semantic</span>
+        <p>Agents need different types of memory:</p>
+        <ul>
+          <li><strong>In-context (working memory):</strong> Current conversation window</li>
+          <li><strong>External (episodic):</strong> Vector DB (Pinecone, Chroma, Weaviate)</li>
+          <li><strong>Semantic memory:</strong> Facts stored as embeddings, retrieved by similarity</li>
+          <li><strong>Procedural memory:</strong> Learned skills, tool schemas, few-shot examples</li>
+          <li><strong>MemGPT:</strong> OS-inspired memory management with paging</li>
+        </ul>
+      </div>
+
+      <div class="concept-card orange">
+        <h3>Multi-Agent Communication Protocols</h3>
+        <span class="mono">MCP · A2A · Shared state · Message passing</span>
+        <p>How agents communicate and coordinate:</p>
+        <ul>
+          <li><strong>MCP (Model Context Protocol):</strong> Anthropic's open standard for agent↔tool communication — like USB for AI tools</li>
+          <li><strong>Google A2A:</strong> Agent-to-Agent protocol for cross-framework communication</li>
+          <li><strong>Shared state (blackboard):</strong> Agents read/write to shared memory object</li>
+          <li><strong>Publish/subscribe:</strong> Agents emit events, others react asynchronously</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. BENCHMARKS
+  ============================================================ -->
+  <section class="section section-anchor" id="benchmarks">
+    <div class="section-title">📊 Benchmarks Explained</div>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">What the model cards and leaderboards actually measure — and what they miss. Understand these before evaluating any LLM for production use.</p>
+
+    <div style="background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; overflow-x:auto; margin-bottom:24px;">
+      <table class="benchmark-table">
+        <thead>
+          <tr>
+            <th>Benchmark</th>
+            <th>Category</th>
+            <th>What It Measures</th>
+            <th>Key Insight</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="bm-name">MMLU</div><div style="font-size:0.75rem;color:var(--text-muted);">Massive Multitask Language Understanding</div></td>
+            <td><span class="bm-badge knowledge">Knowledge</span></td>
+            <td>57-subject MCQ covering STEM, humanities, social sciences, law, medicine. Tests breadth of world knowledge.</td>
+            <td>Near-saturated at top. GPT-4 scores ~87%. Use MMLU-Pro for harder discrimination.</td>
+            <td class="bm-link"><a href="https://arxiv.org/abs/2009.03300" target="_blank">Paper →</a></td>
+          </tr>
+          <tr>
+            <td><div class="bm-name">MMLU-Pro</div></td>
+            <td><span class="bm-badge reasoning">Reasoning</span></td>
+            <td>Harder version of MMLU with 10-choice questions requiring deeper reasoning. Resists guessing strategies.</td>
+            <td>Better discriminator for frontier models than original MMLU. Top models ~72–79%.</td>
+            <td class="bm-link"><a href="https://arxiv.org/abs/2406.01574" target="_blank">Paper →</a></td>
+          </tr>
+          <tr>
+            <td><div class="bm-name">HumanEval</div></td>
+            <td><span class="bm-badge coding">Coding</span></td>
+            <td>164 Python programming problems. Tests whether generated code passes unit tests. Pass@1 and Pass@10 metrics.</td>
+            <td>GPT-4 scores ~85%+ on Pass@1. Use BigCodeBench or SWE-bench for harder coding evals.</td>
+            <td class="bm-link"><a href="https://arxiv.org/abs/2107.03374" target="_blank">Paper →</a></td>
+          </tr>
+          <tr>
+            <td><div class="bm-name">SWE-bench Verified</div></td>
+            <td><span class="bm-badge coding">Coding</span> <span class="bm-badge agent">Agent</span></td>
+            <td>Real GitHub issue resolution — agents must write code patches that pass existing test suites. Tests end-to-end software engineering.</td>
+            <td>Most important real-world coding benchmark. Jumped from 4% (2023) to 70%+ (2025). Claude 3.5 Sonnet achieved 49% solo.</td>
+            <td class="bm-link"><a href="https://www.swebench.com" target="_blank">Live →</a></td>
+          </tr>
+          <tr>
+            <td><div class="bm-name">GPQA Diamond</div><div style="font-size:0.75rem;color:var(--text-muted);">Graduate-Level Google-Proof Q&amp;A</div></td>
+            <td><span class="bm-badge reasoning">Reasoning</span></td>
+            <td>448 expert-level MCQs in biology, chemistry, and physics written by PhDs. Designed to be Google-proof — you can't look up the answer.</td>
+            <td>Human experts score ~65%. GPT-4o hits ~53%, o3 ~87%. Strong signal for scientific reasoning depth.</td>
+            <td class="bm-link"><a href="https://arxiv.org/abs/2311.12022" target="_blank">Paper →</a></td>
+          </tr>
+          <tr>
+            <td><div class="bm-name">MATH / AIME</div></td>
+            <td><span class="bm-badge reasoning">Reasoning</span></td>
+            <td>MATH: 12,500 competition math problems. AIME: AMC/AIME competition problems. Tests mathematical reasoning and proof construction.</td>
+            <td>MATH: GPT-4 ~52% (2023) → o3 ~97% (2025). AIME measures frontier reasoning models — DeepSeek R1 scores 79.8%.</td>
+            <td class="bm-link"><a href="https://arxiv.org/abs/2103.03874" target="_blank">Paper →</a></td>
+          </tr>
+          <tr>
+            <td><div class="bm-name">Chatbot Arena (LMSYS)</div></td>
+            <td><span class="bm-badge knowledge">Human Pref</span></td>
+            <td>Blind A/B human preference votes across 200+ models. 2.5M+ votes. Elo-style ranking. Most trusted real-world quality signal.</td>
+            <td>Only benchmark using actual human preference in real conversations. Not gameable via benchmark overfitting. Gold standard for "which model feels better."</td>
+            <td class="bm-link"><a href="https://chat.lmsys.org" target="_blank">Live →</a></td>
+          </tr>
+          <tr>
+            <td><div class="bm-name">AgentBench</div></td>
+            <td><span class="bm-badge agent">Agent</span></td>
+            <td>8 real-world agentic environments: web shopping, OS tasks, database manipulation, web browsing, digital card games.</td>
+            <td>Open-source models score dramatically worse than GPT-4 on multi-step reasoning with tool use. Biggest gap between frontier and open-source.</td>
+            <td class="bm-link"><a href="https://github.com/THUDM/AgentBench" target="_blank">GitHub →</a></td>
+          </tr>
+          <tr>
+            <td><div class="bm-name">HELM (Holistic Eval)</div></td>
+            <td><span class="bm-badge knowledge">Multi-dimensional</span></td>
+            <td>Stanford's multi-scenario evaluation across accuracy, calibration, robustness, fairness, bias, toxicity, and efficiency. 42 scenarios, 7 metrics each.</td>
+            <td>The most comprehensive academic benchmark. Useful for comparing models on safety/fairness dimensions that pure accuracy benchmarks miss.</td>
+            <td class="bm-link"><a href="https://crfm.stanford.edu/helm/latest/" target="_blank">Live →</a></td>
+          </tr>
+          <tr>
+            <td><div class="bm-name">MTEB</div><div style="font-size:0.75rem;color:var(--text-muted);">Massive Text Embedding Benchmark</div></td>
+            <td><span class="bm-badge embed">Embeddings</span></td>
+            <td>56 datasets across 8 embedding tasks: retrieval, clustering, classification, reranking, STS, summarization, bitext mining, pair classification.</td>
+            <td>The definitive benchmark for choosing an embedding model for RAG. text-embedding-3-large and voyage-3 dominate. Essential for RAG system design.</td>
+            <td class="bm-link"><a href="https://huggingface.co/spaces/mteb/leaderboard" target="_blank">Leaderboard →</a></td>
+          </tr>
+          <tr>
+            <td><div class="bm-name">Humanity's Last Exam (HLE)</div></td>
+            <td><span class="bm-badge reasoning">Reasoning</span></td>
+            <td>3,000 extremely hard questions from 100+ academic disciplines, crowd-sourced from experts worldwide. Designed to be near-impossible for current models.</td>
+            <td>Released Jan 2025. Best models score ~8–18%. Designed to stay hard for years. The new frontier benchmark after MMLU saturation.</td>
+            <td class="bm-link"><a href="https://arxiv.org/abs/2501.14249" target="_blank">Paper →</a></td>
+          </tr>
+          <tr>
+            <td><div class="bm-name">BigCodeBench</div></td>
+            <td><span class="bm-badge coding">Coding</span></td>
+            <td>1,140 function-level coding tasks using real library APIs from 139 libraries. Much harder than HumanEval — tests real-world programming knowledge.</td>
+            <td>GPT-4o: ~60.4%. Llama 3.1 405B: ~52.8%. Good proxy for "can this model write production code." Harder than HumanEval, less brittle than SWE-bench.</td>
+            <td class="bm-link"><a href="https://bigcode-bench.github.io" target="_blank">Leaderboard →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-warning">
+      <span class="callout-icon">⚠️</span>
+      <p><strong>Benchmark contamination is real.</strong> Many models are trained on data that includes benchmark test sets, inflating scores. Always cross-reference multiple benchmarks, prioritize human evaluation (Chatbot Arena), and test on your own task distribution before trusting published numbers.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. LIVE LEADERBOARDS
+  ============================================================ -->
+  <section class="section section-anchor" id="leaderboards">
+    <div class="section-title">🏆 Live Leaderboards &amp; Trackers</div>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">Bookmark these. They update in real-time as new models are released and evaluated.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px;">
+
+      <div class="leaderboard-card">
+        <h3>🥇 Chatbot Arena (LMSYS)</h3>
+        <p>200+ models ranked by blind human preference votes. 2.5M+ votes. The only benchmark that can't be gamed — humans pick winners without knowing the model. Updated daily.</p>
+        <div style="display:flex; gap:24px; margin-bottom:12px;">
+          <div><div class="lb-stat">200+</div><div class="lb-stat-label">Models Ranked</div></div>
+          <div><div class="lb-stat">2.5M+</div><div class="lb-stat-label">Human Votes</div></div>
+        </div>
+        <a href="https://chat.lmsys.org" target="_blank">Open Leaderboard →</a>
+      </div>
+
+      <div class="leaderboard-card">
+        <h3>🏗 BenchLM — 53 Benchmarks</h3>
+        <p>Aggregates 152 models across 53 benchmarks: reasoning, coding, agents, knowledge, multimodal. Single composite score plus per-benchmark breakdowns. Updated continuously.</p>
+        <div style="display:flex; gap:24px; margin-bottom:12px;">
+          <div><div class="lb-stat">152</div><div class="lb-stat-label">Models</div></div>
+          <div><div class="lb-stat">53</div><div class="lb-stat-label">Benchmarks</div></div>
+        </div>
+        <a href="https://benchlm.ai" target="_blank">Open Leaderboard →</a>
+      </div>
+
+      <div class="leaderboard-card">
+        <h3>🧩 SWE-bench Verified</h3>
+        <p>Live ranking of AI coding agents on real GitHub issue resolution. Best real-world proxy for software engineering capability. Watch scores climb month-over-month.</p>
+        <div style="display:flex; gap:24px; margin-bottom:12px;">
+          <div><div class="lb-stat">70%+</div><div class="lb-stat-label">Best Score (2025)</div></div>
+          <div><div class="lb-stat">4%</div><div class="lb-stat-label">Best Score (2023)</div></div>
+        </div>
+        <a href="https://www.swebench.com" target="_blank">Open Leaderboard →</a>
+      </div>
+
+      <div class="leaderboard-card">
+        <h3>📐 HELM — Stanford</h3>
+        <p>Holistic multi-dimensional evaluation. Measures accuracy, calibration, robustness, fairness, bias, and toxicity across 42 scenarios. Best for comparing safety dimensions.</p>
+        <div style="display:flex; gap:24px; margin-bottom:12px;">
+          <div><div class="lb-stat">42</div><div class="lb-stat-label">Scenarios</div></div>
+          <div><div class="lb-stat">7</div><div class="lb-stat-label">Metric Dims</div></div>
+        </div>
+        <a href="https://crfm.stanford.edu/helm/latest/" target="_blank">Open Leaderboard →</a>
+      </div>
+
+      <div class="leaderboard-card">
+        <h3>📦 MTEB Embeddings</h3>
+        <p>The definitive ranking for embedding models — pick the right one for your RAG pipeline. Covers retrieval, clustering, classification, and 5 other tasks.</p>
+        <div style="display:flex; gap:24px; margin-bottom:12px;">
+          <div><div class="lb-stat">56</div><div class="lb-stat-label">Datasets</div></div>
+          <div><div class="lb-stat">8</div><div class="lb-stat-label">Task Types</div></div>
+        </div>
+        <a href="https://huggingface.co/spaces/mteb/leaderboard" target="_blank">Open Leaderboard →</a>
+      </div>
+
+      <div class="leaderboard-card">
+        <h3>💻 BigCode / HumanEval+</h3>
+        <p>Open LLM coding leaderboard. Tracks models on HumanEval, MBPP, BigCodeBench. Useful for comparing open-source vs. proprietary coding performance.</p>
+        <div style="display:flex; gap:24px; margin-bottom:12px;">
+          <div><div class="lb-stat">1,140</div><div class="lb-stat-label">Test Tasks</div></div>
+          <div><div class="lb-stat">139</div><div class="lb-stat-label">Libraries</div></div>
+        </div>
+        <a href="https://bigcode-bench.github.io" target="_blank">Open Leaderboard →</a>
+      </div>
+
+      <div class="leaderboard-card">
+        <h3>🦙 Open LLM Leaderboard (HF)</h3>
+        <p>Hugging Face's leaderboard tracking open-source model performance. Essential for comparing Llama, Mistral, Qwen, Gemma, DeepSeek and other open-weights models.</p>
+        <div style="display:flex; gap:24px; margin-bottom:12px;">
+          <div><div class="lb-stat">2000+</div><div class="lb-stat-label">Open Models</div></div>
+        </div>
+        <a href="https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard" target="_blank">Open Leaderboard →</a>
+      </div>
+
+      <div class="leaderboard-card">
+        <h3>🕵️ Scale AI SEAL</h3>
+        <p>Expert-validated evaluation across safety, instruction following, and reasoning. Uses human expert graders, not automated metrics. Hard to game.</p>
+        <div style="display:flex; gap:24px; margin-bottom:12px;">
+          <div><div class="lb-stat">Expert</div><div class="lb-stat-label">Graded</div></div>
+        </div>
+        <a href="https://scale.com/leaderboard" target="_blank">Open Leaderboard →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. EXPERT BLOGS
+  ============================================================ -->
+  <section class="section section-anchor" id="blogs">
+    <div class="section-title">✍️ Expert Blogs &amp; Writing Worth Following</div>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">The people whose writing consistently advances understanding — not just summarizing news.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px;">
+
+      <div class="blog-card">
+        <div class="blog-author">
+          <div class="blog-avatar" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">L</div>
+          <div><div class="blog-author-name">Lilian Weng</div><div class="blog-author-role">VP of Safety @ OpenAI</div></div>
+        </div>
+        <h3>Lil'Log — lilianweng.github.io</h3>
+        <p>The most comprehensive technical AI blog in existence. Deep-dives on transformers, agents, RLHF, diffusion models, hallucination. Every post is a mini-textbook. Active since 2017.</p>
+        <p><strong>Must reads:</strong> Transformer Family v2, LLM-Powered Autonomous Agents, Hallucination in LLMs, Why We Think (2025)</p>
+        <a href="https://lilianweng.github.io" target="_blank">Visit Lil'Log →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-author">
+          <div class="blog-avatar" style="background:linear-gradient(135deg,#0ea5e9,#0284c7);">A</div>
+          <div><div class="blog-author-name">Andrej Karpathy</div><div class="blog-author-role">ex-OpenAI, ex-Tesla AI · Eureka Labs founder</div></div>
+        </div>
+        <h3>karpathy.bearblog.dev</h3>
+        <p>Original thinking from one of the best practitioners in AI. Coined "Software 2.0," predicted many trends years early. Known for brutally honest takes. 2025 LLM Year in Review is essential.</p>
+        <p><strong>Must reads:</strong> Software 2.0, State of GPT, LLM Year in Review 2025, The Unreasonable Effectiveness of RNNs</p>
+        <a href="https://karpathy.bearblog.dev" target="_blank">Visit Blog →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-author">
+          <div class="blog-avatar" style="background:linear-gradient(135deg,#10b981,#059669);">S</div>
+          <div><div class="blog-author-name">Sebastian Ruder</div><div class="blog-author-role">Research Scientist @ Google DeepMind</div></div>
+        </div>
+        <h3>ruder.io</h3>
+        <p>NLP research-focused writing. Covers multilingual LLMs, evaluation, transfer learning, and conference deep-dives from ACL/EMNLP/NAACL/ICML. NLP Newsletter covers the research landscape monthly.</p>
+        <p><strong>Must reads:</strong> The State of NLP, RAG vs Fine-Tuning, NLP Newsletter archive</p>
+        <a href="https://ruder.io" target="_blank">Visit Blog →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-author">
+          <div class="blog-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706);">S</div>
+          <div><div class="blog-author-name">Sebastian Raschka</div><div class="blog-author-role">Staff Research Engineer @ Lightning AI</div></div>
+        </div>
+        <h3>sebastianraschka.com/blog</h3>
+        <p>Best practical ML engineering blog. Known for clear explanations of fine-tuning, LoRA, and LLM internals with code. "Build a Large Language Model From Scratch" (book) originated here.</p>
+        <p><strong>Must reads:</strong> Coding the KV Cache, LoRA vs Full Fine-Tuning, Understanding Flash Attention, LLM evals primer</p>
+        <a href="https://sebastianraschka.com/blog/" target="_blank">Visit Blog →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-author">
+          <div class="blog-avatar" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9);">J</div>
+          <div><div class="blog-author-name">Jay Alammar</div><div class="blog-author-role">ML Research Engineer</div></div>
+        </div>
+        <h3>jalammar.github.io</h3>
+        <p>Best visual explainers for how LLMs and transformers work. The illustrated transformer, BERT, and GPT posts are the most-linked ML explainers on the internet. Phenomenal for building intuition.</p>
+        <p><strong>Must reads:</strong> The Illustrated Transformer, The Illustrated BERT, The Illustrated GPT-2, Visualizing Neural Nets</p>
+        <a href="https://jalammar.github.io" target="_blank">Visit Blog →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-author">
+          <div class="blog-avatar" style="background:linear-gradient(135deg,#ef4444,#dc2626);">S</div>
+          <div><div class="blog-author-name">Simon Willison</div><div class="blog-author-role">Creator of Django, LLM CLI tool</div></div>
+        </div>
+        <h3>simonwillison.net</h3>
+        <p>Daily practitioner notes on LLMs, agents, and AI tools. Extremely prolific — covers every major model release, paper, and tool with hands-on testing. Best for staying current on what actually ships.</p>
+        <p><strong>Must reads:</strong> Everything he's written about LLM tool use, his notes on Claude and GPT-4 capabilities</p>
+        <a href="https://simonwillison.net" target="_blank">Visit Blog →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-author">
+          <div class="blog-avatar" style="background:linear-gradient(135deg,#0ea5e9,#6366f1);">H</div>
+          <div><div class="blog-author-name">Hugging Face Blog</div><div class="blog-author-role">Research team blog</div></div>
+        </div>
+        <h3>huggingface.co/blog</h3>
+        <p>Research and engineering posts from the HF team. Covers new model architectures, PEFT/LoRA, RLHF implementations, dataset insights, and model releases. The most technically rigorous company blog in the ecosystem.</p>
+        <p><strong>Must reads:</strong> RLHF explainer, LoRA guide, Intro to Agents with smolagents, Benchmark analyses</p>
+        <a href="https://huggingface.co/blog" target="_blank">Visit Blog →</a>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-author">
+          <div class="blog-avatar" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">A</div>
+          <div><div class="blog-author-name">Anthropic Research</div><div class="blog-author-role">Safety &amp; engineering research</div></div>
+        </div>
+        <h3>anthropic.com/research</h3>
+        <p>Anthropic publishes more safety and interpretability research than any other lab. Constitutional AI, model cards, sleeper agents, and mechanistic interpretability papers all originated here.</p>
+        <p><strong>Must reads:</strong> Constitutional AI, Measuring Faithfulness of CoT, Many-shot Jailbreaking, Building Effective Agents</p>
+        <a href="https://www.anthropic.com/research" target="_blank">Visit Research →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. SAFETY & ALIGNMENT
+  ============================================================ -->
+  <section class="section section-anchor" id="safety">
+    <div class="section-title">🛡 Safety, Alignment &amp; Interpretability</div>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">The research ensuring powerful agents don't behave in unintended ways — increasingly important as agents take real-world actions.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; margin-bottom:24px;">
+
+      <div class="paper-card">
+        <div class="paper-year">2022</div>
+        <div class="paper-body">
+          <h3>Constitutional AI: Harmlessness from AI Feedback</h3>
+          <div class="paper-authors">Bai et al. · Anthropic</div>
+          <p>Instead of relying solely on human feedback for safety, the model critiques and revises its own outputs according to a written "constitution" of principles. Scales safety alignment without requiring human raters for every response. This is how Claude was trained.</p>
+          <div class="paper-tags">
+            <span class="paper-tag must">Essential</span>
+            <span class="paper-tag">Alignment</span>
+            <span class="paper-tag">RLHF</span>
+          </div>
+          <a href="https://arxiv.org/abs/2212.08073" target="_blank">arXiv:2212.08073 →</a>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-year">2023</div>
+        <div class="paper-body">
+          <h3>Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training</h3>
+          <div class="paper-authors">Hubinger et al. · Anthropic</div>
+          <p>Demonstrates that it's possible to train models with hidden backdoors that activate under specific trigger conditions — and that standard safety fine-tuning doesn't reliably remove them. A landmark paper on fundamental alignment challenges in AI systems.</p>
+          <div class="paper-tags">
+            <span class="paper-tag">Safety</span>
+            <span class="paper-tag">Deception</span>
+            <span class="paper-tag">Backdoors</span>
+          </div>
+          <a href="https://arxiv.org/abs/2401.05566" target="_blank">arXiv:2401.05566 →</a>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-year">2023</div>
+        <div class="paper-body">
+          <h3>Towards Monosemanticity: Decomposing Language Models With Dictionary Learning</h3>
+          <div class="paper-authors">Bricken et al. · Anthropic</div>
+          <p>Mechanistic interpretability milestone — identifies individual neurons in a transformer that activate for specific, interpretable concepts (e.g., "DNS," "base64," "racist content"). Sparse autoencoders used to decompose superposition. The beginning of truly understanding what's inside LLMs.</p>
+          <div class="paper-tags">
+            <span class="paper-tag">Interpretability</span>
+            <span class="paper-tag">Mechanistic</span>
+            <span class="paper-tag">SAE</span>
+          </div>
+          <a href="https://transformer-circuits.pub/2023/monosemanticity/index.html" target="_blank">Read Paper →</a>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-year">2025</div>
+        <div class="paper-body">
+          <h3>Anthropic–OpenAI Joint Alignment Evaluation</h3>
+          <div class="paper-authors">Anthropic + OpenAI (joint, 2025)</div>
+          <p>Landmark cross-lab safety evaluation — each lab tested the other's models for alignment failures in simulated high-stakes agentic settings. Found: most models struggle with sycophancy, GPT-4o showed concerning misuse support behaviors in simulations, GPT-5 showed substantial improvements.</p>
+          <div class="paper-tags">
+            <span class="paper-tag new">New · 2025</span>
+            <span class="paper-tag">Alignment Eval</span>
+            <span class="paper-tag">Agents</span>
+          </div>
+          <a href="https://alignment.anthropic.com/2025/openai-findings" target="_blank">Read Findings →</a>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-year">2024</div>
+        <div class="paper-body">
+          <h3>Deliberative Alignment: Reasoning for Safe AI (o1 System Card)</h3>
+          <div class="paper-authors">OpenAI</div>
+          <p>Describes how o1 uses chain-of-thought reasoning to think through safety policy before responding — "deliberative alignment." Achieved state-of-the-art on benchmarks for illicit advice avoidance and jailbreak resistance. First paper to show reasoning improves safety, not just capability.</p>
+          <div class="paper-tags">
+            <span class="paper-tag">Alignment</span>
+            <span class="paper-tag">Reasoning</span>
+            <span class="paper-tag">Safety</span>
+          </div>
+          <a href="https://openai.com/index/openai-o1-system-card" target="_blank">Read System Card →</a>
+        </div>
+      </div>
+
+      <div class="concept-card" style="border-left-color: #ef4444;">
+        <h3>Key Safety Concerns for Agentic Systems</h3>
+        <p>As agents take real-world actions (sending emails, executing code, browsing the web), new failure modes emerge beyond chatbot safety:</p>
+        <ul>
+          <li><strong>Prompt injection:</strong> Malicious content in tool output hijacks agent behavior</li>
+          <li><strong>Goal misspecification:</strong> Agent pursues proxy metric, not true objective (Goodhart's Law)</li>
+          <li><strong>Irreversible actions:</strong> Deleting files, sending emails — no undo</li>
+          <li><strong>Scope creep:</strong> Agent acquires resources/permissions beyond task requirements</li>
+          <li><strong>Sycophancy:</strong> Agent tells user what they want to hear, not what's correct</li>
+          <li><strong>Evaluation gaming:</strong> Agent optimizes for benchmark metrics, not real-world quality</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. LLMOps & PRODUCTION
+  ============================================================ -->
+  <section class="section section-anchor" id="llmops">
+    <div class="section-title">⚙️ LLMOps &amp; Production Engineering</div>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">The gap between a working demo and a reliable production system. Infrastructure, evaluation, fine-tuning, and observability for real deployments.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; margin-bottom:24px;">
+
+      <div class="resource-card">
+        <div><span class="source-badge">Concept</span></div>
+        <h3>Evals First: Why Evaluation Drives Everything</h3>
+        <p>Before you build, define how you'll measure success. LLM evals include: exact match, ROUGE/BLEU, LLM-as-judge (GPT-4 scoring outputs), human preference, and task-specific metrics. Without evals, you can't know if a prompt change helped or hurt. Build your eval harness before your first production prompt.</p>
+        <a href="https://hamel.dev/blog/posts/evals/" target="_blank">Read Hamel's Evals Guide →</a>
+      </div>
+
+      <div class="resource-card">
+        <div><span class="source-badge">AWS · Production</span></div>
+        <h3>Amazon: Advanced Fine-Tuning for Multi-Agent Orchestration at Scale</h3>
+        <p>Amazon's production lessons: SFT + PPO + DPO + GRPO stacked together. Results: 33% reduction in medication errors, 80% less human review effort in engineering, accuracy from 77% to 96%. Shows what's possible when fine-tuning is done right at scale.</p>
+        <a href="https://aws.amazon.com/blogs/machine-learning/advanced-fine-tuning-techniques-for-multi-agent-orchestration-patterns-from-amazon-at-scale/" target="_blank">Read on AWS →</a>
+      </div>
+
+      <div class="resource-card">
+        <div><span class="source-badge">Open Source</span></div>
+        <h3>LangSmith — LLM Observability &amp; Tracing</h3>
+        <p>LangChain's production platform. Traces every LLM call, tool invocation, and agent step. Debug prompts, track latency/cost, run regression tests, compare prompt versions. The essential observability tool for any LangChain-based system.</p>
+        <a href="https://smith.langchain.com" target="_blank">Visit LangSmith →</a>
+      </div>
+
+      <div class="resource-card">
+        <div><span class="source-badge">Open Source</span></div>
+        <h3>Weights &amp; Biases (W&amp;B) — Experiment Tracking</h3>
+        <p>Track fine-tuning runs, compare hyperparameters, log eval metrics, visualize attention patterns. The standard MLOps tool for any serious LLM fine-tuning project. Integrates with HuggingFace Trainer, PyTorch, JAX, and most frameworks.</p>
+        <a href="https://wandb.ai" target="_blank">Visit W&amp;B →</a>
+      </div>
+
+      <div class="resource-card">
+        <div><span class="source-badge">Open Source · vLLM</span></div>
+        <h3>vLLM — High-Throughput LLM Serving</h3>
+        <p>PagedAttention + continuous batching enables 24x higher throughput than naive serving. The standard open-source inference engine for self-hosted models. Powers production deployments of Llama, Mistral, and other open-source models at scale. Used by Anyscale, Databricks, and others.</p>
+        <a href="https://github.com/vllm-project/vllm" target="_blank">View on GitHub →</a>
+      </div>
+
+      <div class="resource-card">
+        <div><span class="source-badge">RAG · Production</span></div>
+        <h3>Building Production-Ready Multi-Agent RAG Systems</h3>
+        <p>Enterprise implementation guide. Covers three-agent architecture (Coordinator → Retrieval → Reasoning), failure modes, latency tradeoffs, and when to use RAG vs. fine-tuning. Addresses the orchestration layer that's typically left out of tutorials.</p>
+        <a href="https://ragaboutit.com/building-production-ready-multi-agent-rag-systems-the-enterprise-implementation-guide/" target="_blank">Read Guide →</a>
+      </div>
+
+    </div>
+
+    <div style="background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:24px;">
+      <div style="font-size:0.875rem; font-weight:700; margin-bottom:16px; color:var(--text-muted); text-transform:uppercase; letter-spacing:.04em;">RAG vs Fine-Tuning Decision Framework</div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; font-size:0.875rem;">
+          <thead>
+            <tr style="background:var(--off-white);">
+              <th style="padding:10px 14px; text-align:left; border-bottom:2px solid var(--border);">Dimension</th>
+              <th style="padding:10px 14px; text-align:left; border-bottom:2px solid var(--border); color:var(--teal-dark);">RAG</th>
+              <th style="padding:10px 14px; text-align:left; border-bottom:2px solid var(--border); color:var(--purple);">Fine-Tuning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:10px 14px; font-weight:600;">Knowledge freshness</td>
+              <td style="padding:10px 14px; color:#065f46;">✓ Real-time, always current</td>
+              <td style="padding:10px 14px; color:#92400e;">Baked in at training time</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:10px 14px; font-weight:600;">Knowledge size</td>
+              <td style="padding:10px 14px; color:#065f46;">✓ Unlimited (external DB)</td>
+              <td style="padding:10px 14px; color:#92400e;">Limited by context/capacity</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:10px 14px; font-weight:600;">Response style / tone</td>
+              <td style="padding:10px 14px; color:#92400e;">Harder to control</td>
+              <td style="padding:10px 14px; color:#065f46;">✓ Strong style consistency</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:10px 14px; font-weight:600;">Task specialization</td>
+              <td style="padding:10px 14px; color:#92400e;">General behavior</td>
+              <td style="padding:10px 14px; color:#065f46;">✓ Deep task expertise</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:10px 14px; font-weight:600;">Citability / traceability</td>
+              <td style="padding:10px 14px; color:#065f46;">✓ Source attribution built-in</td>
+              <td style="padding:10px 14px; color:#92400e;">Hard to attribute</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:10px 14px; font-weight:600;">Cost to update</td>
+              <td style="padding:10px 14px; color:#065f46;">✓ Update index only</td>
+              <td style="padding:10px 14px; color:#92400e;">Retrain or re-fine-tune</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 14px; font-weight:600;">Recommended when</td>
+              <td style="padding:10px 14px; color:var(--text-muted); font-style:italic;">Docs change often, need citations, broad knowledge base</td>
+              <td style="padding:10px 14px; color:var(--text-muted); font-style:italic;">Consistent format, specialized domain, style/tone control</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>AgentAtlas &nbsp;·&nbsp; Navigate the world of AI agents &nbsp;·&nbsp; <a href="https://github.com/viveksinha/agentic-ai-guide" target="_blank">GitHub</a></p>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -38,6 +38,7 @@
       <li><a href="resources.html">Resources</a></li>
       <li><a href="tools.html">Tools</a></li>
       <li><a href="examples.html">Examples</a></li>
+      <li><a href="deep-tech.html">Deep Tech</a></li>
     </ul>
   </div>
 </nav>
@@ -123,6 +124,15 @@
           <span class="badge badge-advanced">Advanced</span>
         </div>
       </div>
+      <div class="card">
+        <div class="card-icon">⚗️</div>
+        <h3>Researchers &amp; Deep Tech</h3>
+        <p>Seminal papers, benchmark breakdowns, architecture internals, agent reasoning patterns, alignment research, and LLMOps.</p>
+        <div style="margin-top:10px;">
+          <span class="badge badge-advanced">Advanced</span>
+          <a href="deep-tech.html" style="font-size:0.8rem; color:var(--purple); font-weight:600; text-decoration:none; margin-left:6px;">Go to Deep Tech →</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -157,6 +167,106 @@
         <h3>Goal-Oriented</h3>
         <p>Stays focused on completing a task end-to-end — not just answering a single question.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- NAVIGATE BY FOCUS AREA -->
+  <section class="section">
+    <div class="section-title">Navigate by Focus Area</div>
+    <div class="section-subtitle">Each topic is built for two audiences — pick your lane and go deeper.</div>
+
+    <div style="background: linear-gradient(90deg, rgba(0,212,240,0.07) 50%, rgba(124,58,237,0.07) 50%); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 16px; display:grid; grid-template-columns:1fr 1fr; margin-bottom:16px; font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.8px; gap:0;">
+      <div style="color:var(--teal-dark);">🙋 Layman — The What &amp; Why</div>
+      <div style="color:var(--purple); text-align:right;">⚙️ Techie — The How &amp; Where</div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:12px;">
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <span>🧱</span>
+          <h3>Foundations — What is an LLM?</h3>
+        </div>
+        <div class="topic-card-body">
+          <div class="topic-cell">
+            <div class="topic-cell-label">Layman</div>
+            An LLM (Large Language Model) is a computer program trained on billions of pages of text until it learned the patterns of human language. Think of it as a hyper-intelligent autocomplete that can write, reason, and converse — not by "thinking," but by predicting what words make sense next.
+          </div>
+          <div class="topic-cell">
+            <div class="topic-cell-label">Techie</div>
+            Deep dive into the Transformer architecture — attention heads, positional encoding, and tokenization (BPE vs. SentencePiece). Understand how scale laws (Chinchilla, Kaplan) shape model training, and why RLHF/DPO alignment matters for agentic tasks.
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <span>🧪</span>
+          <h3>Agent Lab — How Agents Solve Daily Tasks</h3>
+        </div>
+        <div class="topic-card-body">
+          <div class="topic-cell">
+            <div class="topic-cell-label">Layman</div>
+            Imagine giving an intern a laptop and a goal: "Book the cheapest flight to London for next Tuesday." They Google, compare, choose, and book — all without you watching. That's an agent. It doesn't just answer questions; it takes actions in the real world to complete a goal.
+          </div>
+          <div class="topic-cell">
+            <div class="topic-cell-label">Techie</div>
+            Implementation patterns using state machines and LangGraph. Compare ReAct (Reason + Act interleaved), Plan-and-Execute (upfront plan then run), and Reflexion (self-critique loops). Understand when each pattern wins and how to wire tool calls into a deterministic graph.
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <span>🧰</span>
+          <h3>The Toolbox — Best AI Apps for Productivity</h3>
+        </div>
+        <div class="topic-card-body">
+          <div class="topic-cell">
+            <div class="topic-cell-label">Layman</div>
+            You don't need to build anything. Tools like n8n, Dify, and Microsoft Copilot Studio let you drag, describe, and deploy agents visually — the same way you'd set up an out-of-office reply. Start here before writing a single line of code.
+          </div>
+          <div class="topic-cell">
+            <div class="topic-cell-label">Techie</div>
+            API integration and function calling: how LLMs use JSON Schema to call structured tools, handle errors, retry with context, and chain results. Covers OpenAI function calling spec, Anthropic tool use, and MCP (Model Context Protocol) as a universal adapter.
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <span>🤝</span>
+          <h3>Multi-Agent — "A Team of AIs" Concept</h3>
+        </div>
+        <div class="topic-card-body">
+          <div class="topic-cell">
+            <div class="topic-cell-label">Layman</div>
+            Just like a company has a manager, researchers, and writers — you can have a team of AIs where one "director" agent assigns tasks to specialist agents. The researcher finds data, the writer drafts the email, the reviewer checks it. Nobody does everything alone.
+          </div>
+          <div class="topic-cell">
+            <div class="topic-cell-label">Techie</div>
+            Hierarchical vs. sequential orchestration: when to use a supervisor-worker pattern (CrewAI, AutoGen) vs. a pipeline DAG (LangGraph). Covers inter-agent communication protocols, shared memory strategies, and avoiding circular delegation loops.
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <span>🛡</span>
+          <h3>Safety Hub — "Will AI Take My Job?"</h3>
+        </div>
+        <div class="topic-card-body">
+          <div class="topic-cell">
+            <div class="topic-cell-label">Layman</div>
+            The honest answer: AI will change your job, but most people who learn to work alongside agents will become more valuable, not redundant. The risk isn't AI replacing you — it's someone using AI replacing you. Plus: what GDPR, the EU AI Act, and "human-in-the-loop" mean in practice.
+          </div>
+          <div class="topic-cell">
+            <div class="topic-cell-label">Techie</div>
+            Defense in depth for agentic systems: prompt injection attacks, sandboxed execution environments, and tool-call guardrails. Covers red-teaming autonomous loops, rate limiting & kill switches, and compliance frameworks (ISO 42001, EU AI Act risk tiers).
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 

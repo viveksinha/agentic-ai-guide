@@ -48,6 +48,7 @@
       <li><a href="resources.html">Resources</a></li>
       <li><a href="tools.html">Tools</a></li>
       <li><a href="examples.html" class="active">Examples</a></li>
+      <li><a href="deep-tech.html">Deep Tech</a></li>
     </ul>
   </div>
 </nav>
@@ -106,6 +107,9 @@
     <button class="filter-btn" onclick="filterExamples('insurance', this)">🏢 Insurance</button>
     <button class="filter-btn" onclick="filterExamples('sales', this)">💰 Sales</button>
     <button class="filter-btn" onclick="filterExamples('hr', this)">👥 HR</button>
+    <button class="filter-btn" onclick="filterExamples('healthcare', this)">🏥 Healthcare</button>
+    <button class="filter-btn" onclick="filterExamples('legal', this)">⚖️ Legal</button>
+    <button class="filter-btn" onclick="filterExamples('finance', this)">📈 Finance</button>
   </div>
 
   <!-- EXAMPLES GRID -->
@@ -342,6 +346,74 @@
       </div>
     </div>
 
+    <!-- 13: Patient Intake (Healthcare) -->
+    <div class="example-card" data-tags="intermediate healthcare">
+      <div class="example-bar bar-intermediate"></div>
+      <div class="example-card-top">
+        <div><span class="badge badge-intermediate">Intermediate</span></div>
+        <h3>Patient Intake &amp; Triage Agent</h3>
+        <p>Collects symptom data via secure chat, triages urgency using clinical criteria, routes critical cases to on-call staff immediately, and pre-fills EHR intake forms for routine appointments.</p>
+        <div style="margin-top:10px;">
+          <span class="tag">Claude API</span><span class="tag">Python</span><span class="tag">Healthcare</span>
+        </div>
+      </div>
+      <div class="example-card-meta">
+        <span>⏱ 3–4 hrs &nbsp;·&nbsp; Python</span>
+        <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
+      </div>
+    </div>
+
+    <!-- 14: Contract Review (Legal) -->
+    <div class="example-card" data-tags="intermediate legal">
+      <div class="example-bar bar-intermediate"></div>
+      <div class="example-card-top">
+        <div><span class="badge badge-intermediate">Intermediate</span></div>
+        <h3>Contract Review &amp; Risk Flagging Agent</h3>
+        <p>Upload NDAs, MSAs, or vendor contracts. The agent extracts key terms, flags non-standard clauses, compares against your template, and outputs a redline summary with risk scores.</p>
+        <div style="margin-top:10px;">
+          <span class="tag">Claude API</span><span class="tag">LlamaIndex</span><span class="tag">Legal</span>
+        </div>
+      </div>
+      <div class="example-card-meta">
+        <span>⏱ 2–3 hrs &nbsp;·&nbsp; Python</span>
+        <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
+      </div>
+    </div>
+
+    <!-- 15: Financial Report Agent -->
+    <div class="example-card" data-tags="advanced finance">
+      <div class="example-bar bar-advanced"></div>
+      <div class="example-card-top">
+        <div><span class="badge badge-advanced">Advanced</span></div>
+        <h3>Financial Report Analysis Agent</h3>
+        <p>Ingests earnings reports, 10-Ks, and analyst transcripts. Extracts KPIs, benchmarks vs. prior period, runs sentiment analysis on management commentary, and generates a one-page investment memo.</p>
+        <div style="margin-top:10px;">
+          <span class="tag">Claude API</span><span class="tag">Python</span><span class="tag">Finance</span>
+        </div>
+      </div>
+      <div class="example-card-meta">
+        <span>⏱ Half day &nbsp;·&nbsp; Python</span>
+        <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
+      </div>
+    </div>
+
+    <!-- 16: n8n Personal Assistant -->
+    <div class="example-card" data-tags="beginner nocode">
+      <div class="example-bar bar-beginner"></div>
+      <div class="example-card-top">
+        <div><span class="badge badge-nocode">No Code</span><span class="badge badge-beginner">Beginner</span></div>
+        <h3>Personal Assistant Agent with n8n</h3>
+        <p>Monitors your Gmail and calendar. Every morning: summarizes unread emails, flags urgent items, lists today's meetings, and sends a Slack digest. Built entirely in n8n's visual canvas.</p>
+        <div style="margin-top:10px;">
+          <span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Slack</span><span class="tag">No Code</span>
+        </div>
+      </div>
+      <div class="example-card-meta">
+        <span>⏱ 2 hrs &nbsp;·&nbsp; n8n</span>
+        <a href="#nocode-n8n">View Showcase →</a>
+      </div>
+    </div>
+
   </div>
 
   <!-- DETAIL SECTIONS FOR INLINE EXAMPLES -->
@@ -424,10 +496,202 @@ Never make up information. Only answer based on what you know above.</code></pre
     </div>
   </section>
 
+  <!-- NO-CODE SHOWCASES -->
+  <section class="section" id="nocode-showcases" style="scroll-margin-top:80px;">
+    <div class="section-title">🖱 No-Code Showcases</div>
+    <div class="section-subtitle">Step-by-step walkthroughs using n8n, Dify, and Copilot Studio — see agents work without writing a line of code.</div>
+
+    <div id="nocode-n8n" style="scroll-margin-top:80px;">
+      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:24px 28px; box-shadow:var(--shadow); margin-bottom:24px;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+          <div style="width:40px; height:40px; background:linear-gradient(135deg,rgba(0,212,240,0.15),rgba(177,151,252,0.15)); border:1px solid rgba(0,212,240,0.25); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.2rem;">🔀</div>
+          <div>
+            <div style="font-weight:800; font-size:1.05rem; color:var(--navy);">n8n — Personal Email &amp; Calendar Assistant</div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">No Code · Beginner · ~2 hours</div>
+          </div>
+        </div>
+        <ol class="steps" style="margin-bottom:16px;">
+          <li class="step"><div class="step-num">1</div><div class="step-content"><h3>Install n8n (free)</h3><p>Go to <a href="https://n8n.io" target="_blank">n8n.io</a> and use the cloud trial, or run it locally with <code>npx n8n</code>. No credit card needed for the cloud trial.</p></div></li>
+          <li class="step"><div class="step-num">2</div><div class="step-content"><h3>Create a new workflow</h3><p>Click <strong>New Workflow</strong>. Add a <strong>Schedule Trigger</strong> node set to run every morning at 7am.</p></div></li>
+          <li class="step"><div class="step-num">3</div><div class="step-content"><h3>Connect Gmail</h3><p>Add a <strong>Gmail node</strong> → <strong>Get Messages</strong>. Set filter: unread, last 24 hours. Connect your Google account via OAuth — n8n walks you through it.</p></div></li>
+          <li class="step"><div class="step-num">4</div><div class="step-content"><h3>Add Claude to summarize</h3><p>Add an <strong>Anthropic node</strong> → <strong>Message model</strong>. Set the prompt: <em>"Summarize these emails in bullet points. Flag anything urgent or time-sensitive."</em> Pass the Gmail output as context.</p></div></li>
+          <li class="step"><div class="step-num">5</div><div class="step-content"><h3>Send to Slack</h3><p>Add a <strong>Slack node</strong> → <strong>Send Message</strong>. Target your personal DM or a #daily-digest channel. Pass the Claude summary as the message body. Save and activate.</p></div></li>
+        </ol>
+        <div class="callout callout-tip">
+          <span class="callout-icon">💡</span>
+          <p><strong>Extend it:</strong> Add a Google Calendar node before Claude to include today's meetings in the summary. Add a second Claude call to draft replies for the 3 most urgent emails.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px;">
+      <div class="card">
+        <div class="card-icon">🔷</div>
+        <h3>Dify — RAG Chatbot in 30 Minutes</h3>
+        <p>Upload your company docs to Dify's knowledge base. Connect to Claude or GPT. Publish as a web widget. Your team can ask questions and get accurate, cited answers in real time — no hallucinations.</p>
+        <a href="https://docs.dify.ai/guides/knowledge-base" target="_blank">Dify Knowledge Base Docs →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏗</div>
+        <h3>Dify — Multi-Step Research Agent</h3>
+        <p>Use Dify's workflow canvas to build: web search → extract key points → fact-check with a second LLM call → format report → send to email. All visual, no code, ~1 hour to build.</p>
+        <a href="https://dify.ai" target="_blank">Open Dify →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌀</div>
+        <h3>MindOS — Personal AI Brain</h3>
+        <p>MindOS lets you create a persistent AI that knows your context: projects, contacts, goals, preferences. Ask it to draft based on past context, manage your to-dos, or research on your behalf.</p>
+        <a href="https://mindos.com" target="_blank">Try MindOS →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE-CASE LIBRARY BY INDUSTRY -->
+  <section class="section" style="scroll-margin-top:80px;">
+    <div class="section-title">🏭 Use-Case Library by Industry</div>
+    <div class="section-subtitle">Real deployments and patterns, organized by sector. Laymen read the use case; developers download the boilerplate.</div>
+
+    <div style="margin-bottom:12px;">
+      <div class="industry-row">
+        <div><div class="industry-name">🏥 Healthcare</div><div style="margin-top:6px;"><span class="badge badge-intermediate">Intermediate</span></div></div>
+        <div class="industry-desc">
+          <strong>Patient intake &amp; triage</strong> — Agents collect symptoms, triage urgency, and route to the right care team. <strong>Clinical documentation</strong> — ambient AI agents transcribe patient-doctor conversations and auto-fill EHR fields (used by Nuance DAX). <strong>Medication adherence</strong> — proactive reminder agents via SMS/WhatsApp with escalation paths.
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-start;">
+          <a href="https://www.ibm.com/think/insights/ai-in-healthcare" target="_blank" style="font-size:0.8rem; font-weight:600; color:var(--teal-dark); text-decoration:none;">IBM Healthcare AI →</a>
+          <span style="font-size:0.75rem; color:var(--text-muted);">Boilerplate: Coming Soon</span>
+        </div>
+      </div>
+      <div class="industry-row">
+        <div><div class="industry-name">⚖️ Legal</div><div style="margin-top:6px;"><span class="badge badge-intermediate">Intermediate</span></div></div>
+        <div class="industry-desc">
+          <strong>Contract review</strong> — Agents scan NDAs, MSAs, and vendor contracts for non-standard clauses, flagging risk and comparing vs. playbook. <strong>Due diligence</strong> — ingest 100s of documents and surface key risks in hours, not weeks. <strong>Legal research</strong> — cite-accurate answers to case law queries using RAG over legal databases.
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-start;">
+          <a href="https://www.harvey.ai" target="_blank" style="font-size:0.8rem; font-weight:600; color:var(--teal-dark); text-decoration:none;">Harvey.ai Case Study →</a>
+          <span style="font-size:0.75rem; color:var(--text-muted);">Boilerplate: Coming Soon</span>
+        </div>
+      </div>
+      <div class="industry-row">
+        <div><div class="industry-name">📈 Finance</div><div style="margin-top:6px;"><span class="badge badge-advanced">Advanced</span></div></div>
+        <div class="industry-desc">
+          <strong>Earnings analysis</strong> — Agents parse 10-Ks, extract KPIs, and generate analyst memos. <strong>Fraud detection escalation</strong> — agents that analyze transaction patterns, flag anomalies, and route to human reviewers with context. <strong>Client portfolio summaries</strong> — daily automated briefs for advisors with personalized client insights.
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-start;">
+          <a href="https://www.jpmorgan.com/technology/artificial-intelligence" target="_blank" style="font-size:0.8rem; font-weight:600; color:var(--teal-dark); text-decoration:none;">JPMorgan AI →</a>
+          <span style="font-size:0.75rem; color:var(--text-muted);">Boilerplate: Coming Soon</span>
+        </div>
+      </div>
+      <div class="industry-row">
+        <div><div class="industry-name">🏢 Insurance</div><div style="margin-top:6px;"><span class="badge badge-intermediate">Intermediate</span></div></div>
+        <div class="industry-desc">
+          <strong>Claims FNOL</strong> — Agents collect incident details, validate coverage, and route to adjusters automatically. <strong>Underwriting intake</strong> — process submissions, extract risk factors from documents, and pre-score applications. <strong>Policy renewal outreach</strong> — 30/14/7-day automated sequences with personalized policy summaries.
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-start;">
+          <a href="example-insurance.html" style="font-size:0.8rem; font-weight:600; color:var(--teal-dark); text-decoration:none;">See Full Example →</a>
+        </div>
+      </div>
+      <div class="industry-row">
+        <div><div class="industry-name">💰 Sales &amp; Marketing</div><div style="margin-top:6px;"><span class="badge badge-beginner">Beginner</span></div></div>
+        <div class="industry-desc">
+          <strong>Lead qualification</strong> — Agents score inbound leads against ICP, route qualified ones to Slack, and log to CRM. <strong>Personalized outreach</strong> — research prospect LinkedIn + web presence, draft a tailored email, require human approval before sending. <strong>Competitive monitoring</strong> — daily agents that track competitor pricing/product changes and alert the sales team.
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-start;">
+          <a href="https://building.theatlantic.com/building-ai-agents-in-practice-a-sales-outreach-agent-with-n8n-and-claude-ece434e0b5fc" target="_blank" style="font-size:0.8rem; font-weight:600; color:var(--teal-dark); text-decoration:none;">n8n Outreach Tutorial →</a>
+          <span style="font-size:0.75rem; color:var(--text-muted);">Boilerplate: Coming Soon</span>
+        </div>
+      </div>
+      <div class="industry-row">
+        <div><div class="industry-name">👥 HR &amp; People Ops</div><div style="margin-top:6px;"><span class="badge badge-beginner">Beginner</span></div></div>
+        <div class="industry-desc">
+          <strong>Onboarding assistant</strong> — Guides new hires through their first week via Teams: intros, policy Q&amp;A, form collection, and meeting scheduling. <strong>Benefits navigator</strong> — answers employee questions about benefits, PTO policy, and open enrollment. <strong>Performance review aid</strong> — helps managers draft structured feedback from notes using consistent rubrics.
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-start;">
+          <span style="font-size:0.75rem; color:var(--text-muted);">Boilerplate: Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESPONSIBLE AI CHECKLIST -->
+  <section class="section" id="responsible-ai" style="scroll-margin-top:80px;">
+    <div class="section-title">🛡 Responsible AI Deployment Checklist</div>
+    <div class="section-subtitle">Vet whether an autonomous agent is safe to deploy. 12 questions every business should answer before going live.</div>
+
+    <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); margin-bottom:16px;">
+      <ul class="rai-list">
+        <li class="rai-item">
+          <div class="rai-num">1</div>
+          <div class="rai-text"><strong>Human-in-the-Loop defined?</strong><p>Have you identified every irreversible action the agent can take (send email, move money, delete data) and added a human approval step for each?</p></div>
+          <div class="rai-category rai-cat-safety">Safety</div>
+        </li>
+        <li class="rai-item">
+          <div class="rai-num">2</div>
+          <div class="rai-text"><strong>Least-privilege access enforced?</strong><p>Does the agent only have access to the systems and data it needs for its specific task — nothing more?</p></div>
+          <div class="rai-category rai-cat-governance">Governance</div>
+        </li>
+        <li class="rai-item">
+          <div class="rai-num">3</div>
+          <div class="rai-text"><strong>Audit trail implemented?</strong><p>Is every action the agent takes logged with a timestamp, input, output, and rationale — queryable by your compliance team?</p></div>
+          <div class="rai-category rai-cat-governance">Governance</div>
+        </li>
+        <li class="rai-item">
+          <div class="rai-num">4</div>
+          <div class="rai-text"><strong>Kill switch in place?</strong><p>Can you disable the agent in under 60 seconds without needing a developer? Is there a clear escalation path for unexpected behavior?</p></div>
+          <div class="rai-category rai-cat-safety">Safety</div>
+        </li>
+        <li class="rai-item">
+          <div class="rai-num">5</div>
+          <div class="rai-text"><strong>Data privacy reviewed (GDPR / AIA)?</strong><p>Does the agent process personal data? If yes, is there a DPIA completed? Do you have a lawful basis for processing under GDPR? Is the model hosted in a compliant region?</p></div>
+          <div class="rai-category rai-cat-privacy">Privacy</div>
+        </li>
+        <li class="rai-item">
+          <div class="rai-num">6</div>
+          <div class="rai-text"><strong>EU AI Act risk tier assessed?</strong><p>If you operate in or serve EU customers: have you determined whether this agent is high-risk (healthcare, HR, finance, law enforcement) under the EU AI Act? High-risk systems require conformity assessments.</p></div>
+          <div class="rai-category rai-cat-governance">Governance</div>
+        </li>
+        <li class="rai-item">
+          <div class="rai-num">7</div>
+          <div class="rai-text"><strong>Prompt injection hardened?</strong><p>Has the agent been tested against prompt injection attacks — where malicious content in external documents tries to override the agent's instructions?</p></div>
+          <div class="rai-category rai-cat-safety">Safety</div>
+        </li>
+        <li class="rai-item">
+          <div class="rai-num">8</div>
+          <div class="rai-text"><strong>Hallucination guardrails in place?</strong><p>For any agent that generates factual outputs (summaries, recommendations, reports): is there a verification step (RAG grounding, citations, human review) before that output is acted on?</p></div>
+          <div class="rai-category rai-cat-safety">Safety</div>
+        </li>
+        <li class="rai-item">
+          <div class="rai-num">9</div>
+          <div class="rai-text"><strong>Users informed?</strong><p>Are customers or employees interacting with this agent aware they're talking to an AI? Transparency is legally required in some jurisdictions and best practice everywhere.</p></div>
+          <div class="rai-category rai-cat-governance">Governance</div>
+        </li>
+        <li class="rai-item">
+          <div class="rai-num">10</div>
+          <div class="rai-text"><strong>Bias &amp; fairness tested?</strong><p>For agents that make decisions affecting people (hiring, lending, healthcare triage): has the agent been tested for discriminatory outputs across demographic groups?</p></div>
+          <div class="rai-category rai-cat-governance">Governance</div>
+        </li>
+        <li class="rai-item">
+          <div class="rai-num">11</div>
+          <div class="rai-text"><strong>Production monitoring active?</strong><p>Is someone (or a system) watching for unexpected behavior, cost spikes, error rates, and latency regressions after launch? Who gets paged at 2am if the agent goes rogue?</p></div>
+          <div class="rai-category rai-cat-ops">Ops</div>
+        </li>
+        <li class="rai-item">
+          <div class="rai-num">12</div>
+          <div class="rai-text"><strong>Rollback plan documented?</strong><p>If the agent causes an incident, can you revert to the previous state? Is there a documented incident response plan that includes AI-specific failure modes?</p></div>
+          <div class="rai-category rai-cat-ops">Ops</div>
+        </li>
+      </ul>
+    </div>
+    <div class="callout callout-tip">
+      <span class="callout-icon">💡</span>
+      <p><strong>Score yourself:</strong> 12/12 = production-ready. 8–11 = address gaps before launch. Below 8 = high risk — don't deploy yet. This checklist is a starting point; regulated industries (healthcare, finance, legal) require additional domain-specific compliance steps.</p>
+    </div>
+  </section>
+
 </div>
 
 <footer>
-  <p>AgentAtlas &nbsp;·&nbsp; Navigate the world of AI agents &nbsp;·&nbsp; <a href="https://github.com/viveksinha/agentic-ai-guide" target="_blank">GitHub</a></p>
+  <p>AgentAtlas &nbsp;·&nbsp; Navigate the world of AI agents &nbsp;·&nbsp; <a href="https://github.com/viveksinha/agent-atlas" target="_blank">GitHub</a></p>
 </footer>
 
 <script src="js/main.js"></script>
