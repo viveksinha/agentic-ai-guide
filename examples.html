@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples — AgentAtlas</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .filter-bar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:28px; }
+    .filter-btn { background:white; border:1.5px solid var(--border); color:var(--text-muted); font-size:0.82rem; font-weight:600; padding:6px 14px; border-radius:20px; cursor:pointer; transition:all 0.2s; }
+    .filter-btn:hover { border-color:var(--teal-dark); color:var(--teal-dark); }
+    .filter-btn.active { background:var(--navy); border-color:var(--navy); color:white; }
+    .examples-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px; }
+    .example-card[data-hidden="true"] { display:none; }
+    .coming-soon { opacity:0.55; }
+    .coming-soon .example-card-meta a { pointer-events:none; color:var(--text-muted); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><span class="logo-icon">🗺</span>Agent<span>Atlas</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="tools.html">Tools</a></li>
+      <li><a href="examples.html" class="active">Examples</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> › Examples</div>
+    <h1>⚡ Examples</h1>
+    <p>Real, working applications for every skill level. Each example includes the full code, step-by-step guide, and advanced extensions.</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- HOW TO READ EXAMPLES -->
+  <section class="section" style="margin-bottom:32px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px;">
+      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:16px; display:flex; align-items:center; gap:12px;">
+        <div style="width:36px; height:36px; background:#dcfce7; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0;">🟢</div>
+        <div>
+          <div style="font-weight:700; font-size:0.9rem; color:var(--navy);">Beginner</div>
+          <div style="font-size:0.8rem; color:var(--text-muted);">No code. Done in &lt;30 min.</div>
+        </div>
+      </div>
+      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:16px; display:flex; align-items:center; gap:12px;">
+        <div style="width:36px; height:36px; background:#fef9c3; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0;">🟡</div>
+        <div>
+          <div style="font-weight:700; font-size:0.9rem; color:var(--navy);">Intermediate</div>
+          <div style="font-size:0.8rem; color:var(--text-muted);">Some Python. 1–3 hrs.</div>
+        </div>
+      </div>
+      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:16px; display:flex; align-items:center; gap:12px;">
+        <div style="width:36px; height:36px; background:#fce7f3; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0;">🔴</div>
+        <div>
+          <div style="font-weight:700; font-size:0.9rem; color:var(--navy);">Advanced</div>
+          <div style="font-size:0.8rem; color:var(--text-muted);">Full-stack. Production-ready.</div>
+        </div>
+      </div>
+      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:16px; display:flex; align-items:center; gap:12px;">
+        <div style="width:36px; height:36px; background:#e0e7ff; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0;">🔷</div>
+        <div>
+          <div style="font-weight:700; font-size:0.9rem; color:var(--navy);">No Code</div>
+          <div style="font-size:0.8rem; color:var(--text-muted);">UI only. Any skill level.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTERS -->
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterExamples('all', this)">All</button>
+    <button class="filter-btn" onclick="filterExamples('beginner', this)">🟢 Beginner</button>
+    <button class="filter-btn" onclick="filterExamples('intermediate', this)">🟡 Intermediate</button>
+    <button class="filter-btn" onclick="filterExamples('advanced', this)">🔴 Advanced</button>
+    <button class="filter-btn" onclick="filterExamples('nocode', this)">🔷 No Code</button>
+    <button class="filter-btn" onclick="filterExamples('insurance', this)">🏢 Insurance</button>
+    <button class="filter-btn" onclick="filterExamples('sales', this)">💰 Sales</button>
+    <button class="filter-btn" onclick="filterExamples('hr', this)">👥 HR</button>
+  </div>
+
+  <!-- EXAMPLES GRID -->
+  <div class="examples-grid">
+
+    <!-- 1: FAQ Chatbot -->
+    <div class="example-card" id="faq-chatbot" data-tags="beginner nocode">
+      <div class="example-bar bar-beginner"></div>
+      <div class="example-card-top">
+        <div><span class="badge badge-beginner">Beginner</span><span class="badge badge-nocode">No Code</span></div>
+        <h3>FAQ Chatbot in 5 Minutes</h3>
+        <p>Turn a plain-English description of your business into a working chatbot using Claude Projects. Zero setup — share via link with your team.</p>
+        <div style="margin-top:10px;">
+          <span class="tag">Claude.ai</span>
+          <span class="tag">No Code</span>
+          <span class="tag">Any Business</span>
+        </div>
+      </div>
+      <div class="example-card-meta">
+        <span>⏱ 5 min &nbsp;·&nbsp; Claude.ai</span>
+        <a href="#faq-detail">View Example →</a>
+      </div>
+    </div>
+
+    <!-- 2: Teams Bot Copilot -->
+    <div class="example-card" id="teams-bot" data-tags="nocode beginner">
+      <div class="example-bar bar-beginner"></div>
+      <div class="example-card-top">
+        <div><span class="badge badge-nocode">No Code</span><span class="badge badge-business">Business</span></div>
+        <h3>AI Agent in Microsoft Teams</h3>
+        <p>Deploy an agent inside Microsoft Teams using Copilot Studio. Connect to Outlook Calendar and email. No developer needed — done through a visual UI.</p>
+        <div style="margin-top:10px;">
+          <span class="tag">Copilot Studio</span>
+          <span class="tag">Microsoft Teams</span>
+          <span class="tag">M365</span>
+        </div>
+      </div>
+      <div class="example-card-meta">
+        <span>⏱ 1 hr &nbsp;·&nbsp; Copilot Studio</span>
+        <a href="#teams-detail">View Example →</a>
+      </div>
+    </div>
+
+    <!-- 3: Insurance Agent (FULL EXAMPLE) -->
+    <div class="example-card" data-tags="intermediate insurance">
+      <div class="example-bar bar-intermediate"></div>
+      <div class="example-card-top">
+        <div><span class="badge badge-intermediate">Intermediate</span></div>
+        <h3>Insurance Annuity Advisor Agent</h3>
+        <p>A full intake agent that asks qualifying questions, recommends the right annuity product, books advisor calls in Outlook, and emails a summary — all automatically.</p>
+        <div style="margin-top:10px;">
+          <span class="tag">Claude API</span>
+          <span class="tag">Python</span>
+          <span class="tag">Outlook</span>
+          <span class="tag">Insurance</span>
+        </div>
+      </div>
+      <div class="example-card-meta">
+        <span>⏱ 2–3 hrs &nbsp;·&nbsp; Python</span>
+        <a href="example-insurance.html">View Example →</a>
+      </div>
+    </div>
+
+    <!-- 4: Lead Qualifier -->
+    <div class="example-card" data-tags="intermediate sales">
+      <div class="example-bar bar-intermediate"></div>
+      <div class="example-card-top">
+        <div><span class="badge badge-intermediate">Intermediate</span></div>
+        <h3>Lead Qualification Agent</h3>
+        <p>Watches a Gmail inbox for inbound leads, scores them with GPT-4 against your ideal customer profile, routes qualified leads to Slack, and logs everything to a spreadsheet.</p>
+        <div style="margin-top:10px;">
+          <span class="tag">Python</span>
+          <span class="tag">Gmail API</span>
+          <span class="tag">Slack</span>
+          <span class="tag">Sales</span>
+        </div>
+      </div>
+      <div class="example-card-meta">
+        <span>⏱ 3 hrs &nbsp;·&nbsp; Python</span>
+        <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
+      </div>
+    </div>
+
+    <!-- 5: Claims FNOL -->
+    <div class="example-card" data-tags="intermediate insurance">
+      <div class="example-bar bar-intermediate"></div>
+      <div class="example-card-top">
+        <div><span class="badge badge-intermediate">Intermediate</span></div>
+        <h3>Claims Intake (FNOL) Agent</h3>
+        <p>First Notice of Loss agent — collects incident details via chat, validates coverage against policy rules, classifies claim type, and routes to the right adjuster via email.</p>
+        <div style="margin-top:10px;">
+          <span class="tag">Claude API</span>
+          <span class="tag">Python</span>
+          <span class="tag">Insurance</span>
+        </div>
+      </div>
+      <div class="example-card-meta">
+        <span>⏱ 3 hrs &nbsp;·&nbsp; Python</span>
+        <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
+      </div>
+    </div>
+
+    <!-- 6: HR Onboarding -->
+    <div class="example-card" data-tags="nocode hr beginner">
+      <div class="example-bar bar-beginner"></div>
+      <div class="example-card-top">
+        <div><span class="badge badge-nocode">No Code</span><span class="badge badge-beginner">Beginner</span></div>
+        <h3>HR Onboarding Assistant</h3>
+        <p>Guides new hires through their first weeks: introduces team members, schedules intro meetings, answers policy questions, and collects completed forms — all via Teams chat.</p>
+        <div style="margin-top:10px;">
+          <span class="tag">Copilot Studio</span>
+          <span class="tag">Teams</span>
+          <span class="tag">HR</span>
+        </div>
+      </div>
+      <div class="example-card-meta">
+        <span>⏱ 1 hr &nbsp;·&nbsp; Copilot Studio</span>
+        <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
+      </div>
+    </div>
+
+    <!-- 7: Sales Outreach -->
+    <div class="example-card" data-tags="intermediate sales">
+      <div class="example-bar bar-intermediate"></div>
+      <div class="example-card-top">
+        <div><span class="badge badge-intermediate">Intermediate</span></div>
+        <h3>Sales Outreach Agent</h3>
+        <p>Reads a lead list from Google Sheets, researches each prospect via web search, drafts personalized emails, routes senior contacts to Slack for approval, then sends and logs results.</p>
+        <div style="margin-top:10px;">
+          <span class="tag">Claude API</span>
+          <span class="tag">Google Sheets</span>
+          <span class="tag">Slack</span>
+          <span class="tag">Sales</span>
+        </div>
+      </div>
+      <div class="example-card-meta">
+        <span>⏱ 2 hrs &nbsp;·&nbsp; Python</span>
+        <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
+      </div>
+    </div>
+
+    <!-- 8: Web Chat Widget -->
+    <div class="example-card" data-tags="advanced intermediate">
+      <div class="example-bar bar-advanced"></div>
+      <div class="example-card-top">
+        <div><span class="badge badge-advanced">Advanced</span></div>
+        <h3>Web Chat Widget</h3>
+        <p>Deploy your agent as a chat bubble on any website. Flask backend + Claude API + plain HTML/JS frontend. Customers chat from their browser — no app, no login required.</p>
+        <div style="margin-top:10px;">
+          <span class="tag">Python / Flask</span>
+          <span class="tag">Claude API</span>
+          <span class="tag">HTML / JS</span>
+        </div>
+      </div>
+      <div class="example-card-meta">
+        <span>⏱ Half day &nbsp;·&nbsp; Python + HTML</span>
+        <a href="example-insurance.html#widget">View in Insurance Example →</a>
+      </div>
+    </div>
+
+    <!-- 9: Document Q&A -->
+    <div class="example-card" data-tags="intermediate advanced">
+      <div class="example-bar bar-intermediate"></div>
+      <div class="example-card-top">
+        <div><span class="badge badge-intermediate">Intermediate</span></div>
+        <h3>Document Q&amp;A Agent (RAG)</h3>
+        <p>Upload your policy documents, compliance manuals, or product guides. Ask questions in plain English and get accurate answers with source citations — no hallucinations.</p>
+        <div style="margin-top:10px;">
+          <span class="tag">Claude API</span>
+          <span class="tag">LlamaIndex</span>
+          <span class="tag">Python</span>
+        </div>
+      </div>
+      <div class="example-card-meta">
+        <span>⏱ 2 hrs &nbsp;·&nbsp; Python</span>
+        <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
+      </div>
+    </div>
+
+    <!-- 10: Customer Service Triage -->
+    <div class="example-card" data-tags="intermediate insurance hr">
+      <div class="example-bar bar-intermediate"></div>
+      <div class="example-card-top">
+        <div><span class="badge badge-intermediate">Intermediate</span></div>
+        <h3>Customer Service Triage Agent</h3>
+        <p>Reads incoming support tickets, classifies them by urgency and topic, routes to the right team, drafts a suggested response, and logs to a CRM — reducing triage time by 80%.</p>
+        <div style="margin-top:10px;">
+          <span class="tag">Claude API</span>
+          <span class="tag">Email</span>
+          <span class="tag">CRM</span>
+        </div>
+      </div>
+      <div class="example-card-meta">
+        <span>⏱ 2–3 hrs &nbsp;·&nbsp; Python</span>
+        <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
+      </div>
+    </div>
+
+    <!-- 11: Policy Renewal -->
+    <div class="example-card" data-tags="intermediate insurance">
+      <div class="example-bar bar-intermediate"></div>
+      <div class="example-card-top">
+        <div><span class="badge badge-intermediate">Intermediate</span></div>
+        <h3>Policy Renewal Outreach Agent</h3>
+        <p>Monitors a spreadsheet of renewal dates, sends personalized email outreach 30/14/7 days before expiry, tracks responses, and escalates non-responders to a rep.</p>
+        <div style="margin-top:10px;">
+          <span class="tag">Python</span>
+          <span class="tag">Outlook API</span>
+          <span class="tag">Insurance</span>
+        </div>
+      </div>
+      <div class="example-card-meta">
+        <span>⏱ 2 hrs &nbsp;·&nbsp; Python</span>
+        <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
+      </div>
+    </div>
+
+    <!-- 12: Meeting Summarizer -->
+    <div class="example-card" data-tags="beginner nocode hr">
+      <div class="example-bar bar-beginner"></div>
+      <div class="example-card-top">
+        <div><span class="badge badge-beginner">Beginner</span><span class="badge badge-nocode">No Code</span></div>
+        <h3>Meeting Summarizer &amp; Action Item Extractor</h3>
+        <p>Paste a meeting transcript into Claude. Get a structured summary, decision list, action items with owners, and a follow-up email draft — in under 30 seconds.</p>
+        <div style="margin-top:10px;">
+          <span class="tag">Claude.ai</span>
+          <span class="tag">No Code</span>
+          <span class="tag">Productivity</span>
+        </div>
+      </div>
+      <div class="example-card-meta">
+        <span>⏱ 2 min &nbsp;·&nbsp; Claude.ai</span>
+        <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DETAIL SECTIONS FOR INLINE EXAMPLES -->
+
+  <!-- FAQ CHATBOT DETAIL -->
+  <section class="section" id="faq-detail" style="margin-top:60px; scroll-margin-top:80px;">
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
+      <span class="badge badge-beginner" style="font-size:0.8rem; padding:5px 12px;">🟢 Beginner · No Code · 5 min</span>
+    </div>
+    <div class="section-title">Example 1: FAQ Chatbot in 5 Minutes</div>
+    <div class="section-subtitle">Use Claude Projects to create a working chatbot with zero setup. Works for any business — just describe it in plain English.</div>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Go to claude.ai and create a Project</h3>
+          <p>Open <a href="https://claude.ai" target="_blank">claude.ai</a> → click <strong>Projects</strong> → <strong>New Project</strong>. Name it after your use case (e.g. "Product FAQ Bot").</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Add instructions in plain English</h3>
+          <p>Click <strong>Project Instructions</strong> and describe your agent. Example:</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="code-block">
+      <div class="code-header"><span class="code-lang">Example instructions (edit for your business)</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+      <pre><code>You are a helpful assistant for [Your Company Name].
+Your job is to answer questions from customers or employees.
+
+Topics you can help with:
+- [Topic 1, e.g. product features, pricing, policies]
+- [Topic 2, e.g. how to submit a claim, renewal process]
+- [Topic 3]
+
+Keep answers short and friendly — 2-4 sentences.
+If you don't know something, say: "Great question — let me connect you with the right person."
+Never make up information. Only answer based on what you know above.</code></pre>
+    </div>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Test it — then share</h3>
+          <p>Start a new chat inside the project and test it with real questions. Click <strong>Share</strong> to give your team a link. That's it — your agent is live.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="callout callout-tip">
+      <span class="callout-icon">💡</span>
+      <p><strong>Pro tip:</strong> Add an "Upload file" to the Project with your product documentation, policy PDF, or FAQ document. Claude will answer questions based on its contents — no extra setup needed.</p>
+    </div>
+  </section>
+
+  <!-- TEAMS BOT DETAIL -->
+  <section class="section" id="teams-detail" style="scroll-margin-top:80px;">
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
+      <span class="badge badge-nocode" style="font-size:0.8rem; padding:5px 12px;">🔷 No Code · 1 hr · Copilot Studio</span>
+    </div>
+    <div class="section-title">Example 2: AI Agent in Microsoft Teams</div>
+    <div class="section-subtitle">Build a fully connected agent inside Teams — no developer required. Connects to Outlook Calendar and Email through Copilot Studio's visual UI.</div>
+
+    <ol class="steps">
+      <li class="step"><div class="step-num">1</div><div class="step-content"><h3>Open Copilot Studio</h3><p>Go to <a href="https://copilotstudio.microsoft.com" target="_blank">copilotstudio.microsoft.com</a> — already included in your Microsoft 365 plan.</p></div></li>
+      <li class="step"><div class="step-num">2</div><div class="step-content"><h3>Create an Agent</h3><p>Click <strong>Create → New Agent</strong>. Describe your agent in plain English. Copilot Studio generates the structure automatically.</p></div></li>
+      <li class="step"><div class="step-num">3</div><div class="step-content"><h3>Connect to Outlook (optional)</h3><p>Go to <strong>Actions → Add an action → Office 365 Outlook</strong>. Select <strong>Create event</strong> for calendar or <strong>Send an email</strong>. No code — just map the fields.</p></div></li>
+      <li class="step"><div class="step-num">4</div><div class="step-content"><h3>Deploy to Teams</h3><p>Go to <strong>Channels → Microsoft Teams → Turn on Teams → Publish</strong>. Your agent appears in Teams within minutes.</p></div></li>
+      <li class="step"><div class="step-num">5</div><div class="step-content"><h3>Share with your team</h3><p>In Teams, search for your agent's name in Apps, or share the direct link Copilot Studio generates. Pin it to the Teams sidebar for easy access.</p></div></li>
+    </ol>
+
+    <div class="callout callout-tip">
+      <span class="callout-icon">💡</span>
+      <p><strong>Want Claude instead of GPT?</strong> In Agent Settings → Model, select <strong>Claude Sonnet</strong>. You get Claude's reasoning quality with Teams deployment — best of both worlds.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>AgentAtlas &nbsp;·&nbsp; Navigate the world of AI agents &nbsp;·&nbsp; <a href="https://github.com/viveksinha/agentic-ai-guide" target="_blank">GitHub</a></p>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+function filterExamples(tag, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.example-card').forEach(card => {
+    if (tag === 'all') {
+      card.removeAttribute('data-hidden');
+    } else {
+      const tags = (card.getAttribute('data-tags') || '').split(' ');
+      card.setAttribute('data-hidden', tags.includes(tag) ? 'false' : 'true');
+    }
+  });
+}
+</script>
+</body>
+</html>

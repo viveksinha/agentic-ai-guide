@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insurance Annuity Advisor Agent — AgentAtlas</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><span class="logo-icon">🗺</span>Agent<span>Atlas</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="tools.html">Tools</a></li>
+      <li><a href="examples.html" class="active">Examples</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> › <a href="examples.html">Examples</a> › Insurance Annuity Advisor</div>
+    <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
+      <span class="badge badge-intermediate">Intermediate</span>
+      <span class="badge badge-nocode">Also: No-Code Path</span>
+    </div>
+    <h1>Insurance Annuity Advisor Agent</h1>
+    <p>A full intake agent that asks qualifying questions, recommends the right annuity, books advisor calls, and sends email summaries — built step by step from zero to production.</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- QUICK LINKS -->
+  <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:16px 20px; display:flex; gap:16px; flex-wrap:wrap; margin-bottom:40px; box-shadow:var(--shadow);">
+    <span style="font-size:0.85rem; font-weight:700; color:var(--text-muted); align-self:center;">Jump to:</span>
+    <a href="#use-case" style="font-size:0.875rem; color:var(--teal-dark); font-weight:600; text-decoration:none;">Use Case</a>
+    <a href="#demo" style="font-size:0.875rem; color:var(--teal-dark); font-weight:600; text-decoration:none;">Live Demo</a>
+    <a href="#build" style="font-size:0.875rem; color:var(--teal-dark); font-weight:600; text-decoration:none;">Build It</a>
+    <a href="#calendar" style="font-size:0.875rem; color:var(--teal-dark); font-weight:600; text-decoration:none;">+ Calendar</a>
+    <a href="#email" style="font-size:0.875rem; color:var(--teal-dark); font-weight:600; text-decoration:none;">+ Email</a>
+    <a href="#widget" style="font-size:0.875rem; color:var(--teal-dark); font-weight:600; text-decoration:none;">+ Web Widget</a>
+    <a href="#teams" style="font-size:0.875rem; color:var(--teal-dark); font-weight:600; text-decoration:none;">+ Teams</a>
+    <a href="#adapt" style="font-size:0.875rem; color:var(--teal-dark); font-weight:600; text-decoration:none;">Adapt It</a>
+  </div>
+
+  <!-- USE CASE -->
+  <section class="section" id="use-case" style="scroll-margin-top:80px;">
+    <div class="section-title">The Problem This Solves</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:24px;">
+      <div style="background:#fff0f0; border:1px solid #ffd0d0; border-radius:var(--radius); padding:20px;">
+        <h3 style="color:#c0392b; font-size:0.9rem; font-weight:700; text-transform:uppercase; margin-bottom:12px;">❌ Without Agent</h3>
+        <ul style="list-style:none; font-size:0.9rem; line-height:2.2;">
+          <li>Customer calls or emails asking about annuities</li>
+          <li>Rep manually asks 4–6 follow-up questions</li>
+          <li>Rep looks up matching products</li>
+          <li>Rep does rough income estimate</li>
+          <li>Rep schedules advisor call</li>
+          <li style="font-weight:700; color:#c0392b; margin-top:4px;">20–30 min per inquiry</li>
+        </ul>
+      </div>
+      <div style="background:#f0fff4; border:1px solid #b2f0c8; border-radius:var(--radius); padding:20px;">
+        <h3 style="color:#1a7a40; font-size:0.9rem; font-weight:700; text-transform:uppercase; margin-bottom:12px;">✅ With Agent</h3>
+        <ul style="list-style:none; font-size:0.9rem; line-height:2.2;">
+          <li>Customer types question in chat</li>
+          <li>Agent asks 4 clarifying questions</li>
+          <li>Agent recommends the right product</li>
+          <li>Agent books advisor call automatically</li>
+          <li>Agent emails a summary to customer</li>
+          <li style="font-weight:700; color:#1a7a40; margin-top:4px;">3–5 min, no rep needed</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout callout-info">
+      <span class="callout-icon">ℹ️</span>
+      <p><strong>Products referenced:</strong> Fixed Annuity (guaranteed returns, 3–10 yr horizon, $5K min), Deferred Income Annuity (guaranteed lifetime income, $10K min), Variable Annuity (market-linked, $10K min). Change these to match your actual products.</p>
+    </div>
+  </section>
+
+  <!-- DEMO CONVERSATION -->
+  <section class="section" id="demo" style="scroll-margin-top:80px;">
+    <div class="section-title">What It Looks Like</div>
+    <div class="convo">
+      <div class="convo-header">Meridian Life Annuity Assistant</div>
+      <div class="convo-body">
+        <div class="msg msg-agent">Hi! I can help you find the right annuity. What's on your mind?</div>
+        <div class="msg msg-user">I have some savings and want guaranteed income when I retire</div>
+        <div class="msg msg-agent">Great goal! To point you in the right direction — how old are you currently?</div>
+        <div class="msg msg-user">I'm 58</div>
+        <div class="msg msg-agent">Perfect, you're in a great window to plan this. When are you hoping to retire — roughly how many years from now?</div>
+        <div class="msg msg-user">About 7 years</div>
+        <div class="msg msg-agent">Got it. And roughly how much are you looking to invest in an annuity?</div>
+        <div class="msg msg-user">Around $75,000</div>
+        <div class="msg msg-agent">Thanks! Last question — do you prefer completely guaranteed, fixed monthly income, or are you open to some market involvement for potentially higher returns?</div>
+        <div class="msg msg-user">I want something safe and predictable</div>
+        <div class="msg msg-agent">Based on what you've shared, a <strong>Deferred Income Annuity</strong> looks like a strong fit. With $75,000 invested now and a 7-year wait before payments begin, you'd receive guaranteed lifetime income starting around retirement — no market risk, no surprises.<br><br>Would you like me to schedule a call with an advisor to get exact numbers?</div>
+        <div class="msg msg-user">Yes please</div>
+        <div class="msg msg-agent">Done! I've booked a 30-minute call and sent you a calendar invite. I also emailed you a summary of our conversation — check your inbox!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILD IT -->
+  <section class="section" id="build" style="scroll-margin-top:80px;">
+    <div class="section-title">Build It</div>
+
+    <div id="buildTabs" class="tabs">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="showTab('buildTabs','optA')">Option A — No Code (5 min)</button>
+        <button class="tab-btn" onclick="showTab('buildTabs','optB')">Option B — Python App</button>
+      </div>
+
+      <div id="optA" class="tab-panel active">
+        <div class="callout callout-tip"><span class="callout-icon">⚡</span><p><strong>Fastest path.</strong> Use Claude Projects — no API key, no installation, no code. Working agent in 5 minutes.</p></div>
+        <ol class="steps" style="margin-top:20px;">
+          <li class="step"><div class="step-num">1</div><div class="step-content"><h3>Open <a href="https://claude.ai" target="_blank">claude.ai</a> → Projects → New Project</h3><p>Name it "Annuity Advisor". Free account works fine.</p></div></li>
+          <li class="step"><div class="step-num">2</div><div class="step-content"><h3>Paste these instructions into "Project Instructions"</h3></div></li>
+        </ol>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Agent Instructions — paste into Claude Project</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+          <pre><code>You are an annuity advisor assistant for [Your Company Name].
+Help customers find the right annuity product.
+
+Ask these questions ONE AT A TIME (never all at once):
+1. How old are they?
+2. When do they plan to retire (years from now)?
+3. How much do they have to invest?
+4. Do they want guaranteed fixed income, or are they open to market risk?
+
+Based on their answers, recommend one of:
+- Fixed Annuity: guaranteed returns, low risk, 3-10 year horizon, min $5,000
+- Deferred Income Annuity: guaranteed lifetime income starting in 2+ years, min $10,000
+- Variable Annuity: market-linked growth, higher potential returns, min $10,000
+
+Always end by asking: "Would you like me to connect you with an advisor?"
+Keep responses short (2-4 sentences). Avoid financial jargon.
+Never give specific income projections — say "an advisor can calculate your exact figures."</code></pre>
+        </div>
+        <ol class="steps">
+          <li class="step"><div class="step-num">3</div><div class="step-content"><h3>Test → Share</h3><p>Open a new chat in the project. Test with <em>"I have $50,000 and I'm retiring in 5 years"</em>. Share the project link with your team when ready.</p></div></li>
+        </ol>
+      </div>
+
+      <div id="optB" class="tab-panel">
+        <div class="callout callout-info"><span class="callout-icon">ℹ️</span><p><strong>For developers.</strong> ~50 lines of Python. Extends into calendar, email, and web widget in the sections below.</p></div>
+        <div class="code-block" style="margin-top:20px;">
+          <div class="code-header"><span class="code-lang">bash — Install</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+          <pre><code>pip install anthropic</code></pre>
+        </div>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">python — annuity_agent.py</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+          <pre><code><span class="kw">import</span> anthropic
+
+client = anthropic.Anthropic(api_key=<span class="str">"your-api-key-here"</span>)
+
+SYSTEM_PROMPT = <span class="str">"""
+You are an annuity advisor assistant for Meridian Life Insurance.
+Ask customers about their age, retirement timeline, investment amount,
+and risk tolerance — one question at a time.
+
+Recommend one of:
+- Fixed Annuity: guaranteed returns, low risk, 3-10 year horizon
+- Deferred Income Annuity: guaranteed lifetime income starting in 2+ years
+- Variable Annuity: market-linked growth for risk-tolerant customers
+
+End every recommendation with: "Would you like to schedule a call with an advisor?"
+Be warm, concise, avoid jargon.
+"""</span>
+
+<span class="kw">def</span> <span class="fn">run_agent</span>():
+    <span class="fn">print</span>(<span class="str">"Meridian Life Annuity Assistant\n" + "-"*40</span>)
+    <span class="fn">print</span>(<span class="str">"Agent: Hi! I can help you find the right annuity. What's on your mind?\n"</span>)
+
+    history = []
+
+    <span class="kw">while</span> <span class="kw">True</span>:
+        user_input = <span class="fn">input</span>(<span class="str">"You: "</span>).strip()
+        <span class="kw">if</span> user_input.lower() <span class="kw">in</span> [<span class="str">"exit"</span>, <span class="str">"quit"</span>]:
+            <span class="kw">break</span>
+
+        history.append({<span class="str">"role"</span>: <span class="str">"user"</span>, <span class="str">"content"</span>: user_input})
+
+        response = client.messages.create(
+            model=<span class="str">"claude-opus-4-5"</span>,
+            max_tokens=<span class="num">500</span>,
+            system=SYSTEM_PROMPT,
+            messages=history
+        )
+
+        reply = response.content[<span class="num">0</span>].text
+        history.append({<span class="str">"role"</span>: <span class="str">"assistant"</span>, <span class="str">"content"</span>: reply})
+        <span class="fn">print</span>(<span class="str">f"\nAgent: {reply}\n"</span>)
+
+<span class="fn">run_agent</span>()</code></pre>
+        </div>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">bash — Run</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+          <pre><code>python annuity_agent.py</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXTENSION 1: CALENDAR -->
+  <section class="section" id="calendar" style="scroll-margin-top:80px;">
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+      <div style="background:var(--teal-dark); color:white; font-weight:800; font-size:0.85rem; padding:4px 12px; border-radius:6px;">Extension 1</div>
+      <div class="section-title" style="margin-bottom:0;">Book Outlook Calendar Meetings</div>
+    </div>
+    <div class="section-subtitle">When a customer says yes, the agent books a 30-minute call in Outlook and sends a calendar invite automatically.</div>
+    <div class="callout callout-tip"><span class="callout-icon">💡</span><p><strong>No Azure setup yet?</strong> Use <a href="https://calendly.com" target="_blank">Calendly</a> free — create a 30-min "Advisor Call" event type, copy the link, and have the agent include it in its reply when the customer says yes. Zero code, works in 10 minutes.</p></div>
+    <div class="code-block" style="margin-top:16px;">
+      <div class="code-header"><span class="code-lang">bash</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+      <pre><code>pip install O365</code></pre>
+    </div>
+    <div class="code-block">
+      <div class="code-header"><span class="code-lang">python — add to annuity_agent.py</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+      <pre><code><span class="kw">from</span> O365 <span class="kw">import</span> Account
+<span class="kw">from</span> datetime <span class="kw">import</span> datetime, timedelta
+
+<span class="cm"># Your IT admin creates these in Azure Active Directory (10 min setup)</span>
+OUTLOOK_CLIENT_ID     = <span class="str">"your-azure-app-client-id"</span>
+OUTLOOK_CLIENT_SECRET = <span class="str">"your-azure-app-client-secret"</span>
+OUTLOOK_TENANT_ID     = <span class="str">"your-tenant-id"</span>
+
+<span class="kw">def</span> <span class="fn">book_advisor_call</span>(customer_name: str, customer_email: str, preferred_date: str):
+    account = Account(
+        (OUTLOOK_CLIENT_ID, OUTLOOK_CLIENT_SECRET),
+        auth_flow_type=<span class="str">"credentials"</span>,
+        tenant_id=OUTLOOK_TENANT_ID
+    )
+    account.authenticate()
+
+    calendar   = account.schedule().get_default_calendar()
+    start_time = datetime.strptime(preferred_date, <span class="str">"%Y-%m-%d %H:%M"</span>)
+
+    event         = calendar.new_event()
+    event.subject = <span class="str">f"Annuity Consultation — {customer_name}"</span>
+    event.start   = start_time
+    event.end     = start_time + timedelta(minutes=<span class="num">30</span>)
+    event.attendees.add(customer_email)
+    event.save()
+
+    <span class="kw">return</span> <span class="str">f"Booked! 30-min call on {preferred_date}. Invite sent to {customer_email}."</span></code></pre>
+    </div>
+  </section>
+
+  <!-- EXTENSION 2: EMAIL -->
+  <section class="section" id="email" style="scroll-margin-top:80px;">
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+      <div style="background:var(--teal-dark); color:white; font-weight:800; font-size:0.85rem; padding:4px 12px; border-radius:6px;">Extension 2</div>
+      <div class="section-title" style="margin-bottom:0;">Send Summary Emails</div>
+    </div>
+    <div class="section-subtitle">At the end of every conversation, Claude writes a 3-sentence summary and the agent emails it to the customer via Outlook.</div>
+    <div class="code-block">
+      <div class="code-header"><span class="code-lang">python — add to annuity_agent.py</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+      <pre><code><span class="kw">import</span> smtplib
+<span class="kw">from</span> email.mime.multipart <span class="kw">import</span> MIMEMultipart
+<span class="kw">from</span> email.mime.text <span class="kw">import</span> MIMEText
+
+SMTP_SERVER   = <span class="str">"smtp.office365.com"</span>
+SMTP_PORT     = <span class="num">587</span>
+SENDER_EMAIL  = <span class="str">"advisor@yourcompany.com"</span>
+SENDER_APP_PW = <span class="str">"your-app-password"</span>  <span class="cm"># generate at account.microsoft.com → Security → App passwords</span>
+
+<span class="kw">def</span> <span class="fn">send_summary_email</span>(customer_email: str, customer_name: str, summary: str):
+    msg            = MIMEMultipart()
+    msg[<span class="str">"Subject"</span>] = <span class="str">"Your Annuity Consultation Summary"</span>
+    msg[<span class="str">"From"</span>]    = SENDER_EMAIL
+    msg[<span class="str">"To"</span>]      = customer_email
+
+    body = <span class="str">f"""Hi {customer_name},
+
+Thank you for chatting with our Annuity Assistant today.
+
+{summary}
+
+An advisor will be in touch within 1 business day.
+
+Warm regards,
+Meridian Life Insurance Team"""</span>
+
+    msg.attach(MIMEText(body, <span class="str">"plain"</span>))
+
+    <span class="kw">with</span> smtplib.SMTP(SMTP_SERVER, SMTP_PORT) <span class="kw">as</span> s:
+        s.starttls()
+        s.login(SENDER_EMAIL, SENDER_APP_PW)
+        s.sendmail(SENDER_EMAIL, customer_email, msg.as_string())
+
+<span class="cm"># At end of conversation: ask Claude to summarize, then send</span>
+<span class="kw">def</span> <span class="fn">email_conversation_summary</span>(client, system_prompt, history, customer_email, customer_name):
+    res = client.messages.create(
+        model=<span class="str">"claude-opus-4-5"</span>, max_tokens=<span class="num">150</span>,
+        system=system_prompt,
+        messages=history + [{<span class="str">"role"</span>: <span class="str">"user"</span>, <span class="str">"content"</span>: <span class="str">"Summarize our conversation in 3 sentences for the customer."</span>}]
+    )
+    <span class="fn">send_summary_email</span>(customer_email, customer_name, res.content[<span class="num">0</span>].text)</code></pre>
+    </div>
+  </section>
+
+  <!-- EXTENSION 3: WEB WIDGET -->
+  <section class="section" id="widget" style="scroll-margin-top:80px;">
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+      <div style="background:var(--purple); color:white; font-weight:800; font-size:0.85rem; padding:4px 12px; border-radius:6px;">Extension 3</div>
+      <div class="section-title" style="margin-bottom:0;">Web Chat Widget</div>
+    </div>
+    <div class="section-subtitle">A chat bubble on your website. Customers talk to the agent from their browser — no app, no login. A developer deploys this in about 2–3 hours.</div>
+    <div class="code-block">
+      <div class="code-header"><span class="code-lang">bash</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+      <pre><code>pip install flask flask-cors anthropic</code></pre>
+    </div>
+    <div class="code-block">
+      <div class="code-header"><span class="code-lang">python — web_agent.py</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+      <pre><code><span class="kw">from</span> flask <span class="kw">import</span> Flask, request, jsonify
+<span class="kw">from</span> flask_cors <span class="kw">import</span> CORS
+<span class="kw">import</span> anthropic
+
+app    = Flask(__name__)
+CORS(app)
+client = anthropic.Anthropic(api_key=<span class="str">"your-api-key"</span>)
+
+SYSTEM_PROMPT = <span class="str">"You are an annuity advisor... [paste your full prompt here]"</span>
+sessions = {}
+
+<span class="fn">@app.route</span>(<span class="str">"/chat"</span>, methods=[<span class="str">"POST"</span>])
+<span class="kw">def</span> <span class="fn">chat</span>():
+    data = request.json
+    sid  = data.get(<span class="str">"session_id"</span>, <span class="str">"default"</span>)
+    msg  = data.get(<span class="str">"message"</span>, <span class="str">""</span>)
+
+    sessions.setdefault(sid, []).append({<span class="str">"role"</span>: <span class="str">"user"</span>, <span class="str">"content"</span>: msg})
+    res   = client.messages.create(model=<span class="str">"claude-opus-4-5"</span>, max_tokens=<span class="num">500</span>, system=SYSTEM_PROMPT, messages=sessions[sid])
+    reply = res.content[<span class="num">0</span>].text
+    sessions[sid].append({<span class="str">"role"</span>: <span class="str">"assistant"</span>, <span class="str">"content"</span>: reply})
+    <span class="kw">return</span> <span class="fn">jsonify</span>({<span class="str">"reply"</span>: reply})
+
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+    app.run(port=<span class="num">5000</span>)</code></pre>
+    </div>
+    <div class="code-block">
+      <div class="code-header"><span class="code-lang">html — paste into your website</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+      <pre><code>&lt;button onclick=<span class="str">"toggleChat()"</span> style=<span class="str">"position:fixed;bottom:20px;right:20px;background:#0a1628;color:white;border:none;border-radius:50px;padding:14px 20px;font-size:16px;cursor:pointer;z-index:1000;"</span>&gt;💬 Talk to an Advisor&lt;/button&gt;
+
+&lt;div id=<span class="str">"cw"</span> style=<span class="str">"display:none;position:fixed;bottom:80px;right:20px;width:360px;height:480px;border:1px solid #ccc;border-radius:12px;background:white;box-shadow:0 4px 20px rgba(0,0,0,.15);flex-direction:column;z-index:1000;"</span>&gt;
+  &lt;div style=<span class="str">"background:#0a1628;color:white;padding:14px;border-radius:12px 12px 0 0;font-weight:bold;"</span>&gt;Annuity Assistant&lt;/div&gt;
+  &lt;div id=<span class="str">"msgs"</span> style=<span class="str">"flex:1;overflow-y:auto;padding:12px;font-size:14px;"</span>&gt;&lt;/div&gt;
+  &lt;div style=<span class="str">"display:flex;padding:10px;border-top:1px solid #eee;"</span>&gt;
+    &lt;input id=<span class="str">"inp"</span> type=<span class="str">"text"</span> placeholder=<span class="str">"Type a message..."</span> style=<span class="str">"flex:1;padding:8px;border:1px solid #ccc;border-radius:6px;"</span> onkeypress=<span class="str">"if(event.key==='Enter')send()"</span>/&gt;
+    &lt;button onclick=<span class="str">"send()"</span> style=<span class="str">"margin-left:8px;background:#0a1628;color:white;border:none;border-radius:6px;padding:8px 14px;cursor:pointer;"</span>&gt;Send&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+const sid=Math.random().toString(36).slice(2); let on=false;
+function toggleChat(){on=!on; const w=document.getElementById('cw'); w.style.display=on?'flex':'none'; if(on&amp;&amp;!document.getElementById('msgs').innerHTML) addMsg('agent','Hi! I can help you find the right annuity. What\'s on your mind?');}
+function addMsg(r,t){const d=document.createElement('div'); d.style=`margin:6px 0;padding:8px 12px;border-radius:10px;max-width:85%;${r==='user'?'background:#0a1628;color:white;margin-left:auto;':'background:#f0f0f0;'}`; d.innerText=t; document.getElementById('msgs').appendChild(d); document.getElementById('msgs').scrollTop=9999;}
+async function send(){const i=document.getElementById('inp'),m=i.value.trim(); if(!m)return; i.value=''; addMsg('user',m); const r=await fetch('http://localhost:5000/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({session_id:sid,message:m})}); addMsg('agent',(await r.json()).reply);}
+&lt;/script&gt;</code></pre>
+    </div>
+    <div class="callout callout-tip"><span class="callout-icon">💡</span><p><strong>To go live:</strong> Deploy <code>web_agent.py</code> to Azure App Service or any cloud host. Change <code>localhost:5000</code> in the HTML to your server URL. A developer needs about 2–3 hours total.</p></div>
+  </section>
+
+  <!-- EXTENSION 4: TEAMS -->
+  <section class="section" id="teams" style="scroll-margin-top:80px;">
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+      <div style="background:var(--purple); color:white; font-weight:800; font-size:0.85rem; padding:4px 12px; border-radius:6px;">Extension 4</div>
+      <div class="section-title" style="margin-bottom:0;">Deploy to Microsoft Teams (No Code)</div>
+    </div>
+    <div class="section-subtitle">Wrap this agent in Copilot Studio and deploy to Teams. Calendar + Email + Chat — all connected, no developer needed. Takes about 1 hour.</div>
+
+    <ol class="steps">
+      <li class="step"><div class="step-num">1</div><div class="step-content"><h3>Open <a href="https://copilotstudio.microsoft.com" target="_blank">Copilot Studio</a></h3><p>Sign in with your Microsoft 365 work account. Included in your M365 plan — no extra cost.</p></div></li>
+      <li class="step"><div class="step-num">2</div><div class="step-content"><h3>Create → New Agent</h3><p>Describe your agent in plain English. Copilot Studio generates the structure. Tip: paste the system prompt from Option A above as your agent description.</p></div></li>
+      <li class="step"><div class="step-num">3</div><div class="step-content"><h3>Set Claude as AI Model (optional)</h3><p><strong>Agent Settings → Model → Claude Sonnet.</strong> Claude's reasoning quality inside Microsoft's infrastructure.</p></div></li>
+      <li class="step"><div class="step-num">4</div><div class="step-content"><h3>Connect Outlook Calendar</h3><p><strong>Actions → Add an action → Office 365 Outlook → Create event.</strong> Map start/end time, subject, attendee email. No code.</p></div></li>
+      <li class="step"><div class="step-num">5</div><div class="step-content"><h3>Connect Outlook Email</h3><p><strong>Actions → Add an action → Office 365 Outlook → Send an email.</strong> Map To, Subject, and Body fields.</p></div></li>
+      <li class="step"><div class="step-num">6</div><div class="step-content"><h3>Deploy to Teams</h3><p><strong>Channels → Microsoft Teams → Turn on Teams → Publish.</strong> Your agent appears in Teams within minutes.</p></div></li>
+      <li class="step"><div class="step-num">7</div><div class="step-content"><h3>Share with your team</h3><p>Search your agent's name in Teams Apps, or share the direct link. Pin it to the Teams sidebar so everyone sees it daily.</p></div></li>
+    </ol>
+  </section>
+
+  <!-- ADAPT IT -->
+  <section class="section" id="adapt" style="scroll-margin-top:80px;">
+    <div class="section-title">Adapt This for Other Workflows</div>
+    <div class="section-subtitle">Change the system prompt — the code stays exactly the same.</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Change the instructions to...</th><th>The agent becomes...</th></tr></thead>
+        <tbody>
+          <tr><td>Describe your claims intake questions and routing rules</td><td>A FNOL (First Notice of Loss) claims agent</td></tr>
+          <tr><td>List your underwriting appetite and eligibility rules</td><td>An underwriting pre-screening agent</td></tr>
+          <tr><td>Describe your policy renewal workflow</td><td>A renewal outreach and processing agent</td></tr>
+          <tr><td>List your broker products and commission structure</td><td>A broker quote and support assistant</td></tr>
+          <tr><td>Describe your support ticket categories and routing</td><td>A customer service triage agent</td></tr>
+          <tr><td>Describe your HR onboarding checklist</td><td>A new-hire onboarding guide</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-tip" style="margin-top:16px;"><span class="callout-icon">💡</span><p><strong>No coding needed to customize.</strong> The system prompt is plain English text. Any team member can change the agent's behavior — no developer required.</p></div>
+  </section>
+
+  <!-- NEXT EXAMPLES -->
+  <section class="section">
+    <div class="section-title">More Examples</div>
+    <div class="card-grid">
+      <a href="examples.html#faq-chatbot" style="text-decoration:none;"><div class="card"><div class="card-icon">💬</div><h3>FAQ Chatbot (5 min)</h3><p>Zero-code agent using Claude Projects. For any business, any team.</p><span class="badge badge-beginner">Beginner</span></div></a>
+      <a href="examples.html#teams-bot" style="text-decoration:none;"><div class="card"><div class="card-icon">💼</div><h3>Teams Bot (No Code)</h3><p>Visual agent builder in Copilot Studio, deployed to Microsoft Teams.</p><span class="badge badge-nocode">No Code</span></div></a>
+      <a href="examples.html" style="text-decoration:none;"><div class="card"><div class="card-icon">⚡</div><h3>Browse All Examples</h3><p>Lead qualification, claims FNOL, HR onboarding, sales outreach, and more.</p><span class="badge badge-intermediate">All Levels</span></div></a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>AgentAtlas &nbsp;·&nbsp; Navigate the world of AI agents &nbsp;·&nbsp; <a href="https://github.com/viveksinha/agentic-ai-guide" target="_blank">GitHub</a></p>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

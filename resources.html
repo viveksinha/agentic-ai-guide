@@ -3,21 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resources — Agentic AI Guide</title>
+  <title>Resources — AgentAtlas</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="index.html">Agentic <span>AI Guide</span></a>
+    <a class="nav-logo" href="index.html"><span class="logo-icon">🗺</span>Agent<span>Atlas</span></a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="resources.html" class="active">Resources</a></li>
       <li><a href="tools.html">Tools</a></li>
-      <li><a href="insurance.html">Examples</a></li>
-      <li><a href="howto.html">How-To Guide</a></li>
-      <li><a href="capabilities.html">Advanced</a></li>
+      <li><a href="examples.html">Examples</a></li>
     </ul>
   </div>
 </nav>
@@ -25,230 +23,306 @@
 <div class="page-header">
   <div class="page-header-inner">
     <div class="breadcrumb"><a href="index.html">Home</a> › Resources</div>
-    <h1>📺 Videos &amp; Articles</h1>
-    <p>The best content to understand Agentic AI — curated for a non-technical business audience. Watch and read in order for fastest understanding.</p>
+    <h1>📡 Resources</h1>
+    <p>The best articles, discussions, newsletters, and cool projects from around the internet — curated and organized.</p>
   </div>
 </div>
 
 <div class="container">
 
-  <!-- VIDEOS -->
+  <!-- FILTER TABS -->
   <section class="section">
-    <div class="section-title">Watch These First</div>
-    <div class="section-subtitle">Start here — no technical background needed. Total watch time: ~25 minutes.</div>
-
-    <div class="callout callout-tip">
-      <span class="callout-icon">💡</span>
-      <p><strong>Recommended order:</strong> Watch the 60-second video first to get the core idea, then the 4-minute deep dive. The longer two are optional but worth it when you're ready.</p>
-    </div>
-
-    <div class="card-grid" style="margin-top:24px;">
-      <div class="video-card">
-        <div class="video-thumb" style="background:linear-gradient(135deg,#c0392b,#8e44ad);">
-          ▶
-          <span class="video-duration">1 min</span>
-        </div>
-        <div class="video-body">
-          <div class="tag">Start Here</div>
-          <h3>What is Agentic AI? (Easy Explanation In 60 Seconds)</h3>
-          <p>The fastest possible explanation. Uses a "trip planning" analogy that immediately shows how agents differ from chatbots. Watch this first.</p>
-          <div class="channel">Bernard Marr · 29K views</div>
-          <a href="https://www.youtube.com/watch?v=7C2vRZX7ki8" target="_blank">Watch on YouTube →</a>
-        </div>
+    <div id="resTabs" class="tabs">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="showTab('resTabs','tabAll')">All</button>
+        <button class="tab-btn" onclick="showTab('resTabs','tabArticles')">Articles &amp; Blogs</button>
+        <button class="tab-btn" onclick="showTab('resTabs','tabCommunity')">HN &amp; Reddit</button>
+        <button class="tab-btn" onclick="showTab('resTabs','tabNewsletters')">Newsletters</button>
+        <button class="tab-btn" onclick="showTab('resTabs','tabProjects')">Cool Projects</button>
+        <button class="tab-btn" onclick="showTab('resTabs','tabVideos')">Videos</button>
       </div>
 
-      <div class="video-card">
-        <div class="video-thumb" style="background:linear-gradient(135deg,#e74c3c,#c0392b);">
-          ▶
-          <span class="video-duration">4 min</span>
-        </div>
-        <div class="video-body">
-          <div class="tag">Beginner</div>
-          <h3>What is Agentic AI? An Easy Explanation For Everyone</h3>
-          <p>Covers the three core features: autonomy, adaptability, and goal-orientation. Includes real-world examples from healthcare and personal assistants.</p>
-          <div class="channel">Bernard Marr · 198K views</div>
-          <a href="https://www.youtube.com/watch?v=-pqzyvRp3Tc" target="_blank">Watch on YouTube →</a>
-        </div>
-      </div>
+      <!-- ALL TAB -->
+      <div id="tabAll" class="tab-panel active">
 
-      <div class="video-card">
-        <div class="video-thumb" style="background:linear-gradient(135deg,#2980b9,#1a5276);">
-          ▶
-          <span class="video-duration">7 min</span>
-        </div>
-        <div class="video-body">
-          <div class="tag">Intermediate</div>
-          <h3>AI Agents Explained: A Comprehensive Guide for Beginners</h3>
-          <p>Explains how agents differ from regular chatbots. Covers planning, tool interaction, memory, and autonomous execution. 500K+ views.</p>
-          <div class="channel">AI Alfie · 516K views</div>
-          <a href="https://www.youtube.com/watch?v=hLJTcVHW8_I" target="_blank">Watch on YouTube →</a>
-        </div>
-      </div>
+        <div class="section-title" style="font-size:1.1rem; margin-bottom:16px;">🔥 Must-Read First</div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; margin-bottom:40px;">
 
-      <div class="video-card">
-        <div class="video-thumb" style="background:linear-gradient(135deg,#16a085,#0d6b5a);">
-          ▶
-          <span class="video-duration">14 min</span>
-        </div>
-        <div class="video-body">
-          <div class="tag">Deeper Dive</div>
-          <h3>What is Agentic AI and How Does it Work?</h3>
-          <p>Compares agentic vs non-agentic workflows with real company examples. More depth but still accessible. 600K+ views.</p>
-          <div class="channel">codebasics · 596K views</div>
-          <a href="https://www.youtube.com/watch?v=15_pppse4fY" target="_blank">Watch on YouTube →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOG ARTICLES - BUSINESS -->
-  <section class="section">
-    <div class="section-title">Read These — For Business Leaders</div>
-    <div class="section-subtitle">Written for executives, not engineers. No jargon.</div>
-
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-icon">🎓</div>
-        <h3>Agentic AI, Explained — MIT Sloan</h3>
-        <p>Credible, concise, and written specifically for business leaders. Best first article to read after the videos.</p>
-        <span class="tag">Beginner</span><span class="tag">Business</span>
-        <a href="https://mitsloan.mit.edu/ideas-made-to-matter/agentic-ai-explained" target="_blank">Read on MIT Sloan →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">📊</div>
-        <h3>CEO Strategies for the Agentic Age — McKinsey</h3>
-        <p>What CEOs need to know and do right now. Covers the "gen AI paradox" — why most companies aren't seeing ROI yet, and how agents fix that.</p>
-        <span class="tag">Executive</span><span class="tag">Strategy</span>
-        <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-change-agent-goals-decisions-and-implications-for-ceos-in-the-agentic-age" target="_blank">Read on McKinsey →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🏗</div>
-        <h3>The Agentic Organization — McKinsey</h3>
-        <p>The big picture: how agentic AI changes how companies are organized and operate. McKinsey calls it "the largest organizational paradigm shift since the industrial revolution."</p>
-        <span class="tag">Executive</span><span class="tag">Strategy</span>
-        <a href="https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/the-agentic-organization-contours-of-the-next-paradigm-for-the-ai-era" target="_blank">Read on McKinsey →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🔧</div>
-        <h3>Agentic AI for Business — Daniel Bilsborough</h3>
-        <p>Written by someone who actually builds these systems. Very practical, honest about what works and what doesn't. Great for grounding expectations.</p>
-        <span class="tag">Practical</span><span class="tag">Business</span>
-        <a href="https://ai.danielbilsborough.com/blog/agentic-ai-explained" target="_blank">Read Article →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">📈</div>
-        <h3>Agentic AI for Business: 2026 Guide</h3>
-        <p>Covers the $47B market projection, 40% enterprise adoption estimate by end of 2026, and the most common business deployment patterns.</p>
-        <span class="tag">Market</span><span class="tag">2026</span>
-        <a href="https://www.ai-agentsplus.com/blog/agentic-ai-for-business-explained-year-of-ai-agent-2026" target="_blank">Read Article →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🎯</div>
-        <h3>What Is Agentic AI? A Practical Business Guide — Orbina</h3>
-        <p>Clear breakdown of what agentic AI means for business operations day-to-day. Explains the perceive → plan → act → reflect loop in plain English.</p>
-        <span class="tag">Practical</span><span class="tag">Operations</span>
-        <a href="https://www.orbina.ai/blog/what-is-agentic-ai" target="_blank">Read Article →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- INSURANCE ARTICLES -->
-  <section class="section">
-    <div class="section-title">Insurance-Specific Reading</div>
-    <div class="section-subtitle">Articles written directly for the insurance industry.</div>
-
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-icon">🏦</div>
-        <h3>How Agentic AI Is Reshaping Insurance — Microsoft</h3>
-        <p>Written specifically for insurance business leaders by Microsoft. Covers claims, underwriting, and customer service transformation. Published February 2026.</p>
-        <span class="tag">Insurance</span><span class="tag">Microsoft</span><span class="tag">2026</span>
-        <a href="https://www.microsoft.com/en-us/industry/blog/financial-services/2026/02/18/from-bottlenecks-to-breakthroughs-how-agentic-ai-is-reshaping-insurance/" target="_blank">Read on Microsoft →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">⚡</div>
-        <h3>How Allianz Is Replacing Claims with AI Agents</h3>
-        <p>The most compelling case study in insurance AI. Claims handling went from 29 days to 3.5 days. 70% of claims now settle in under 12 hours. Required reading.</p>
-        <span class="tag">Case Study</span><span class="tag">Claims</span>
-        <a href="https://www.otera.ai/blog/how-allianz-partners-is-replacing-claims-operations-with-autonomous-ai-agents" target="_blank">Read Case Study →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">📝</div>
-        <h3>How Underwriters Use AI Agents — StackAI</h3>
-        <p>Explains the full underwriting workflow with AI: submission intake → document validation → risk assessment → approval. No jargon.</p>
-        <span class="tag">Underwriting</span><span class="tag">Operations</span>
-        <a href="https://www.stack-ai.com/insights/how-insurance-underwriters-use-ai-agents-to-process-policy-applications-and-risk-assessments" target="_blank">Read Article →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🏆</div>
-        <h3>Aviva: Saving £100M with AI — AI for Insurance</h3>
-        <p>How Aviva deployed 150+ ML models, cut medical underwriting time by 50%, and saved £100M in claims. A blueprint for large insurance carriers.</p>
-        <span class="tag">Case Study</span><span class="tag">Aviva</span>
-        <a href="https://aiforinsurance.org/case-studies/aviva-halves-medical-underwriting-review-time-and-saves-100m-in-claims-using-machine-learning-and-ai" target="_blank">Read Case Study →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- READING PATH -->
-  <section class="section">
-    <div class="section-title">Suggested Learning Path</div>
-    <div class="section-subtitle">If you only have 2 hours total, here's the optimal order.</div>
-
-    <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:28px; box-shadow:var(--shadow);">
-      <ol class="steps">
-        <li class="step">
-          <div class="step-num">1</div>
-          <div class="step-content">
-            <h3>Watch (10 min): Bernard Marr 60-second + 4-minute videos</h3>
-            <p>Get the core concept locked in. The trip-planning analogy is all you need to explain this to anyone.</p>
+          <div class="resource-card">
+            <div><span class="source-badge">MIT Sloan</span></div>
+            <h3>Agentic AI, Explained</h3>
+            <p>Credible, jargon-free, written for business leaders. The best single article for explaining what agentic AI is to anyone.</p>
+            <a href="https://mitsloan.mit.edu/ideas-made-to-matter/agentic-ai-explained" target="_blank">Read on MIT Sloan →</a>
           </div>
-        </li>
-        <li class="step">
-          <div class="step-num">2</div>
-          <div class="step-content">
-            <h3>Read (10 min): MIT Sloan — Agentic AI Explained</h3>
-            <p>Adds credibility and depth to what the videos covered. Clean, no jargon.</p>
+
+          <div class="resource-card">
+            <div><span class="source-badge">McKinsey</span></div>
+            <h3>CEO Strategies for the Agentic Age</h3>
+            <p>What executives need to know and do right now. Explains the "gen AI paradox" — why most companies see no ROI yet, and how agents fix it.</p>
+            <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-change-agent-goals-decisions-and-implications-for-ceos-in-the-agentic-age" target="_blank">Read on McKinsey →</a>
           </div>
-        </li>
-        <li class="step">
-          <div class="step-num">3</div>
-          <div class="step-content">
-            <h3>Read (10 min): Allianz Case Study</h3>
-            <p>The 29 days → 3.5 days number is the best business case you'll find in insurance. Share this widely.</p>
+
+          <div class="resource-card">
+            <div><span class="source-badge">Anthropic</span></div>
+            <h3>Building Effective Agents</h3>
+            <p>Anthropic's own guide on when to use agents, how to design agentic systems, and common patterns. Essential reading for anyone building with Claude.</p>
+            <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank">Read on Anthropic →</a>
           </div>
-        </li>
-        <li class="step">
-          <div class="step-num">4</div>
-          <div class="step-content">
-            <h3>Try (15 min): Open claude.ai and test the annuity agent</h3>
-            <p>See the <a href="howto.html">How-To Guide</a> for the system prompt. Paste it into a Claude Project and test it yourself — no coding needed.</p>
+
+          <div class="resource-card">
+            <div><span class="source-badge">Case Study</span></div>
+            <h3>How Allianz Cut Claims from 29 Days to 3.5</h3>
+            <p>The most cited insurance AI case study. Autonomous agents now handle 70% of claims in under 12 hours at Allianz Partners.</p>
+            <a href="https://www.otera.ai/blog/how-allianz-partners-is-replacing-claims-operations-with-autonomous-ai-agents" target="_blank">Read Case Study →</a>
           </div>
-        </li>
-        <li class="step">
-          <div class="step-num">5</div>
-          <div class="step-content">
-            <h3>Explore (30 min): Copilot Studio pre-built agents</h3>
-            <p>Go to <a href="https://copilotstudio.microsoft.com" target="_blank">copilotstudio.microsoft.com</a> and browse the pre-built templates. Pick one relevant to your team and deploy it to Teams.</p>
+
+        </div>
+
+        <div class="section-title" style="font-size:1.1rem; margin-bottom:16px;">📰 Articles &amp; Deep Dives</div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; margin-bottom:40px;">
+
+          <div class="resource-card">
+            <div><span class="source-badge">McKinsey</span></div>
+            <h3>The Agentic Organization</h3>
+            <p>How agentic AI changes how companies are organized. McKinsey calls it "the largest paradigm shift since the industrial revolution."</p>
+            <a href="https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/the-agentic-organization-contours-of-the-next-paradigm-for-the-ai-era" target="_blank">Read →</a>
           </div>
-        </li>
-      </ol>
+
+          <div class="resource-card">
+            <div><span class="source-badge">Microsoft</span></div>
+            <h3>How Agentic AI Is Reshaping Insurance</h3>
+            <p>Microsoft's playbook for insurance leaders. Covers claims, underwriting, and customer service. Published February 2026.</p>
+            <a href="https://www.microsoft.com/en-us/industry/blog/financial-services/2026/02/18/from-bottlenecks-to-breakthroughs-how-agentic-ai-is-reshaping-insurance/" target="_blank">Read →</a>
+          </div>
+
+          <div class="resource-card">
+            <div><span class="source-badge">Medium</span></div>
+            <h3>Building a Sales Outreach Agent with n8n and Claude</h3>
+            <p>Reads Google Sheets leads → researches prospects → drafts personalized emails → routes VIPs to Slack for approval. Built in an afternoon.</p>
+            <a href="https://building.theatlantic.com/building-ai-agents-in-practice-a-sales-outreach-agent-with-n8n-and-claude-ece434e0b5fc" target="_blank">Read →</a>
+          </div>
+
+          <div class="resource-card">
+            <div><span class="source-badge">Orbina</span></div>
+            <h3>What Is Agentic AI? A Practical Business Guide</h3>
+            <p>Explains the perceive → plan → act → reflect loop in plain English. Good grounding for operational teams.</p>
+            <a href="https://www.orbina.ai/blog/what-is-agentic-ai" target="_blank">Read →</a>
+          </div>
+
+          <div class="resource-card">
+            <div><span class="source-badge">Anthropic Blog</span></div>
+            <h3>Building Agents with the Claude Agent SDK</h3>
+            <p>Official engineering post from Anthropic. How the SDK handles the agent loop, tool execution, and multi-agent coordination.</p>
+            <a href="https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk" target="_blank">Read →</a>
+          </div>
+
+          <div class="resource-card">
+            <div><span class="source-badge">StackAI</span></div>
+            <h3>How Insurance Underwriters Use AI Agents</h3>
+            <p>Full underwriting workflow with AI: submission intake → document validation → risk assessment → approval. No jargon.</p>
+            <a href="https://www.stack-ai.com/insights/how-insurance-underwriters-use-ai-agents-to-process-policy-applications-and-risk-assessments" target="_blank">Read →</a>
+          </div>
+
+        </div>
+
+        <div class="section-title" style="font-size:1.1rem; margin-bottom:16px;">🛠 Cool Things People Built</div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; margin-bottom:40px;">
+
+          <div class="resource-card">
+            <div><span class="source-badge">GitHub · Open Source</span></div>
+            <h3>Open Interpreter</h3>
+            <p>Lets LLMs run code, browse the web, create files — locally on your computer. Like a coding agent that lives on your laptop. 55K+ stars on GitHub.</p>
+            <a href="https://github.com/OpenInterpreter/open-interpreter" target="_blank">View on GitHub →</a>
+          </div>
+
+          <div class="resource-card">
+            <div><span class="source-badge">GitHub · Open Source</span></div>
+            <h3>Cursor</h3>
+            <p>AI-first code editor. Full codebase context, agent mode that writes entire features, and inline edits. The most-used AI dev tool in 2025.</p>
+            <a href="https://cursor.com" target="_blank">Visit →</a>
+          </div>
+
+          <div class="resource-card">
+            <div><span class="source-badge">Product</span></div>
+            <h3>Perplexity AI</h3>
+            <p>A search agent that cites its sources. Replaces Google for research tasks — finds, reads, and synthesizes information in real time.</p>
+            <a href="https://perplexity.ai" target="_blank">Try It →</a>
+          </div>
+
+          <div class="resource-card">
+            <div><span class="source-badge">GitHub · Open Source</span></div>
+            <h3>AutoGen (Microsoft)</h3>
+            <p>Multi-agent conversation framework. Build systems where multiple AI agents collaborate, debate, and solve complex tasks together.</p>
+            <a href="https://github.com/microsoft/autogen" target="_blank">View on GitHub →</a>
+          </div>
+
+          <div class="resource-card">
+            <div><span class="source-badge">GitHub · Open Source</span></div>
+            <h3>MetaGPT</h3>
+            <p>Assigns LLM agents different software roles (PM, Architect, Engineer, QA). Give it a one-line requirement, it outputs a full software project.</p>
+            <a href="https://github.com/geekan/MetaGPT" target="_blank">View on GitHub →</a>
+          </div>
+
+          <div class="resource-card">
+            <div><span class="source-badge">GitHub · Open Source</span></div>
+            <h3>CrewAI</h3>
+            <p>Framework for orchestrating role-playing, autonomous AI agents. Agents collaborate as a "crew" to accomplish complex tasks. Very popular for multi-step research.</p>
+            <a href="https://github.com/crewAIInc/crewAI" target="_blank">View on GitHub →</a>
+          </div>
+
+        </div>
+
+        <div class="section-title" style="font-size:1.1rem; margin-bottom:16px;">📺 Watch These</div>
+        <div class="card-grid">
+          <div class="video-card">
+            <div class="video-thumb" style="background:linear-gradient(135deg,#c0392b,#8e44ad);">▶<span class="video-duration">1 min</span></div>
+            <div class="video-body">
+              <div class="tag">Start Here</div>
+              <h3>What is Agentic AI? (60 Seconds)</h3>
+              <p>The fastest explanation. Uses a trip-planning analogy that makes it click immediately.</p>
+              <div class="channel">Bernard Marr · 29K views</div>
+              <a href="https://www.youtube.com/watch?v=7C2vRZX7ki8" target="_blank">Watch →</a>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb" style="background:linear-gradient(135deg,#e74c3c,#c0392b);">▶<span class="video-duration">4 min</span></div>
+            <div class="video-body">
+              <div class="tag">Beginner</div>
+              <h3>Agentic AI: Easy Explanation For Everyone</h3>
+              <p>Covers autonomy, adaptability, goal-orientation with real-world examples. Great second video.</p>
+              <div class="channel">Bernard Marr · 198K views</div>
+              <a href="https://www.youtube.com/watch?v=-pqzyvRp3Tc" target="_blank">Watch →</a>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb" style="background:linear-gradient(135deg,#2980b9,#1a5276);">▶<span class="video-duration">7 min</span></div>
+            <div class="video-body">
+              <div class="tag">Intermediate</div>
+              <h3>AI Agents Explained: Comprehensive Beginner Guide</h3>
+              <p>Covers planning, tool interaction, memory, and autonomous execution. 500K+ views.</p>
+              <div class="channel">AI Alfie · 516K views</div>
+              <a href="https://www.youtube.com/watch?v=hLJTcVHW8_I" target="_blank">Watch →</a>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb" style="background:linear-gradient(135deg,#16a085,#0d6b5a);">▶<span class="video-duration">14 min</span></div>
+            <div class="video-body">
+              <div class="tag">Deep Dive</div>
+              <h3>What is Agentic AI and How Does it Work?</h3>
+              <p>Real company examples, agentic vs non-agentic workflows. 600K+ views.</p>
+              <div class="channel">codebasics · 596K views</div>
+              <a href="https://www.youtube.com/watch?v=15_pppse4fY" target="_blank">Watch →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTICLES TAB -->
+      <div id="tabArticles" class="tab-panel">
+        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px;">
+          <div class="resource-card"><div><span class="source-badge">MIT Sloan</span></div><h3>Agentic AI, Explained</h3><p>Best first article for business audiences. No jargon, credible source.</p><a href="https://mitsloan.mit.edu/ideas-made-to-matter/agentic-ai-explained" target="_blank">Read →</a></div>
+          <div class="resource-card"><div><span class="source-badge">McKinsey</span></div><h3>The Agentic Organization</h3><p>How AI agents change company structure and operations at scale.</p><a href="https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/the-agentic-organization-contours-of-the-next-paradigm-for-the-ai-era" target="_blank">Read →</a></div>
+          <div class="resource-card"><div><span class="source-badge">McKinsey</span></div><h3>CEO Strategies for the Agentic Age</h3><p>What executives need to do right now to not fall behind.</p><a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-change-agent-goals-decisions-and-implications-for-ceos-in-the-agentic-age" target="_blank">Read →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Anthropic</span></div><h3>Building Effective Agents</h3><p>When to use agents, design patterns, and best practices from the people who build Claude.</p><a href="https://www.anthropic.com/research/building-effective-agents" target="_blank">Read →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Anthropic Blog</span></div><h3>Building Agents with Claude SDK</h3><p>Engineering deep-dive: how the SDK handles tool calls, memory, and multi-agent coordination.</p><a href="https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk" target="_blank">Read →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Microsoft</span></div><h3>Agentic AI Reshaping Insurance</h3><p>Industry-specific playbook for insurance leaders using Microsoft Copilot and Azure.</p><a href="https://www.microsoft.com/en-us/industry/blog/financial-services/2026/02/18/from-bottlenecks-to-breakthroughs-how-agentic-ai-is-reshaping-insurance/" target="_blank">Read →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Medium</span></div><h3>Building a Sales Outreach Agent</h3><p>End-to-end: Google Sheets → research → personalized email → Slack approval. No-code with n8n + Claude.</p><a href="https://building.theatlantic.com/building-ai-agents-in-practice-a-sales-outreach-agent-with-n8n-and-claude-ece434e0b5fc" target="_blank">Read →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Dev.to</span></div><h3>Build a Personal Assistant AI Agent in 2 Hours</h3><p>Step-by-step visual walkthrough. Beginner-friendly, no prior experience needed.</p><a href="https://dev.to/nova_gg/how-i-built-a-personal-assistant-ai-agent-with-n8n-in-2-hours-no-code-step-by-step-3i38" target="_blank">Read →</a></div>
+          <div class="resource-card"><div><span class="source-badge">danielbilsborough.com</span></div><h3>Agentic AI For Business</h3><p>Written by someone who builds these. Very honest and practical — covers what works and what doesn't.</p><a href="https://ai.danielbilsborough.com/blog/agentic-ai-explained" target="_blank">Read →</a></div>
+        </div>
+      </div>
+
+      <!-- HN & REDDIT TAB -->
+      <div id="tabCommunity" class="tab-panel">
+        <div class="callout callout-info">
+          <span class="callout-icon">ℹ️</span>
+          <p>These communities are where practitioners share real-world experiences, not polished marketing. Expect honest takes, failures, and creative solutions.</p>
+        </div>
+        <div class="section-title" style="font-size:1.1rem; margin:20px 0 16px;">Hacker News</div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; margin-bottom:32px;">
+          <div class="resource-card"><div><span class="source-badge">Hacker News</span></div><h3>Ask HN: What have you built with LLM agents?</h3><p>Community thread with hundreds of real-world agent projects. Great for inspiration on what's actually being built.</p><a href="https://news.ycombinator.com/item?id=38988472" target="_blank">View Thread →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Hacker News</span></div><h3>Anthropic: Building Effective Agents (HN Discussion)</h3><p>The HN discussion on Anthropic's agents guide. Practitioners debate design patterns with real experience.</p><a href="https://news.ycombinator.com/item?id=42483729" target="_blank">View Discussion →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Hacker News</span></div><h3>Show HN: I built an agent that replaces my morning routine</h3><p>A frequently-appearing category of HN posts — individuals sharing creative personal automation agents.</p><a href="https://news.ycombinator.com" target="_blank">Browse HN →</a></div>
+        </div>
+        <div class="section-title" style="font-size:1.1rem; margin:0 0 16px;">Reddit Communities</div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px;">
+          <div class="resource-card"><div><span class="source-badge">Reddit</span></div><h3>r/LocalLLaMA</h3><p>The go-to community for running LLMs locally. Covers Ollama, LM Studio, hardware recommendations, and open-source model comparisons. Very active.</p><a href="https://reddit.com/r/LocalLLaMA" target="_blank">Visit r/LocalLLaMA →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Reddit</span></div><h3>r/MachineLearning</h3><p>Research-focused community. Good for understanding what's happening at the frontier before it hits the mainstream press.</p><a href="https://reddit.com/r/MachineLearning" target="_blank">Visit r/MachineLearning →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Reddit</span></div><h3>r/ChatGPT</h3><p>Practical uses, prompting tips, and real-world examples from everyday users. Great for business use cases and non-technical perspectives.</p><a href="https://reddit.com/r/ChatGPT" target="_blank">Visit r/ChatGPT →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Reddit</span></div><h3>r/ClaudeAI</h3><p>Community dedicated to Claude. Tips on Projects, system prompts, and agentic use cases. Growing fast with Anthropic's 2025 releases.</p><a href="https://reddit.com/r/ClaudeAI" target="_blank">Visit r/ClaudeAI →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Reddit</span></div><h3>r/artificial</h3><p>Broader AI discussion — news, ethics, business impact. Good for staying current without going too deep into technical rabbit holes.</p><a href="https://reddit.com/r/artificial" target="_blank">Visit r/artificial →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Reddit</span></div><h3>r/LangChain</h3><p>Dedicated to LangChain and agent frameworks. Use cases, debugging help, and framework comparisons.</p><a href="https://reddit.com/r/LangChain" target="_blank">Visit r/LangChain →</a></div>
+        </div>
+      </div>
+
+      <!-- NEWSLETTERS TAB -->
+      <div id="tabNewsletters" class="tab-panel">
+        <div class="callout callout-tip">
+          <span class="callout-icon">💡</span>
+          <p>These newsletters hit your inbox daily or weekly — consistently the fastest way to stay current on what's shipping in AI.</p>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; margin-top:20px;">
+          <div class="resource-card"><div><span class="source-badge">Substack · Daily</span></div><h3>The Rundown AI</h3><p>The most-read AI newsletter. Daily 5-minute briefing on what launched, what matters, and what to try. Over 1.5M subscribers.</p><a href="https://www.therundown.ai" target="_blank">Subscribe →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Substack · Daily</span></div><h3>Ben's Bites</h3><p>Ben Tossell's daily digest of AI products and news. Great for spotting new tools before they go mainstream. Casual and easy to read.</p><a href="https://bensbites.beehiiv.com" target="_blank">Subscribe →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Newsletter · Daily</span></div><h3>TLDR AI</h3><p>3-minute daily summary of the most important AI research papers, products, and news. Very concise, respected by developers.</p><a href="https://tldr.tech/ai" target="_blank">Subscribe →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Substack · Weekly</span></div><h3>The Neuron</h3><p>Weekly deep-dives on how to actually use AI tools in your work. Very practical, business-friendly, no hype.</p><a href="https://www.theneurondaily.com" target="_blank">Subscribe →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Substack · Weekly</span></div><h3>AI Supremacy</h3><p>Covers the competitive landscape — which companies are winning, which models are best, and where the industry is heading.</p><a href="https://aisupremacy.substack.com" target="_blank">Subscribe →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Substack · Weekly</span></div><h3>Lenny's Newsletter (AI Edition)</h3><p>Product and growth lens on AI. How product teams are embedding AI into their workflows and products.</p><a href="https://www.lennysnewsletter.com" target="_blank">Subscribe →</a></div>
+        </div>
+      </div>
+
+      <!-- COOL PROJECTS TAB -->
+      <div id="tabProjects" class="tab-panel">
+        <div class="callout callout-tip">
+          <span class="callout-icon">💡</span>
+          <p>These are real things people built and shipped — open source tools, products, and demos. Great for inspiration and for finding ready-made solutions.</p>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; margin-top:20px;">
+          <div class="resource-card"><div><span class="source-badge">GitHub · 55K ⭐</span></div><h3>Open Interpreter</h3><p>LLMs that can execute code, browse files, and run terminal commands on your computer. Like having a coding agent that lives on your laptop.</p><a href="https://github.com/OpenInterpreter/open-interpreter" target="_blank">View on GitHub →</a></div>
+          <div class="resource-card"><div><span class="source-badge">GitHub · 170K ⭐</span></div><h3>AutoGPT</h3><p>One of the original autonomous AI agents. Give it a goal; it breaks it into tasks and executes them. Sparked the entire "agentic AI" conversation in 2023.</p><a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank">View on GitHub →</a></div>
+          <div class="resource-card"><div><span class="source-badge">GitHub · 38K ⭐</span></div><h3>CrewAI</h3><p>Multi-agent framework where AI agents take on roles (researcher, writer, analyst) and collaborate to complete complex tasks together.</p><a href="https://github.com/crewAIInc/crewAI" target="_blank">View on GitHub →</a></div>
+          <div class="resource-card"><div><span class="source-badge">GitHub · 38K ⭐</span></div><h3>MetaGPT</h3><p>Give it a one-line product requirement; it outputs a full software project with PRD, architecture docs, and working code by simulating a dev team.</p><a href="https://github.com/geekan/MetaGPT" target="_blank">View on GitHub →</a></div>
+          <div class="resource-card"><div><span class="source-badge">GitHub · Microsoft</span></div><h3>AutoGen</h3><p>Microsoft's multi-agent conversation framework. Build systems where multiple AI agents collaborate, debate, and solve problems. Powers many enterprise deployments.</p><a href="https://github.com/microsoft/autogen" target="_blank">View on GitHub →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Open Source · Local</span></div><h3>Ollama</h3><p>Run Llama, Mistral, Phi, Gemma and other open-source LLMs locally on your Mac or PC. One command to download and run any model. No cloud, no cost.</p><a href="https://ollama.ai" target="_blank">Visit →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Open Source · Local</span></div><h3>Open WebUI</h3><p>Self-hosted ChatGPT-style interface for local models and OpenAI/Anthropic APIs. Beautiful UI, runs on your own machine or server. 60K+ GitHub stars.</p><a href="https://github.com/open-webui/open-webui" target="_blank">View on GitHub →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Product</span></div><h3>Cursor</h3><p>AI-first code editor used by millions of developers. Understands your entire codebase, writes features, explains bugs, and has an agent mode that autonomously completes tasks.</p><a href="https://cursor.com" target="_blank">Visit →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Product</span></div><h3>Perplexity AI</h3><p>An AI search engine that cites every source. Replaces Google for research — finds, reads, and synthesizes information from the live web in real time.</p><a href="https://perplexity.ai" target="_blank">Try It →</a></div>
+          <div class="resource-card"><div><span class="source-badge">Product</span></div><h3>v0 by Vercel</h3><p>Describe a UI in plain English and get working React/HTML code instantly. The fastest way to prototype a web interface — used by millions of developers.</p><a href="https://v0.dev" target="_blank">Try It →</a></div>
+          <div class="resource-card"><div><span class="source-badge">GitHub · Open Source</span></div><h3>LangChain</h3><p>The most popular agent framework. Connects LLMs to tools, memory, and data sources. Huge ecosystem of integrations and a large community.</p><a href="https://github.com/langchain-ai/langchain" target="_blank">View on GitHub →</a></div>
+          <div class="resource-card"><div><span class="source-badge">GitHub · Open Source</span></div><h3>LlamaIndex</h3><p>Framework for building LLM apps over your own data. Specialized in RAG (retrieval-augmented generation) — connecting AI to your documents, databases, and APIs.</p><a href="https://github.com/run-llama/llama_index" target="_blank">View on GitHub →</a></div>
+        </div>
+      </div>
+
+      <!-- VIDEOS TAB -->
+      <div id="tabVideos" class="tab-panel">
+        <div class="card-grid">
+          <div class="video-card">
+            <div class="video-thumb" style="background:linear-gradient(135deg,#c0392b,#8e44ad);">▶<span class="video-duration">1 min</span></div>
+            <div class="video-body"><div class="tag">Start Here</div><h3>What is Agentic AI? (60 Seconds)</h3><p>The fastest explanation using a trip-planning analogy. Watch this before anything else.</p><div class="channel">Bernard Marr · 29K views</div><a href="https://www.youtube.com/watch?v=7C2vRZX7ki8" target="_blank">Watch →</a></div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb" style="background:linear-gradient(135deg,#e74c3c,#c0392b);">▶<span class="video-duration">4 min</span></div>
+            <div class="video-body"><div class="tag">Beginner</div><h3>Agentic AI: Easy Explanation For Everyone</h3><p>Autonomy, adaptability, goal-orientation explained with real-world examples. 198K views.</p><div class="channel">Bernard Marr</div><a href="https://www.youtube.com/watch?v=-pqzyvRp3Tc" target="_blank">Watch →</a></div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb" style="background:linear-gradient(135deg,#2980b9,#1a5276);">▶<span class="video-duration">7 min</span></div>
+            <div class="video-body"><div class="tag">Intermediate</div><h3>AI Agents: Comprehensive Beginner Guide</h3><p>Planning, tool use, memory, and autonomous execution explained. 516K views.</p><div class="channel">AI Alfie</div><a href="https://www.youtube.com/watch?v=hLJTcVHW8_I" target="_blank">Watch →</a></div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb" style="background:linear-gradient(135deg,#16a085,#0d6b5a);">▶<span class="video-duration">14 min</span></div>
+            <div class="video-body"><div class="tag">Deep Dive</div><h3>What is Agentic AI and How Does it Work?</h3><p>Real company examples, agentic vs non-agentic workflows compared. 596K views.</p><div class="channel">codebasics</div><a href="https://www.youtube.com/watch?v=15_pppse4fY" target="_blank">Watch →</a></div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
 </div>
 
 <footer>
-  <p>Agentic AI Guide for Insurance Leaders &nbsp;·&nbsp; <a href="index.html">Home</a> &nbsp;·&nbsp; <a href="https://github.com" target="_blank">View on GitHub</a></p>
+  <p>AgentAtlas &nbsp;·&nbsp; Navigate the world of AI agents &nbsp;·&nbsp; <a href="https://github.com/viveksinha/agentic-ai-guide" target="_blank">GitHub</a></p>
 </footer>
-
 <script src="js/main.js"></script>
 </body>
 </html>
