@@ -7,13 +7,17 @@
   <link rel="stylesheet" href="css/style.css" />
   <style>
     .filter-bar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:28px; }
-    .filter-btn { background:white; border:1.5px solid var(--border); color:var(--text-muted); font-size:0.82rem; font-weight:600; padding:6px 14px; border-radius:20px; cursor:pointer; transition:all 0.2s; }
+    .filter-btn { background:var(--white); border:1.5px solid var(--gray-200); color:var(--gray-500); font-size:0.82rem; font-weight:600; padding:6px 14px; border-radius:20px; cursor:pointer; transition:all 0.2s; }
     .filter-btn:hover { border-color:var(--black); color:var(--black); }
-    .filter-btn.active { background:var(--black); border-color:var(--black); color:white; }
+    .filter-btn.active { background:var(--black); border-color:var(--black); color:var(--white); }
     .examples-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px; }
     .example-card[data-hidden="true"] { display:none; }
     .coming-soon { opacity:0.55; }
-    .coming-soon .example-card-meta a { pointer-events:none; color:var(--text-muted); }
+    .coming-soon .example-card-meta a { pointer-events:none; color:var(--gray-500); }
+    .level-card { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius); padding:16px; display:flex; align-items:center; gap:12px; }
+    .level-card-icon { width:36px; height:36px; background:var(--gray-100); border-radius:8px; flex-shrink:0; display:flex; align-items:center; justify-content:center; color:var(--gray-700); }
+    .level-card-title { font-weight:700; font-size:0.9rem; color:var(--black); }
+    .level-card-desc  { font-size:0.8rem; color:var(--gray-500); }
   </style>
 </head>
 <body>
@@ -53,40 +57,40 @@
   <!-- HOW TO READ EXAMPLES -->
   <section class="section" style="margin-bottom:32px;">
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px;">
-      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:16px; display:flex; align-items:center; gap:12px;">
-        <div style="width:36px; height:36px; background:var(--gray-100); border-radius:8px; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
+      <div class="level-card">
+        <div class="level-card-icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/><path d="M8 5.2A7 7 0 0 1 19 12"/><path d="M5 12A7 7 0 0 1 12 5c.34 0 .67.02 1 .07"/><circle cx="12" cy="5" r="1"/></svg>
         </div>
         <div>
-          <div style="font-weight:700; font-size:0.9rem; color:var(--black);">Beginner</div>
-          <div style="font-size:0.8rem; color:var(--text-muted);">No code. Done in &lt;30 min.</div>
+          <div class="level-card-title">Beginner</div>
+          <div class="level-card-desc">No code. Done in &lt;30 min.</div>
         </div>
       </div>
-      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:16px; display:flex; align-items:center; gap:12px;">
-        <div style="width:36px; height:36px; background:var(--gray-100); border-radius:8px; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
+      <div class="level-card">
+        <div class="level-card-icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/></svg>
         </div>
         <div>
-          <div style="font-weight:700; font-size:0.9rem; color:var(--black);">Intermediate</div>
-          <div style="font-size:0.8rem; color:var(--text-muted);">Some Python. 1–3 hrs.</div>
+          <div class="level-card-title">Intermediate</div>
+          <div class="level-card-desc">Some Python. 1–3 hrs.</div>
         </div>
       </div>
-      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:16px; display:flex; align-items:center; gap:12px;">
-        <div style="width:36px; height:36px; background:var(--gray-100); border-radius:8px; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
+      <div class="level-card">
+        <div class="level-card-icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
         </div>
         <div>
-          <div style="font-weight:700; font-size:0.9rem; color:var(--black);">Advanced</div>
-          <div style="font-size:0.8rem; color:var(--text-muted);">Full-stack. Production-ready.</div>
+          <div class="level-card-title">Advanced</div>
+          <div class="level-card-desc">Full-stack. Production-ready.</div>
         </div>
       </div>
-      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:16px; display:flex; align-items:center; gap:12px;">
-        <div style="width:36px; height:36px; background:var(--gray-100); border-radius:8px; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
+      <div class="level-card">
+        <div class="level-card-icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
         </div>
         <div>
-          <div style="font-weight:700; font-size:0.9rem; color:var(--black);">No Code</div>
-          <div style="font-size:0.8rem; color:var(--text-muted);">UI only. Any skill level.</div>
+          <div class="level-card-title">No Code</div>
+          <div class="level-card-desc">UI only. Any skill level.</div>
         </div>
       </div>
     </div>
@@ -497,7 +501,7 @@ Never make up information. Only answer based on what you know above.</code></pre
     <div class="section-subtitle">Step-by-step walkthroughs using n8n, Dify, and Copilot Studio — see agents work without writing a line of code.</div>
 
     <div id="nocode-n8n" style="scroll-margin-top:80px;">
-      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:24px 28px; box-shadow:var(--shadow); margin-bottom:24px;">
+      <div style="background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius); padding:24px 28px; box-shadow:var(--shadow); margin-bottom:24px;">
         <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
           <div style="width:40px; height:40px; background:var(--gray-100); border-radius:8px; flex-shrink:0;"></div>
           <div>
@@ -613,7 +617,7 @@ Never make up information. Only answer based on what you know above.</code></pre
     <div class="section-title">Responsible AI Deployment Checklist</div>
     <div class="section-subtitle">Vet whether an autonomous agent is safe to deploy. 12 questions every business should answer before going live.</div>
 
-    <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); margin-bottom:16px;">
+    <div style="background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); margin-bottom:16px;">
       <ul class="rai-list">
         <li class="rai-item">
           <div class="rai-num">1</div>

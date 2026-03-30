@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HR Onboarding Assistant — AgentAtlas</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <span class="logo-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      AgentAtlas
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="tools.html">Tools</a></li>
+      <li><a href="examples.html" class="active">Examples</a></li>
+      <li><a href="deep-tech.html">Deep Tech</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun"  width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> › <a href="examples.html">Examples</a> › HR Onboarding Assistant</div>
+    <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
+      <span class="badge badge-beginner">Beginner</span>
+      <span class="badge badge-nocode">No Code</span>
+    </div>
+    <h1>HR Onboarding Assistant</h1>
+    <p>Guide new hires through their first weeks via Microsoft Teams — no coding needed. Built with Copilot Studio in about an hour.</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- QUICK LINKS -->
+  <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:16px 20px; display:flex; gap:16px; flex-wrap:wrap; margin-bottom:40px; box-shadow:var(--shadow);">
+    <span style="font-size:0.85rem; font-weight:700; color:var(--text-muted); align-self:center;">Jump to:</span>
+    <a href="#problem" style="font-size:0.875rem; color:var(--black); font-weight:600; text-decoration:none;">The Problem</a>
+    <a href="#prereqs" style="font-size:0.875rem; color:var(--black); font-weight:600; text-decoration:none;">Prerequisites</a>
+    <a href="#build" style="font-size:0.875rem; color:var(--black); font-weight:600; text-decoration:none;">Build It</a>
+    <a href="#topics" style="font-size:0.875rem; color:var(--black); font-weight:600; text-decoration:none;">Configure Topics</a>
+    <a href="#deploy" style="font-size:0.875rem; color:var(--black); font-weight:600; text-decoration:none;">Deploy to Teams</a>
+    <a href="#test" style="font-size:0.875rem; color:var(--black); font-weight:600; text-decoration:none;">Test It</a>
+    <a href="#extend" style="font-size:0.875rem; color:var(--black); font-weight:600; text-decoration:none;">Extend It</a>
+  </div>
+
+  <!-- PROBLEM -->
+  <section class="section" id="problem" style="scroll-margin-top:80px;">
+    <div class="section-title">The Problem This Solves</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:24px;">
+      <div style="background:#fff0f0; border:1px solid #ffd0d0; border-radius:var(--radius); padding:20px;">
+        <h3 style="color:#c0392b; font-size:0.9rem; font-weight:700; text-transform:uppercase; margin-bottom:12px;">Without Agent</h3>
+        <ul style="list-style:none; font-size:0.9rem; line-height:2.2;">
+          <li>HR emails new hire a 20-page PDF handbook</li>
+          <li>New hire emails HR with 10+ basic questions</li>
+          <li>HR manually schedules intro meetings one by one</li>
+          <li>New hire waits days for IT equipment setup</li>
+          <li>Benefits enrollment deadline nearly missed</li>
+          <li style="font-weight:700; color:#c0392b; margin-top:4px;">2–3 hrs of HR time per new hire</li>
+        </ul>
+      </div>
+      <div style="background:#f0fff4; border:1px solid #b2f0c8; border-radius:var(--radius); padding:20px;">
+        <h3 style="color:#1a7a40; font-size:0.9rem; font-weight:700; text-transform:uppercase; margin-bottom:12px;">With Agent</h3>
+        <ul style="list-style:none; font-size:0.9rem; line-height:2.2;">
+          <li>Agent pings new hire in Teams on Day 1</li>
+          <li>Answers policy questions instantly, 24/7</li>
+          <li>Schedules intro meetings automatically via Outlook</li>
+          <li>Sends IT setup checklist and tracks completion</li>
+          <li>Reminds about benefits enrollment deadline</li>
+          <li style="font-weight:700; color:#1a7a40; margin-top:4px;">20 min of HR time per new hire</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREREQUISITES -->
+  <section class="section" id="prereqs" style="scroll-margin-top:80px;">
+    <div class="section-title">Prerequisites</div>
+    <div class="section-subtitle">What you need before you start. Everything here is included in a standard Microsoft 365 plan.</div>
+    <ul class="steps">
+      <li class="step">
+        <div class="step-num">✓</div>
+        <div class="step-content">
+          <h3>Microsoft 365 account with Copilot Studio access</h3>
+          <p>Copilot Studio is included in Microsoft 365 E3/E5 plans. If your organisation has M365, go to <a href="https://copilotstudio.microsoft.com" target="_blank">copilotstudio.microsoft.com</a> and sign in. If you see the home screen, you're good to go. If not, ask your IT admin to enable it — it takes about 5 minutes.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">✓</div>
+        <div class="step-content">
+          <h3>Microsoft Teams deployed in your org</h3>
+          <p>Most companies with M365 already have Teams. Confirm you can open Teams at <a href="https://teams.microsoft.com" target="_blank">teams.microsoft.com</a> or via the desktop app.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">✓</div>
+        <div class="step-content">
+          <h3>A list of 10–20 common onboarding questions</h3>
+          <p>Before building, write down the most common questions new hires ask HR. Examples: "When does benefits enrollment open?", "How do I request equipment?", "Who is my IT contact?", "What's the PTO policy?". The better this list, the more useful the bot.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">✓</div>
+        <div class="step-content">
+          <h3>Outlook Calendar access (for meeting scheduling)</h3>
+          <p>If you want the agent to book intro meetings, you'll need an Outlook account with the Office 365 connector. This is included in M365 — no extra setup needed.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- BUILD IT -->
+  <section class="section" id="build" style="scroll-margin-top:80px;">
+    <div class="section-title">Step 1 — Create the Agent in Copilot Studio</div>
+    <div class="section-subtitle">This takes about 10 minutes. You're building the core agent that will live in Teams.</div>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Open Copilot Studio</h3>
+          <p>Go to <a href="https://copilotstudio.microsoft.com" target="_blank">copilotstudio.microsoft.com</a> and sign in with your Microsoft 365 account. You'll land on the home dashboard.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Create a new agent</h3>
+          <p>Click <strong>Create</strong> in the left sidebar, then <strong>New agent</strong>. You'll see a text box asking you to describe your agent. Type something like:</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="code-block">
+      <div class="code-header"><span class="code-lang">Agent description (type this in the creation box)</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+      <pre><code>You are an HR Onboarding Assistant for [Company Name]. You help new employees 
+during their first 30 days. You answer questions about company policies, 
+benefits, equipment setup, and team introductions. You're friendly, 
+encouraging, and always guide new hires to the right next step.</code></pre>
+    </div>
+
+    <ol class="steps" style="counter-reset: step-counter 2;">
+      <li class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Name your agent and confirm</h3>
+          <p>Copilot Studio will suggest a name like "Onboarding Assistant". You can rename it to anything — e.g. "Alex the Onboarding Guide". Click <strong>Create</strong>. The agent skeleton is now live — you'll be taken to the agent editor.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Set the system prompt (Instructions)</h3>
+          <p>In the agent editor, click <strong>Instructions</strong> at the top. This is where you define the agent's core behaviour. Replace the default text with a detailed version for your company. Use the template below as a starting point:</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="code-block">
+      <div class="code-header"><span class="code-lang">Instructions (paste into Copilot Studio → Instructions)</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+      <pre><code>You are an HR Onboarding Assistant for [Company Name]. Your role is to guide 
+new employees through their first 30 days and answer any questions they have.
+
+PERSONALITY:
+- Warm, encouraging, and professional
+- Always celebrate milestones ("Great job completing your I-9!")
+- Never make new hires feel like they're bothering you
+
+TOPICS YOU CAN HELP WITH:
+1. First-day logistics (where to go, who to meet, what to bring)
+2. IT setup (laptop, email, software, VPN, Slack/Teams access)
+3. Benefits enrollment (health, dental, 401k — enrollment opens within 30 days)
+4. Company policies (PTO, remote work, code of conduct, expense policy)
+5. Team introductions (who does what, org chart, key contacts)
+6. Payroll (direct deposit setup, first paycheck timeline, pay schedule)
+7. Training and compliance (required courses, deadlines)
+
+KEY FACTS TO KNOW:
+- Benefits enrollment window: first 30 days after start date
+- PTO accrual starts after 90-day probation period
+- IT help desk: it-help@[company].com or Teams channel #it-support
+- HR contact for urgent issues: hr@[company].com
+- First paycheck: [X] days after start date
+
+ALWAYS DO:
+- If you don't know the exact answer, say "I'll flag this for HR to follow up 
+  with you directly" and offer to create a help ticket
+- End every conversation by asking if there's anything else you can help with
+- Never make up policy details — only state facts listed above
+
+NEVER DO:
+- Make promises about promotions, raises, or performance
+- Share confidential information about other employees
+- Provide legal advice on employment matters</code></pre>
+    </div>
+
+    <div class="callout callout-tip">
+      <span class="callout-icon"></span>
+      <p><strong>Important:</strong> Replace all <code>[bracketed placeholders]</code> with your actual company details before testing. The more specific you make the instructions, the better the agent performs.</p>
+    </div>
+  </section>
+
+  <!-- CONFIGURE TOPICS -->
+  <section class="section" id="topics" style="scroll-margin-top:80px;">
+    <div class="section-title">Step 2 — Configure Conversation Topics</div>
+    <div class="section-subtitle">Topics are like scripts for specific conversations. Set these up so the agent handles common requests consistently.</div>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Go to the Topics tab</h3>
+          <p>In the agent editor, click <strong>Topics</strong> in the top navigation. You'll see a list of system topics (Greeting, Escalate, etc.) that are created automatically. These are fine — leave them as-is for now.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Create a "Day 1 Checklist" topic</h3>
+          <p>Click <strong>+ Add a topic → Create from blank</strong>. Name it "Day 1 Checklist". In the <strong>Trigger phrases</strong> box, add phrases that would trigger this topic:</p>
+          <ul style="font-size:0.9rem; margin:8px 0 8px 16px; line-height:2;">
+            <li>what do I do on my first day</li>
+            <li>day one checklist</li>
+            <li>first day</li>
+            <li>what should I prepare</li>
+            <li>getting started</li>
+          </ul>
+          <p>Then in the conversation flow, add a <strong>Message</strong> node with this content:</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="code-block">
+      <div class="code-header"><span class="code-lang">Day 1 Checklist message (paste into the Message node)</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+      <pre><code>Welcome to [Company Name]! Here's your Day 1 checklist:
+
+✅ **Before you arrive:**
+- Bring your ID and Social Security card (for I-9 verification)
+- Download Microsoft Teams on your phone
+- Check your email for your welcome packet
+
+✅ **Morning (9am–12pm):**
+- Meet with HR for paperwork (Room 101 or video link sent to your email)
+- Get your laptop from IT (Floor 3, Desk B-12)
+- Set up your email and Teams account
+
+✅ **Afternoon (1pm–5pm):**
+- Meet your manager for a team intro call (check your calendar)
+- Join the #new-joiners Slack/Teams channel and introduce yourself
+- Complete the 2-hour compliance training (link in your welcome email)
+
+Is there a specific part of Day 1 you'd like more details on?</code></pre>
+    </div>
+
+    <ol class="steps" style="counter-reset: step-counter 2;">
+      <li class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Create a "Benefits Questions" topic</h3>
+          <p>Repeat the same process: <strong>Add a topic → Create from blank</strong>. Name it "Benefits". Add trigger phrases: "benefits", "health insurance", "dental", "401k", "enrollment", "when can I sign up for benefits". Then add a message node with your benefits overview. Include the enrollment deadline, how to access the benefits portal, and your HR contact for complex questions.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Create a "Request IT Help" topic</h3>
+          <p>Add trigger phrases: "laptop not working", "can't log in", "VPN", "software request", "IT help", "technical problem". In the conversation flow, add a <strong>Question</strong> node that asks: "What kind of IT issue are you having? (a) Login/password (b) Hardware (c) Software/app access". Then add different <strong>Message</strong> nodes based on the answer, each with the right IT contact or self-service link.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h3>Add a "Schedule Intro Meeting" topic (with Outlook)</h3>
+          <p>This topic lets new hires schedule intro meetings directly from the chat. Name it "Schedule Meeting". Add trigger phrases: "schedule a meeting", "book a call", "meet my team", "intro meeting". In the flow, add a <strong>Question</strong> node asking who they want to meet (their manager, IT, a teammate). Then add an <strong>Action → Office 365 Outlook → Create event</strong> action and map the fields. See Step 3 (Add Actions) for how to connect Outlook.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="callout callout-tip">
+      <span class="callout-icon"></span>
+      <p><strong>Tip:</strong> You don't need to create topics for every question — the AI model handles anything not matched by a topic. Topics are best for structured, multi-step conversations (like scheduling a meeting or collecting form information).</p>
+    </div>
+  </section>
+
+  <!-- ADD ACTIONS -->
+  <section class="section" id="actions" style="scroll-margin-top:80px;">
+    <div class="section-title">Step 3 — Add Outlook Calendar Action</div>
+    <div class="section-subtitle">Connect Outlook so the agent can schedule intro meetings on behalf of the new hire.</div>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Open the Actions panel</h3>
+          <p>In the agent editor, click <strong>Actions</strong> in the top nav bar. Click <strong>+ Add an action</strong>.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Search for Outlook</h3>
+          <p>In the action search bar, type <strong>"Office 365 Outlook"</strong>. You'll see a list of available actions. Select <strong>Create event (V4)</strong>. This is the action that creates a calendar event.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Connect your Microsoft account</h3>
+          <p>Click <strong>Sign in</strong> when prompted. Sign in with your Microsoft 365 work account. Grant the requested permissions (calendar read/write). Once connected, the action is available to use in your topics.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Map the fields in the "Schedule Intro Meeting" topic</h3>
+          <p>Go back to your "Schedule Intro Meeting" topic. After the Question node asking who they want to meet, add an <strong>Action</strong> node. Select the Outlook "Create event" action. Map the fields:</p>
+          <ul style="font-size:0.9rem; margin:8px 0 8px 16px; line-height:2;">
+            <li><strong>Subject:</strong> "Intro meeting: {new hire name} + {attendee name}"</li>
+            <li><strong>Start time:</strong> Use a Question node to ask "What day and time works for you?"</li>
+            <li><strong>Duration:</strong> 30 minutes</li>
+            <li><strong>Attendees:</strong> The new hire's email + the attendee's email</li>
+            <li><strong>Body:</strong> "This intro meeting was scheduled via the HR Onboarding Assistant."</li>
+          </ul>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h3>Add a confirmation message</h3>
+          <p>After the Action node, add a <strong>Message</strong> node: "Done! I've sent a calendar invite to both of you. Is there anyone else you'd like to schedule an intro with?" Save the topic.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- DEPLOY -->
+  <section class="section" id="deploy" style="scroll-margin-top:80px;">
+    <div class="section-title">Step 4 — Deploy to Microsoft Teams</div>
+    <div class="section-subtitle">Publishing to Teams takes under 5 minutes. Once done, any employee can chat with the agent directly in Teams.</div>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Publish the agent</h3>
+          <p>In the Copilot Studio editor, click <strong>Publish</strong> in the top-right corner. Click <strong>Publish</strong> again to confirm. This makes the latest version of your agent live. Publishing takes about 30 seconds.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Open the Channels panel</h3>
+          <p>After publishing, click <strong>Channels</strong> in the left sidebar. You'll see a list of deployment channels: Teams, a web page, Facebook, etc.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Enable the Teams channel</h3>
+          <p>Click <strong>Microsoft Teams</strong>. Toggle it to <strong>On</strong>. Click <strong>Turn on Teams</strong> to confirm. You'll see a link appear — this is the deep link to your agent in Teams.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Open in Teams and test</h3>
+          <p>Click <strong>Open in Teams</strong>. Microsoft Teams opens and you'll see your agent in your chat list. Send it a message — "Hi, I'm a new employee, what do I do on my first day?" — and verify it responds correctly.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h3>Share with new hires</h3>
+          <p>Copy the Teams deep link from Copilot Studio. Include it in your new hire welcome email: <em>"Before your first day, open this link to chat with our onboarding assistant: [link]"</em>. You can also pin the agent to the Teams sidebar for easy access — go to the <strong>Apps</strong> section in Teams, find your agent, and pin it.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="callout callout-tip">
+      <span class="callout-icon"></span>
+      <p><strong>Admin tip:</strong> If you want to pre-install the agent for all new hires automatically (so it appears in their Teams on Day 1 without them having to find it), ask your IT admin to push it via the Teams Admin Center → <strong>Setup policies</strong> → <strong>Pinned apps</strong>.</p>
+    </div>
+  </section>
+
+  <!-- TEST -->
+  <section class="section" id="test" style="scroll-margin-top:80px;">
+    <div class="section-title">Step 5 — Test Your Agent</div>
+    <div class="section-subtitle">Before sharing with real new hires, run through these test scenarios to make sure everything works.</div>
+
+    <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);">
+      <table style="width:100%; border-collapse:collapse; font-size:0.875rem;">
+        <thead>
+          <tr style="background:var(--gray-100);">
+            <th style="padding:12px 16px; text-align:left; font-weight:700; color:var(--black); border-bottom:1px solid var(--border);">Test Message</th>
+            <th style="padding:12px 16px; text-align:left; font-weight:700; color:var(--black); border-bottom:1px solid var(--border);">Expected Response</th>
+            <th style="padding:12px 16px; text-align:left; font-weight:700; color:var(--black); border-bottom:1px solid var(--border);">Pass?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 16px;">"Hi, I'm starting Monday"</td>
+            <td style="padding:12px 16px;">Warm welcome + offer Day 1 checklist</td>
+            <td style="padding:12px 16px; color:var(--text-muted);">☐</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 16px;">"What do I do on my first day?"</td>
+            <td style="padding:12px 16px;">Day 1 Checklist message with all items</td>
+            <td style="padding:12px 16px; color:var(--text-muted);">☐</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 16px;">"When can I sign up for health insurance?"</td>
+            <td style="padding:12px 16px;">Mentions 30-day enrollment window and benefits portal</td>
+            <td style="padding:12px 16px; color:var(--text-muted);">☐</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 16px;">"My laptop won't turn on"</td>
+            <td style="padding:12px 16px;">IT help desk contact information</td>
+            <td style="padding:12px 16px; color:var(--text-muted);">☐</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 16px;">"Can you schedule a meeting with Sarah in HR?"</td>
+            <td style="padding:12px 16px;">Asks for date/time and creates calendar invite</td>
+            <td style="padding:12px 16px; color:var(--text-muted);">☐</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 16px;">"What's the maternity leave policy?"</td>
+            <td style="padding:12px 16px;">Answers if you added it, otherwise gracefully escalates to HR</td>
+            <td style="padding:12px 16px; color:var(--text-muted);">☐</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:16px; font-size:0.875rem; color:var(--text-muted);">Use the <strong>Test agent</strong> panel inside Copilot Studio to run these tests before publishing. It's the chat icon in the bottom-right of the editor.</p>
+  </section>
+
+  <!-- EXTEND -->
+  <section class="section" id="extend" style="scroll-margin-top:80px;">
+    <div class="section-title">Extend It — What to Build Next</div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px;">
+      <div class="card">
+        <h3>📋 Form Collection</h3>
+        <p>Add an Action that sends a link to your I-9, W-4, or direct deposit form when new hires ask about paperwork. Use Power Automate to track which forms have been completed.</p>
+      </div>
+      <div class="card">
+        <h3>📅 Automated 30/60/90 Check-ins</h3>
+        <p>Use Power Automate to trigger the agent to proactively message new hires at Day 7, Day 30, and Day 60 with check-in questions and the right resources for that stage.</p>
+      </div>
+      <div class="card">
+        <h3>🔗 SharePoint Knowledge Base</h3>
+        <p>In Copilot Studio, add your company SharePoint site as a <strong>Knowledge source</strong>. The agent will then answer questions directly from your HR documents, policies, and FAQs — no manual updating needed.</p>
+      </div>
+      <div class="card">
+        <h3>📊 Completion Tracking</h3>
+        <p>Use Power Automate to log which onboarding tasks each new hire completes to a SharePoint list. HR can see at a glance who has finished their compliance training, benefits enrollment, etc.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>AgentAtlas &nbsp;·&nbsp; Navigate the world of AI agents &nbsp;·&nbsp; <a href="https://github.com/viveksinha/agent-atlas" target="_blank">GitHub</a></p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

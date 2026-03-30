@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meeting Summarizer &amp; Action Item Extractor — AgentAtlas</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <span class="logo-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      AgentAtlas
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="tools.html">Tools</a></li>
+      <li><a href="examples.html" class="active">Examples</a></li>
+      <li><a href="deep-tech.html">Deep Tech</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun"  width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> › <a href="examples.html">Examples</a> › Meeting Summarizer</div>
+    <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
+      <span class="badge badge-beginner">Beginner</span>
+      <span class="badge badge-nocode">No Code</span>
+    </div>
+    <h1>Meeting Summarizer &amp; Action Item Extractor</h1>
+    <p>Turn a raw meeting transcript into a structured summary, decision log, action items with owners, and a ready-to-send follow-up email — in under 30 seconds. Zero setup required.</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- QUICK LINKS -->
+  <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:16px 20px; display:flex; gap:16px; flex-wrap:wrap; margin-bottom:40px; box-shadow:var(--shadow);">
+    <span style="font-size:0.85rem; font-weight:700; color:var(--text-muted); align-self:center;">Jump to:</span>
+    <a href="#problem" style="font-size:0.875rem; color:var(--black); font-weight:600; text-decoration:none;">The Problem</a>
+    <a href="#basic" style="font-size:0.875rem; color:var(--black); font-weight:600; text-decoration:none;">Basic: One-Shot</a>
+    <a href="#project" style="font-size:0.875rem; color:var(--black); font-weight:600; text-decoration:none;">Better: Claude Project</a>
+    <a href="#prompt" style="font-size:0.875rem; color:var(--black); font-weight:600; text-decoration:none;">The Prompt</a>
+    <a href="#output" style="font-size:0.875rem; color:var(--black); font-weight:600; text-decoration:none;">Sample Output</a>
+    <a href="#automate" style="font-size:0.875rem; color:var(--black); font-weight:600; text-decoration:none;">Automate It</a>
+    <a href="#extend" style="font-size:0.875rem; color:var(--black); font-weight:600; text-decoration:none;">Extend It</a>
+  </div>
+
+  <!-- PROBLEM -->
+  <section class="section" id="problem" style="scroll-margin-top:80px;">
+    <div class="section-title">The Problem This Solves</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:24px;">
+      <div style="background:#fff0f0; border:1px solid #ffd0d0; border-radius:var(--radius); padding:20px;">
+        <h3 style="color:#c0392b; font-size:0.9rem; font-weight:700; text-transform:uppercase; margin-bottom:12px;">Without Agent</h3>
+        <ul style="list-style:none; font-size:0.9rem; line-height:2.2;">
+          <li>60-minute meeting ends</li>
+          <li>Everyone has slightly different notes</li>
+          <li>Action items are buried in chat</li>
+          <li>Follow-up email takes 20 minutes to write</li>
+          <li>Half the decisions are forgotten by next week</li>
+          <li style="font-weight:700; color:#c0392b; margin-top:4px;">30+ min of post-meeting admin per person</li>
+        </ul>
+      </div>
+      <div style="background:#f0fff4; border:1px solid #b2f0c8; border-radius:var(--radius); padding:20px;">
+        <h3 style="color:#1a7a40; font-size:0.9rem; font-weight:700; text-transform:uppercase; margin-bottom:12px;">With Agent</h3>
+        <ul style="list-style:none; font-size:0.9rem; line-height:2.2;">
+          <li>Paste transcript after the call</li>
+          <li>Get structured summary in 15 seconds</li>
+          <li>All action items with owners clearly listed</li>
+          <li>Follow-up email drafted and ready to send</li>
+          <li>Decisions logged and searchable</li>
+          <li style="font-weight:700; color:#1a7a40; margin-top:4px;">Under 2 minutes of post-meeting admin</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BASIC APPROACH -->
+  <section class="section" id="basic" style="scroll-margin-top:80px;">
+    <div class="section-title">Approach A — One-Shot (Fastest, 2 minutes)</div>
+    <div class="section-subtitle">No account setup needed. Just open Claude and paste a prompt. Perfect for occasional use.</div>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Get your meeting transcript</h3>
+          <p>You need the text of your meeting. There are three ways to get it:</p>
+          <ul style="font-size:0.9rem; margin:8px 0 8px 16px; line-height:2;">
+            <li><strong>Microsoft Teams:</strong> After the meeting ends, go to the chat thread → find the meeting recap → click <strong>View transcript</strong> → copy all text</li>
+            <li><strong>Zoom:</strong> Enable transcription in settings before the call. After the call, go to <strong>My Recordings</strong> → click the recording → download the <code>.vtt</code> transcript file → open it in a text editor and copy the text</li>
+            <li><strong>Google Meet:</strong> Enable transcripts in Google Workspace Admin settings. After the meeting, the transcript appears in the meeting organiser's Google Drive within a few minutes</li>
+            <li><strong>Manual notes:</strong> Copy-paste your own meeting notes — even messy notes work fine</li>
+          </ul>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Open Claude and paste the prompt</h3>
+          <p>Go to <a href="https://claude.ai" target="_blank">claude.ai</a>. Start a new conversation. Paste the prompt below, then paste your transcript underneath it.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="code-block">
+      <div class="code-header"><span class="code-lang">One-shot meeting summary prompt</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+      <pre><code>You are an expert meeting facilitator. Analyse the meeting transcript below 
+and produce a structured summary with the following sections:
+
+## Meeting Summary
+A 3-5 sentence paragraph capturing what the meeting was about and the key 
+outcome.
+
+## Key Decisions
+A numbered list of decisions made in this meeting. Be specific — include 
+what was decided and any conditions or caveats.
+
+## Action Items
+A table with columns: | Action | Owner | Due Date | Priority |
+Extract every task, follow-up, or commitment mentioned. If no due date was 
+stated, write "TBD". If no owner was named, write "Unassigned".
+
+## Open Questions
+Things that came up but were NOT resolved. These need a follow-up.
+
+## Follow-up Email Draft
+Write a professional, concise follow-up email from the meeting organiser 
+to all attendees. Include: brief summary, the decisions list, and the 
+action items table. Keep it under 200 words.
+
+---
+TRANSCRIPT:
+[PASTE YOUR TRANSCRIPT HERE]</code></pre>
+    </div>
+
+    <ol class="steps" style="counter-reset: step-counter 2;">
+      <li class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Send and review the output</h3>
+          <p>Hit Enter. Claude will return all five sections in about 10–20 seconds. Review the action items — occasionally an action item might be attributed to the wrong person if the transcript was unclear. Edit as needed, then copy the follow-up email section and send it.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- PROJECT APPROACH -->
+  <section class="section" id="project" style="scroll-margin-top:80px;">
+    <div class="section-title">Approach B — Claude Project (Recommended, 10 minutes setup)</div>
+    <div class="section-subtitle">Set up a Claude Project once, then every meeting summary takes just a paste. The project remembers your preferences and company context.</div>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Create a new Claude Project</h3>
+          <p>Go to <a href="https://claude.ai" target="_blank">claude.ai</a>. In the left sidebar, click <strong>Projects → New Project</strong>. Name it "Meeting Summarizer".</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Set the Project Instructions</h3>
+          <p>Click <strong>Project Instructions</strong>. This is the "system prompt" that applies to every conversation in this project. Paste the instructions below, customising the bracketed parts for your company:</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="code-block">
+      <div class="code-header"><span class="code-lang">Project Instructions (paste into Claude Project → Instructions)</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+      <pre><code>You are a meeting assistant for [Company Name]. Your job is to turn meeting 
+transcripts into clean, structured summaries.
+
+COMPANY CONTEXT:
+- We use JIRA for task tracking. When listing action items, add a note 
+  "(create JIRA ticket)" for any task that needs tracking.
+- Our team: [List key team members and their roles, e.g. "Sarah = Product Lead, 
+  James = Engineering Lead, Priya = Design Lead"]
+- Meeting types we have: Sprint Planning, Design Review, Executive Sync, 
+  Client Call, Team Standup
+
+OUTPUT FORMAT:
+Always produce the following sections:
+1. Meeting Summary (3-5 sentences)
+2. Key Decisions (numbered list)
+3. Action Items (table: Action | Owner | Due Date | Priority)
+4. Open Questions (numbered list)
+5. Follow-up Email Draft (professional, under 200 words)
+
+FORMATTING RULES:
+- Use markdown formatting
+- Action item owners should match the team member names above
+- If a due date isn't mentioned, write "TBD — confirm with owner"
+- Flag any action item where the owner is ambiguous with ⚠️
+
+TONE:
+- Professional and concise
+- Never pad with filler sentences
+- If the transcript is very short (under 5 minutes), note that in the summary</code></pre>
+    </div>
+
+    <ol class="steps" style="counter-reset: step-counter 2;">
+      <li class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>(Optional) Upload your team org chart or glossary</h3>
+          <p>In the Project, click <strong>Add content → Upload file</strong>. Upload a PDF or text file with your team structure, common acronyms, or project names. Claude will use this to correctly attribute action items and understand company-specific terms. For example, if you have a project called "Phoenix", Claude won't confuse it with something else.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Use it every day in one step</h3>
+          <p>Open the Meeting Summarizer project. Start a new chat. Type just: <em>"Summarise this meeting:"</em> and paste the transcript. The project instructions handle everything else. No need to repeat the full prompt every time.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- THE PROMPT EXPLAINED -->
+  <section class="section" id="prompt" style="scroll-margin-top:80px;">
+    <div class="section-title">Understanding the Prompt</div>
+    <div class="section-subtitle">Why each section of the prompt matters — so you can adapt it for your needs.</div>
+
+    <div style="display:grid; gap:12px;">
+      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);">
+        <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:8px;">Meeting Summary section</h3>
+        <p style="font-size:0.875rem; color:var(--text-muted); margin:0;">Forces Claude to synthesise the core purpose and outcome — not just list what was said. The 3-5 sentence constraint prevents it from just regurgitating the transcript. This is what someone who missed the meeting should read first.</p>
+      </div>
+      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);">
+        <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:8px;">Key Decisions section</h3>
+        <p style="font-size:0.875rem; color:var(--text-muted); margin:0;">Explicitly separates "things discussed" from "things decided". Without this, action items and decisions blur together. This creates a decision log you can reference later when someone asks "wait, didn't we agree to X?"</p>
+      </div>
+      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);">
+        <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:8px;">Action Items table with Owner + Due Date</h3>
+        <p style="font-size:0.875rem; color:var(--text-muted); margin:0;">The table format forces structure. Specifying Owner and Due Date as required columns makes Claude surface ambiguities (writing "Unassigned" or "TBD" when these aren't clear) that would otherwise stay hidden in prose.</p>
+      </div>
+      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);">
+        <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:8px;">Open Questions section</h3>
+        <p style="font-size:0.875rem; color:var(--text-muted); margin:0;">This is often the most valuable output. Conversations often surface real problems without resolving them. Claude picks up on phrases like "we should look into...", "I'm not sure about...", "let's revisit..." and surfaces them explicitly.</p>
+      </div>
+      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);">
+        <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:8px;">Follow-up Email Draft</h3>
+        <p style="font-size:0.875rem; color:var(--text-muted); margin:0;">The 200-word constraint is intentional — it forces conciseness. Most follow-up emails are too long to read. Including the decisions and action items inline means recipients can act without opening a separate document.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE OUTPUT -->
+  <section class="section" id="output" style="scroll-margin-top:80px;">
+    <div class="section-title">Sample Output</div>
+    <div class="section-subtitle">Here's an example of what you'll get from a 45-minute sprint planning meeting transcript.</div>
+
+    <div class="code-block">
+      <div class="code-header"><span class="code-lang">Sample Claude output</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+      <pre><code>## Meeting Summary
+This sprint planning session covered Q2 sprint 4 priorities for the mobile 
+team. The team agreed to prioritise the checkout flow redesign over the 
+notification feature due to the upcoming product launch deadline. Three 
+engineers were assigned to the checkout work, with the goal of completing 
+a working prototype by end of week.
+
+## Key Decisions
+1. Checkout flow redesign is the P0 priority for Sprint 4 (due to April 15 
+   launch deadline)
+2. Notification feature is deferred to Sprint 5
+3. James will handle backend API changes; Sarah and Raj take frontend
+4. Daily standups move from 9am to 9:30am starting Monday
+
+## Action Items
+| Action                              | Owner | Due Date  | Priority |
+|-------------------------------------|-------|-----------|----------|
+| Finalize checkout UI mockups        | Sarah | Fri Apr 4 | High     |
+| Implement payment API endpoint      | James | Tue Apr 8 | High     |
+| Set up staging environment          | Raj   | Mon Apr 7 | Medium   |
+| Update project timeline in JIRA     | Priya | Today     | Medium   |
+| Send updated standup invite to team | Sarah | Today     | Low      |
+
+## Open Questions
+1. ⚠️ Who owns the QA pass for the checkout flow? Not discussed.
+2. Does the April 15 deadline include App Store review time (~2 days)?
+3. Are there any analytics requirements for the new checkout — TBD with 
+   data team
+
+## Follow-up Email Draft
+Subject: Sprint 4 Planning — Decisions & Actions
+
+Hi team,
+
+Thanks for a productive planning session. Here's a quick recap.
+
+**We agreed:** Checkout flow is our P0 for Sprint 4. Notification feature 
+moves to Sprint 5. Daily standups shift to 9:30am Monday.
+
+**Action items:**
+- Sarah: Finalize checkout UI mockups by Fri Apr 4
+- James: Implement payment API endpoint by Tue Apr 8  
+- Raj: Staging environment setup by Mon Apr 7
+- Priya: Update JIRA timeline today
+- Sarah: Send updated standup invite today
+
+**Open items needing follow-up:** QA ownership for checkout, App Store 
+review timing vs launch date, analytics requirements.
+
+Let me know if I've missed anything.
+
+[Your name]</code></pre>
+    </div>
+  </section>
+
+  <!-- AUTOMATE -->
+  <section class="section" id="automate" style="scroll-margin-top:80px;">
+    <div class="section-title">Level Up — Automate the Whole Flow with n8n</div>
+    <div class="section-subtitle">If you do this daily, automate it: Teams/Zoom → transcript → Claude → formatted summary → email to attendees. No manual copy-paste.</div>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Sign up for n8n (free cloud trial)</h3>
+          <p>Go to <a href="https://n8n.io" target="_blank">n8n.io</a> → click <strong>Start for free</strong>. No credit card needed for the trial. This is the automation canvas where you'll connect everything.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Create a new workflow with a webhook trigger</h3>
+          <p>In n8n, click <strong>New Workflow → Add first step → Webhook</strong>. Copy the webhook URL — you'll use this to trigger the workflow when a new transcript is ready. Set the HTTP method to POST.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Add an Anthropic (Claude) node</h3>
+          <p>Click the <strong>+</strong> button to add a node. Search for <strong>Anthropic</strong>. Select <strong>Message model</strong>. Add your Anthropic API key (get one at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a>). Set the model to <code>claude-3-5-sonnet-20241022</code>. In the prompt field, paste the meeting summary prompt and use <code>{{ $json.transcript }}</code> as a variable to insert the transcript text from the webhook payload.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Add an email send node</h3>
+          <p>Add a <strong>Gmail</strong> or <strong>Microsoft Outlook</strong> node. Set the <strong>To</strong> field to the attendee list (passed in the webhook payload). Set the <strong>Subject</strong> to "Meeting Summary — {{ $json.meeting_name }}". Set the <strong>Body</strong> to Claude's output from the previous step.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h3>Trigger from your meeting platform</h3>
+          <p>The trigger depends on your platform: <strong>Zoom</strong> supports webhooks natively (Zoom App Marketplace → build an app → subscribe to the "recording.completed" event). <strong>Microsoft Teams</strong> via Power Automate (trigger: "When a meeting recording is available" → HTTP action → POST transcript to your n8n webhook URL). <strong>Manual:</strong> Use a simple web form (n8n has a built-in Form trigger) where you paste the transcript and hit submit.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="callout callout-tip">
+      <span class="callout-icon"></span>
+      <p><strong>Tip:</strong> For Zoom, the transcript is in a <code>.vtt</code> format. Add a <strong>Code node</strong> in n8n before the Claude node to strip the timestamp tags: <code>return items[0].json.transcript.replace(/^\d{2}:\d{2}:\d{2}\.\d{3} --&gt; .+$/gm, '').trim()</code></p>
+    </div>
+  </section>
+
+  <!-- EXTEND -->
+  <section class="section" id="extend" style="scroll-margin-top:80px;">
+    <div class="section-title">Extend It — Prompt Variations for Different Meeting Types</div>
+    <div style="display:grid; gap:12px;">
+      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);">
+        <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:8px;">Client Call / Sales Meeting</h3>
+        <p style="font-size:0.875rem; color:var(--text-muted); margin:0 0 8px;">Add to your prompt: <em>"Also extract: (1) Pain points the client expressed, (2) Commitments our team made to the client, (3) Objections raised and how they were addressed, (4) Agreed next steps with dates."</em></p>
+      </div>
+      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);">
+        <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:8px;">Executive / Board Meeting</h3>
+        <p style="font-size:0.875rem; color:var(--text-muted); margin:0 0 8px;">Add: <em>"Format the Key Decisions section as a formal resolution log with wording: 'It was resolved that [decision].' Include any votes or approval references. The summary should be suitable for board minutes."</em></p>
+      </div>
+      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);">
+        <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:8px;">Design Review / Product Meeting</h3>
+        <p style="font-size:0.875rem; color:var(--text-muted); margin:0 0 8px;">Add: <em>"Include a 'Design Feedback' section listing every piece of feedback given on designs, grouped by: Approved as-is | Needs iteration | Rejected. Note who gave each piece of feedback."</em></p>
+      </div>
+      <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);">
+        <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:8px;">Incident / Post-Mortem Review</h3>
+        <p style="font-size:0.875rem; color:var(--text-muted); margin:0 0 8px;">Add: <em>"Structure the output as a post-mortem report with sections: Timeline of events | Root cause analysis | Contributing factors | What went well | Corrective actions (with owners and deadlines) | Preventive measures."</em></p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>AgentAtlas &nbsp;·&nbsp; Navigate the world of AI agents &nbsp;·&nbsp; <a href="https://github.com/viveksinha/agent-atlas" target="_blank">GitHub</a></p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
