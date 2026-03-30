@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools — Agentic AI Guide</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Agentic <span>AI Guide</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="tools.html" class="active">Tools</a></li>
+      <li><a href="insurance.html">Insurance</a></li>
+      <li><a href="howto.html">How-To Guide</a></li>
+      <li><a href="capabilities.html">Advanced</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> › Tools</div>
+    <h1>🛠 Your Two Tools</h1>
+    <p>You already have everything you need. Here's a deep dive into Microsoft Copilot Studio and Claude — and when to use each.</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- AT A GLANCE -->
+  <section class="section">
+    <div class="section-title">At a Glance</div>
+    <div class="section-subtitle">Both tools are powerful. They complement each other — and you can even use Claude as the AI brain inside Copilot Studio.</div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Microsoft Copilot Studio</th>
+            <th>Claude (claude.ai)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cost</td>
+            <td>Included in Microsoft 365</td>
+            <td>Free tier available; paid for heavy use</td>
+          </tr>
+          <tr>
+            <td>Coding required</td>
+            <td>None — describe in plain English</td>
+            <td>None for prototyping / minimal for API</td>
+          </tr>
+          <tr>
+            <td>Best for</td>
+            <td>Company-wide deployment in Teams/Outlook</td>
+            <td>Quick prototyping, personal use, custom apps</td>
+          </tr>
+          <tr>
+            <td>Connects to Microsoft apps</td>
+            <td>✅ Native (Teams, SharePoint, Outlook)</td>
+            <td>Via API integration</td>
+          </tr>
+          <tr>
+            <td>Time to first agent</td>
+            <td>~1 hour (including deployment)</td>
+            <td>~5 minutes (Claude Projects)</td>
+          </tr>
+          <tr>
+            <td>Pre-built templates</td>
+            <td>✅ Insurance, HR, IT, Customer Service</td>
+            <td>No — you write the instructions</td>
+          </tr>
+          <tr>
+            <td>Share with your team</td>
+            <td>Publish to Teams — everyone uses it instantly</td>
+            <td>Share a Project link</td>
+          </tr>
+          <tr>
+            <td>Use Claude as AI brain</td>
+            <td>✅ Yes — selectable in Settings</td>
+            <td>It IS Claude</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-tip" style="margin-top:24px;">
+      <span class="callout-icon">💡</span>
+      <p><strong>Best approach:</strong> Prototype in Claude (5 minutes, no cost, no setup) → Once happy with the agent behavior → Rebuild in Copilot Studio and deploy to Teams for the whole company.</p>
+    </div>
+  </section>
+
+  <!-- TABS: COPILOT / CLAUDE -->
+  <section class="section">
+    <div id="toolTabs" class="tabs">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="showTab('toolTabs','copilotTab')">Microsoft Copilot Studio</button>
+        <button class="tab-btn" onclick="showTab('toolTabs','claudeTab')">Claude (Anthropic)</button>
+      </div>
+
+      <!-- COPILOT TAB -->
+      <div id="copilotTab" class="tab-panel active">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:32px;">
+          <div>
+            <h3 style="font-size:1.1rem; font-weight:700; color:var(--navy); margin-bottom:12px;">What It Is</h3>
+            <p style="font-size:0.925rem; color:var(--text-muted); line-height:1.7;">
+              Microsoft Copilot Studio is the no-code platform inside Microsoft 365 for building AI agents.
+              You describe what you want your agent to do in plain English, and it builds the setup.
+              You then deploy it to Teams, Outlook, or a website with a single click.
+            </p>
+            <p style="font-size:0.925rem; color:var(--text-muted); line-height:1.7; margin-top:12px;">
+              It's already included in your Microsoft 365 subscription — no extra purchase needed.
+            </p>
+          </div>
+          <div>
+            <h3 style="font-size:1.1rem; font-weight:700; color:var(--navy); margin-bottom:12px;">What Makes It Special</h3>
+            <ul style="list-style:none; font-size:0.9rem; color:var(--text-muted);">
+              <li style="padding:6px 0; border-bottom:1px solid var(--border); display:flex; gap:8px;"><span style="color:var(--success);">✓</span> No code — describe agent in plain English</li>
+              <li style="padding:6px 0; border-bottom:1px solid var(--border); display:flex; gap:8px;"><span style="color:var(--success);">✓</span> One-click deploy to Microsoft Teams</li>
+              <li style="padding:6px 0; border-bottom:1px solid var(--border); display:flex; gap:8px;"><span style="color:var(--success);">✓</span> Native Outlook Calendar &amp; Email connectors</li>
+              <li style="padding:6px 0; border-bottom:1px solid var(--border); display:flex; gap:8px;"><span style="color:var(--success);">✓</span> Connects to SharePoint knowledge bases</li>
+              <li style="padding:6px 0; border-bottom:1px solid var(--border); display:flex; gap:8px;"><span style="color:var(--success);">✓</span> Pre-built insurance agent templates</li>
+              <li style="padding:6px 0; display:flex; gap:8px;"><span style="color:var(--success);">✓</span> Can use Claude as the AI model</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 style="font-size:1.1rem; font-weight:700; color:var(--navy); margin-bottom:20px;">How to Get Started — Step by Step</h3>
+
+        <ol class="steps">
+          <li class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h3>Open Copilot Studio</h3>
+              <p>Go to <a href="https://copilotstudio.microsoft.com" target="_blank">copilotstudio.microsoft.com</a> and sign in with your Microsoft 365 work account. It's already included — no sign-up needed.</p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h3>Create a New Agent</h3>
+              <p>Click <strong>"Create"</strong> → <strong>"New Agent"</strong>. Describe your agent in plain English, for example:<br><em>"You are an annuity advisor assistant. Ask customers about their age, retirement timeline, and investment amount, then recommend the right product."</em></p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h3>Choose Your AI Model (Optional)</h3>
+              <p>Go to <strong>Agent Settings → Model</strong>. You can select <strong>Claude Sonnet</strong> instead of GPT if you prefer Anthropic's responses.</p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <h3>Add Actions (Connect to Real Systems)</h3>
+              <p>Go to <strong>"Actions" → "Add an action"</strong>. Search for <strong>"Office 365 Outlook"</strong> to add calendar booking and email sending — all through a visual UI, no code.</p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <h3>Deploy to Microsoft Teams</h3>
+              <p>Go to <strong>"Channels" → "Microsoft Teams" → "Turn on Teams" → "Publish"</strong>. Your agent appears in Teams within minutes. Pin it to the sidebar so everyone sees it.</p>
+            </div>
+          </li>
+        </ol>
+
+        <h3 style="font-size:1.1rem; font-weight:700; color:var(--navy); margin:28px 0 16px;">Key Resources</h3>
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-icon">📖</div>
+            <h3>Hands-On: Getting Started</h3>
+            <p>Practical walkthrough from March 2026. Best for first-timers.</p>
+            <a href="https://virtualizationreview.com/articles/2026/03/26/hands-on-getting-started-with-microsoft-copilot-studio-agents.aspx" target="_blank">Read Article →</a>
+          </div>
+          <div class="card">
+            <div class="card-icon">🏗</div>
+            <h3>Building AI Agents with Copilot Studio</h3>
+            <p>Multi-agent orchestration, SharePoint, Teams/Outlook deployment.</p>
+            <a href="https://frankfalvey.cloud/2026/03/02/building-ai-agents-with-microsoft-copilot-studio/" target="_blank">Read Article →</a>
+          </div>
+          <div class="card">
+            <div class="card-icon">📦</div>
+            <h3>Pre-Built Agents for Insurance</h3>
+            <p>Ready-made agents for IT helpdesk, onboarding, customer service. Deploy without building from scratch.</p>
+            <a href="https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/explore-agents-pre-built-for-you-in-microsoft-copilot-studio/" target="_blank">Explore Templates →</a>
+          </div>
+          <div class="card">
+            <div class="card-icon">📋</div>
+            <h3>Official Microsoft Docs</h3>
+            <p>The authoritative step-by-step guide from Microsoft for creating your first agent.</p>
+            <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-first-bot" target="_blank">Read Official Docs →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLAUDE TAB -->
+      <div id="claudeTab" class="tab-panel">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:32px;">
+          <div>
+            <h3 style="font-size:1.1rem; font-weight:700; color:var(--navy); margin-bottom:12px;">What It Is</h3>
+            <p style="font-size:0.925rem; color:var(--text-muted); line-height:1.7;">
+              Claude is Anthropic's AI assistant — available at <a href="https://claude.ai" target="_blank">claude.ai</a>.
+              For building agents, you use Claude's <strong>Projects</strong> feature: create a project,
+              write your agent's instructions in plain English, and share the project link with your team.
+            </p>
+            <p style="font-size:0.925rem; color:var(--text-muted); line-height:1.7; margin-top:12px;">
+              For a fully custom application (web widget, CRM integration), a developer uses the Claude API
+              to build it — about 50 lines of Python for a working agent.
+            </p>
+          </div>
+          <div>
+            <h3 style="font-size:1.1rem; font-weight:700; color:var(--navy); margin-bottom:12px;">What Makes It Special</h3>
+            <ul style="list-style:none; font-size:0.9rem; color:var(--text-muted);">
+              <li style="padding:6px 0; border-bottom:1px solid var(--border); display:flex; gap:8px;"><span style="color:var(--success);">✓</span> Agent up and running in 5 minutes</li>
+              <li style="padding:6px 0; border-bottom:1px solid var(--border); display:flex; gap:8px;"><span style="color:var(--success);">✓</span> No setup, no installation, no API key needed</li>
+              <li style="padding:6px 0; border-bottom:1px solid var(--border); display:flex; gap:8px;"><span style="color:var(--success);">✓</span> Projects = persistent agent memory + instructions</li>
+              <li style="padding:6px 0; border-bottom:1px solid var(--border); display:flex; gap:8px;"><span style="color:var(--success);">✓</span> Share a project link with your whole team</li>
+              <li style="padding:6px 0; border-bottom:1px solid var(--border); display:flex; gap:8px;"><span style="color:var(--success);">✓</span> Best-in-class reasoning and instruction-following</li>
+              <li style="padding:6px 0; display:flex; gap:8px;"><span style="color:var(--success);">✓</span> Works as the AI brain inside Copilot Studio</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout callout-info">
+          <span class="callout-icon">ℹ️</span>
+          <p><strong>Two ways to use Claude:</strong> (A) <strong>claude.ai</strong> — no code, works right now, great for prototyping and small teams. (B) <strong>Claude API</strong> — for developers building a proper app (web widget, CRM integration). See the <a href="howto.html">How-To Guide</a> for full code examples.</p>
+        </div>
+
+        <h3 style="font-size:1.1rem; font-weight:700; color:var(--navy); margin:28px 0 16px;">Option A — No Code: Claude Projects (5 Minutes)</h3>
+
+        <ol class="steps">
+          <li class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h3>Go to claude.ai</h3>
+              <p>Open <a href="https://claude.ai" target="_blank">claude.ai</a> and sign in. Free accounts work fine for prototyping.</p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h3>Create a New Project</h3>
+              <p>Click <strong>"Projects"</strong> in the sidebar → <strong>"New Project"</strong>. Give it a name like "Annuity Advisor Agent".</p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h3>Add Instructions</h3>
+              <p>Click <strong>"Project Instructions"</strong> and paste your agent's instructions in plain English. See the <a href="howto.html">How-To Guide</a> for the full example prompt.</p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <h3>Test and Share</h3>
+              <p>Start a new chat inside the project — Claude now behaves as your agent. Click <strong>"Share"</strong> to give teammates access via a link.</p>
+            </div>
+          </li>
+        </ol>
+
+        <h3 style="font-size:1.1rem; font-weight:700; color:var(--navy); margin:28px 0 16px;">Option B — Developer: Claude API</h3>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">bash — Install</span>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          </div>
+          <pre><code>pip install anthropic</code></pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">python — Minimal Agent</span>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          </div>
+          <pre><code><span class="kw">import</span> anthropic
+
+client = anthropic.Anthropic(api_key=<span class="str">"your-api-key"</span>)
+
+SYSTEM_PROMPT = <span class="str">"""
+You are an insurance assistant.
+[Describe your agent's job here in plain English]
+"""</span>
+
+history = []
+
+<span class="kw">while</span> <span class="kw">True</span>:
+    user_input = <span class="fn">input</span>(<span class="str">"You: "</span>)
+    history.append({<span class="str">"role"</span>: <span class="str">"user"</span>, <span class="str">"content"</span>: user_input})
+
+    response = client.messages.create(
+        model=<span class="str">"claude-opus-4-5"</span>,
+        max_tokens=<span class="num">500</span>,
+        system=SYSTEM_PROMPT,
+        messages=history
+    )
+
+    reply = response.content[<span class="num">0</span>].text
+    history.append({<span class="str">"role"</span>: <span class="str">"assistant"</span>, <span class="str">"content"</span>: reply})
+    <span class="fn">print</span>(<span class="str">f"\nAgent: {reply}\n"</span>)</code></pre>
+        </div>
+
+        <h3 style="font-size:1.1rem; font-weight:700; color:var(--navy); margin:28px 0 16px;">Key Resources</h3>
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-icon">📖</div>
+            <h3>Building Agents with Claude SDK — Anthropic</h3>
+            <p>Official Anthropic guide for developers. The definitive reference.</p>
+            <a href="https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk" target="_blank">Read Official Guide →</a>
+          </div>
+          <div class="card">
+            <div class="card-icon">🔧</div>
+            <h3>Tutorial: Build a Tool-Using Agent</h3>
+            <p>Step-by-step: give Claude the ability to use tools — web search, files, APIs.</p>
+            <a href="https://console.anthropic.com/docs/en/agents-and-tools/tool-use/build-a-tool-using-agent" target="_blank">Read Tutorial →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DECISION GUIDE -->
+  <section class="section">
+    <div class="section-title">When to Use Which</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Your Situation</th><th>Recommended Tool</th><th>Why</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>I want to try an agent idea today, right now</td>
+            <td>Claude (claude.ai Project)</td>
+            <td>5 minutes, zero setup</td>
+          </tr>
+          <tr>
+            <td>I want my whole team to use the agent in Teams</td>
+            <td>Copilot Studio</td>
+            <td>One-click Teams deployment, already in M365</td>
+          </tr>
+          <tr>
+            <td>I want the agent to book Outlook calendar meetings</td>
+            <td>Copilot Studio</td>
+            <td>Native Outlook connector, no code</td>
+          </tr>
+          <tr>
+            <td>I want a chat widget on my public website</td>
+            <td>Claude API (needs developer)</td>
+            <td>Flask + Claude API = ~50 lines of code</td>
+          </tr>
+          <tr>
+            <td>I want to prototype before investing in a build</td>
+            <td>Claude (claude.ai Project)</td>
+            <td>Validate the idea cheaply before going to IT</td>
+          </tr>
+          <tr>
+            <td>I want the most powerful AI reasoning</td>
+            <td>Claude (set as model in Copilot Studio)</td>
+            <td>Best of both: Teams deployment + Claude's brain</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>Agentic AI Guide for Insurance Leaders &nbsp;·&nbsp; <a href="index.html">Home</a> &nbsp;·&nbsp; <a href="https://github.com" target="_blank">View on GitHub</a></p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
