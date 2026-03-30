@@ -12,26 +12,9 @@
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
       <span class="logo-icon">
-        <svg width="18" height="18" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="logo-g" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#00d4f0"/>
-              <stop offset="100%" stop-color="#b197fc"/>
-            </linearGradient>
-          </defs>
-          <line x1="14" y1="14" x2="14" y2="5" stroke="url(#logo-g)" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="14" y1="14" x2="22.5" y2="20" stroke="url(#logo-g)" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="14" y1="14" x2="5.5" y2="20" stroke="url(#logo-g)" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="14" y1="5" x2="22.5" y2="20" stroke="rgba(177,151,252,0.4)" stroke-width="1" stroke-linecap="round"/>
-          <line x1="22.5" y1="20" x2="5.5" y2="20" stroke="rgba(177,151,252,0.4)" stroke-width="1" stroke-linecap="round"/>
-          <line x1="5.5" y1="20" x2="14" y2="5" stroke="rgba(177,151,252,0.4)" stroke-width="1" stroke-linecap="round"/>
-          <circle cx="14" cy="5" r="2.5" fill="#00d4f0"/>
-          <circle cx="22.5" cy="20" r="2.5" fill="#b197fc"/>
-          <circle cx="5.5" cy="20" r="2.5" fill="#b197fc"/>
-          <circle cx="14" cy="14" r="3" fill="white"/>
-        </svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
-      Agent<span>Atlas</span>
+      AgentAtlas
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -46,7 +29,7 @@
 <div class="page-header">
   <div class="page-header-inner">
     <div class="breadcrumb"><a href="index.html">Home</a> › Tools</div>
-    <h1>🛠 Tools Directory</h1>
+    <h1>Tools Directory</h1>
     <p>Every LLM model, agent framework, no-code builder, hosting platform, and open-source tool — with pricing, strengths, and honest guidance on when to use each.</p>
   </div>
 </div>
@@ -61,13 +44,12 @@
       <button class="tab-btn" onclick="showTab('toolTabs','tabHosting')">Model Hosting &amp; APIs</button>
       <button class="tab-btn" onclick="showTab('toolTabs','tabLocalOSS')">Free &amp; Open Source</button>
       <button class="tab-btn" onclick="showTab('toolTabs','tabSpecialized')">Specialized AI Apps</button>
-      <button class="tab-btn" onclick="showTab('toolTabs','tabPlayground')" style="color:var(--teal);">⚡ Playground</button>
+      <button class="tab-btn" onclick="showTab('toolTabs','tabPlayground')">Playground</button>
     </div>
 
     <!-- ===== LLM MODELS ===== -->
     <div id="tabLLMs" class="tab-panel active">
       <div class="callout callout-info">
-        <span class="callout-icon">ℹ️</span>
         <p>Pricing shown is approximate as of early 2026 (input / output per million tokens). All models are accessible via API. Context window = how much text the model can process at once.</p>
       </div>
 
@@ -91,7 +73,6 @@
 
       <div class="section-title" style="font-size:1.1rem; margin:0 0 16px;">Open Source / Self-Hostable Models</div>
       <div class="callout callout-tip">
-        <span class="callout-icon">💡</span>
         <p><strong>Open source models are free to use</strong> — you just need hardware (or a hosting service like Groq/Together.ai). Great for privacy, cost control, and customization.</p>
       </div>
       <div class="table-wrap" style="margin-top:16px;">
@@ -127,7 +108,6 @@
     <!-- ===== AGENT BUILDERS ===== -->
     <div id="tabAgentBuilders" class="tab-panel">
       <div class="callout callout-tip">
-        <span class="callout-icon">💡</span>
         <p>These tools let you build agents without writing code — or with very minimal code. Ideal starting points for business users and non-developers.</p>
       </div>
 
@@ -138,7 +118,7 @@
             <div style="margin-top:4px;"><span class="badge badge-nocode">No Code</span><span class="badge badge-business">Business</span></div>
           </div>
           <div class="tool-desc">Included in Microsoft 365. Build agents in plain English and deploy to Teams, Outlook, SharePoint. Native connectors for all M365 services. Can use Claude or GPT as AI brain.</div>
-          <div class="tool-price price-freemium">Included in M365<br><a href="https://copilotstudio.microsoft.com" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div>
+          <div class="tool-price price-freemium">Included in M365<br><a href="https://copilotstudio.microsoft.com" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div>
         </div>
         <div class="tool-row">
           <div>
@@ -146,7 +126,7 @@
             <div style="margin-top:4px;"><span class="badge badge-nocode">No Code</span><span class="badge badge-beginner">Beginner</span></div>
           </div>
           <div class="tool-desc">Create a persistent agent inside claude.ai by writing instructions in plain English. Share via link. Ideal for prototyping any agent in under 5 minutes before building properly.</div>
-          <div class="tool-price price-freemium">Free / $20 mo (Pro)<br><a href="https://claude.ai" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div>
+          <div class="tool-price price-freemium">Free / $20 mo (Pro)<br><a href="https://claude.ai" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div>
         </div>
         <div class="tool-row">
           <div>
@@ -154,7 +134,7 @@
             <div style="margin-top:4px;"><span class="badge badge-nocode">No Code</span><span class="badge badge-beginner">Beginner</span></div>
           </div>
           <div class="tool-desc">Build custom ChatGPT agents inside ChatGPT. Add a system prompt, upload files as knowledge, add web browsing or DALL-E. Publish publicly or share a link. Very easy to start.</div>
-          <div class="tool-price price-freemium">ChatGPT Plus required<br><a href="https://chatgpt.com/gpts" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div>
+          <div class="tool-price price-freemium">ChatGPT Plus required<br><a href="https://chatgpt.com/gpts" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div>
         </div>
         <div class="tool-row">
           <div>
@@ -162,7 +142,7 @@
             <div style="margin-top:4px;"><span class="badge badge-nocode">No Code</span><span class="badge badge-intermediate">Intermediate</span></div>
           </div>
           <div class="tool-desc">Drag-and-drop visual canvas for building agents with web search, code interpreter, file search, and image generation. 75% less time vs. coding from scratch according to OpenAI.</div>
-          <div class="tool-price price-paid">Pay-as-you-go<br><a href="https://openai.com/agent-platform/" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div>
+          <div class="tool-price price-paid">Pay-as-you-go<br><a href="https://openai.com/agent-platform/" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div>
         </div>
         <div class="tool-row">
           <div>
@@ -170,7 +150,7 @@
             <div style="margin-top:4px;"><span class="badge badge-nocode">No Code</span><span class="badge badge-intermediate">Intermediate</span></div>
           </div>
           <div class="tool-desc">Build AI agents using natural language inside Zapier's automation platform. Access to 7,000+ app integrations. Best for teams already using Zapier for automation.</div>
-          <div class="tool-price price-freemium">Free tier + paid plans<br><a href="https://zapier.com/blog/how-to-create-ai-agents" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div>
+          <div class="tool-price price-freemium">Free tier + paid plans<br><a href="https://zapier.com/blog/how-to-create-ai-agents" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div>
         </div>
         <div class="tool-row">
           <div>
@@ -178,7 +158,7 @@
             <div style="margin-top:4px;"><span class="badge badge-nocode">No Code</span><span class="badge badge-intermediate">Intermediate</span></div>
           </div>
           <div class="tool-desc">Visual chatbot and agent builder with LLM integration. Deploy to website, WhatsApp, Slack, Teams. Good for customer service agents. Strong free tier.</div>
-          <div class="tool-price price-freemium">Free tier available<br><a href="https://botpress.com" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div>
+          <div class="tool-price price-freemium">Free tier available<br><a href="https://botpress.com" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div>
         </div>
         <div class="tool-row">
           <div>
@@ -186,7 +166,7 @@
             <div style="margin-top:4px;"><span class="badge badge-nocode">No Code</span><span class="badge badge-intermediate">Intermediate</span></div>
           </div>
           <div class="tool-desc">Open-source LLM application platform. Visual workflow builder for agents, RAG pipelines, and chatbots. Self-hostable. Supports GPT, Claude, Llama and 30+ models. Very popular.</div>
-          <div class="tool-price price-free">Free (self-host)<br><a href="https://dify.ai" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div>
+          <div class="tool-price price-free">Free (self-host)<br><a href="https://dify.ai" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div>
         </div>
         <div class="tool-row">
           <div>
@@ -194,7 +174,7 @@
             <div style="margin-top:4px;"><span class="badge badge-nocode">No Code</span><span class="badge badge-intermediate">Intermediate</span></div>
           </div>
           <div class="tool-desc">Open-source, self-hosted visual builder for LangChain flows and agents. Drag and drop LLM nodes into agentic pipelines. Great for developers who want visual + code flexibility.</div>
-          <div class="tool-price price-free">Free (open source)<br><a href="https://flowiseai.com" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div>
+          <div class="tool-price price-free">Free (open source)<br><a href="https://flowiseai.com" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div>
         </div>
       </div>
     </div>
@@ -202,7 +182,6 @@
     <!-- ===== DEV FRAMEWORKS ===== -->
     <div id="tabFrameworks" class="tab-panel">
       <div class="callout callout-info">
-        <span class="callout-icon">ℹ️</span>
         <p>These are code-first frameworks for developers. They give you full control over agent behavior, tool use, memory, and multi-agent coordination.</p>
       </div>
       <div class="tool-grid" style="margin-top:20px;">
@@ -212,7 +191,7 @@
             <div style="margin-top:4px;"><span class="badge badge-intermediate">Intermediate</span></div>
           </div>
           <div class="tool-desc">Anthropic's official SDK for building agents. Handles the agent loop, tool execution, context management, and sub-agents. Available in Python and TypeScript. Best for Claude-based agents.</div>
-          <div class="tool-price price-free">Free (open source)<br><a href="https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Docs →</a></div>
+          <div class="tool-price price-free">Free (open source)<br><a href="https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk" target="_blank" style="font-size:0.75rem; color:var(--black);">Docs →</a></div>
         </div>
         <div class="tool-row">
           <div>
@@ -220,7 +199,7 @@
             <div style="margin-top:4px;"><span class="badge badge-intermediate">Intermediate</span></div>
           </div>
           <div class="tool-desc">OpenAI's official Python/Node SDK for building agents with tool use, handoffs between agents, and guardrails. Works with GPT-4o, o3, and other OpenAI models. Simple and well-documented.</div>
-          <div class="tool-price price-free">Free (open source)<br><a href="https://openai.com/agent-platform/" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Docs →</a></div>
+          <div class="tool-price price-free">Free (open source)<br><a href="https://openai.com/agent-platform/" target="_blank" style="font-size:0.75rem; color:var(--black);">Docs →</a></div>
         </div>
         <div class="tool-row">
           <div>
@@ -228,7 +207,7 @@
             <div style="margin-top:4px;"><span class="badge badge-intermediate">Intermediate</span></div>
           </div>
           <div class="tool-desc">The most popular agent framework. Connects LLMs to tools, memory, and data. Massive ecosystem with hundreds of integrations. Python and JavaScript. Large community and examples.</div>
-          <div class="tool-price price-free">Free (open source)<br><a href="https://github.com/langchain-ai/langchain" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">GitHub →</a></div>
+          <div class="tool-price price-free">Free (open source)<br><a href="https://github.com/langchain-ai/langchain" target="_blank" style="font-size:0.75rem; color:var(--black);">GitHub →</a></div>
         </div>
         <div class="tool-row">
           <div>
@@ -236,7 +215,7 @@
             <div style="margin-top:4px;"><span class="badge badge-intermediate">Intermediate</span></div>
           </div>
           <div class="tool-desc">Specialized in connecting LLMs to your own data (RAG). Build agents that reason over your documents, databases, and APIs. Best-in-class for enterprise knowledge retrieval.</div>
-          <div class="tool-price price-free">Free (open source)<br><a href="https://github.com/run-llama/llama_index" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">GitHub →</a></div>
+          <div class="tool-price price-free">Free (open source)<br><a href="https://github.com/run-llama/llama_index" target="_blank" style="font-size:0.75rem; color:var(--black);">GitHub →</a></div>
         </div>
         <div class="tool-row">
           <div>
@@ -244,7 +223,7 @@
             <div style="margin-top:4px;"><span class="badge badge-intermediate">Intermediate</span></div>
           </div>
           <div class="tool-desc">Multi-agent framework where AI agents take on roles (researcher, writer, analyst) and collaborate. Great for workflows that need parallel execution or specialization across tasks.</div>
-          <div class="tool-price price-free">Free (open source)<br><a href="https://github.com/crewAIInc/crewAI" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">GitHub →</a></div>
+          <div class="tool-price price-free">Free (open source)<br><a href="https://github.com/crewAIInc/crewAI" target="_blank" style="font-size:0.75rem; color:var(--black);">GitHub →</a></div>
         </div>
         <div class="tool-row">
           <div>
@@ -252,7 +231,7 @@
             <div style="margin-top:4px;"><span class="badge badge-advanced">Advanced</span></div>
           </div>
           <div class="tool-desc">Microsoft's multi-agent conversation framework. Agents can collaborate, debate, and self-critique. Supports human-in-the-loop. Good for complex reasoning that benefits from multiple AI perspectives.</div>
-          <div class="tool-price price-free">Free (open source)<br><a href="https://github.com/microsoft/autogen" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">GitHub →</a></div>
+          <div class="tool-price price-free">Free (open source)<br><a href="https://github.com/microsoft/autogen" target="_blank" style="font-size:0.75rem; color:var(--black);">GitHub →</a></div>
         </div>
         <div class="tool-row">
           <div>
@@ -260,7 +239,7 @@
             <div style="margin-top:4px;"><span class="badge badge-advanced">Advanced</span></div>
           </div>
           <div class="tool-desc">Enterprise-grade SDK from Microsoft. C#, Python, Java support. Deeply integrated with Azure. Best for enterprise .NET teams wanting to add AI agents to existing systems.</div>
-          <div class="tool-price price-free">Free (open source)<br><a href="https://github.com/microsoft/semantic-kernel" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">GitHub →</a></div>
+          <div class="tool-price price-free">Free (open source)<br><a href="https://github.com/microsoft/semantic-kernel" target="_blank" style="font-size:0.75rem; color:var(--black);">GitHub →</a></div>
         </div>
       </div>
     </div>
@@ -268,54 +247,53 @@
     <!-- ===== HOSTING & APIS ===== -->
     <div id="tabHosting" class="tab-panel">
       <div class="callout callout-info">
-        <span class="callout-icon">ℹ️</span>
         <p>These services let you call any LLM via API — including open-source models — without running your own hardware. Great for trying different models at low cost.</p>
       </div>
       <div class="tool-grid" style="margin-top:20px;">
         <div class="tool-row">
           <div><div class="tool-name">Anthropic API</div></div>
           <div class="tool-desc">Official API for all Claude models. Best-in-class instruction following and long context. 200K token context. <code>pip install anthropic</code> to get started.</div>
-          <div class="tool-price price-paid">Pay-per-token<br><a href="https://console.anthropic.com" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Get Key →</a></div>
+          <div class="tool-price price-paid">Pay-per-token<br><a href="https://console.anthropic.com" target="_blank" style="font-size:0.75rem; color:var(--black);">Get Key →</a></div>
         </div>
         <div class="tool-row">
           <div><div class="tool-name">OpenAI API</div></div>
           <div class="tool-desc">Official API for GPT-4o, o3, and all OpenAI models. Largest ecosystem, most documentation, most integrations. Widely used standard in the industry.</div>
-          <div class="tool-price price-paid">Pay-per-token<br><a href="https://platform.openai.com" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Get Key →</a></div>
+          <div class="tool-price price-paid">Pay-per-token<br><a href="https://platform.openai.com" target="_blank" style="font-size:0.75rem; color:var(--black);">Get Key →</a></div>
         </div>
         <div class="tool-row">
           <div><div class="tool-name">Groq</div></div>
           <div class="tool-desc">Extremely fast inference for open-source models (Llama, Mixtral, Gemma). Tokens appear almost instantly. Free tier available. Great for real-time applications that need speed.</div>
-          <div class="tool-price price-freemium">Free tier + paid<br><a href="https://groq.com" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div>
+          <div class="tool-price price-freemium">Free tier + paid<br><a href="https://groq.com" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div>
         </div>
         <div class="tool-row">
           <div><div class="tool-name">Together.ai</div></div>
           <div class="tool-desc">Run 100+ open-source models (Llama, Mistral, Qwen, DeepSeek) via API at low cost. Often 5–10x cheaper than equivalent closed-model APIs for similar quality.</div>
-          <div class="tool-price price-freemium">Free $25 credit<br><a href="https://together.ai" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div>
+          <div class="tool-price price-freemium">Free $25 credit<br><a href="https://together.ai" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div>
         </div>
         <div class="tool-row">
           <div><div class="tool-name">Replicate</div></div>
           <div class="tool-desc">Run any model from Hugging Face as an API with one line of code. Great for image, audio, and video models alongside LLMs. Pay per second of compute.</div>
-          <div class="tool-price price-paid">Pay-per-run<br><a href="https://replicate.com" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div>
+          <div class="tool-price price-paid">Pay-per-run<br><a href="https://replicate.com" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div>
         </div>
         <div class="tool-row">
           <div><div class="tool-name">Hugging Face Inference</div></div>
           <div class="tool-desc">Run models directly from the Hugging Face hub via API. 400,000+ models available. Free serverless tier for many models. The largest open-source model repository in the world.</div>
-          <div class="tool-price price-freemium">Free tier + paid<br><a href="https://huggingface.co/inference-api" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div>
+          <div class="tool-price price-freemium">Free tier + paid<br><a href="https://huggingface.co/inference-api" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div>
         </div>
         <div class="tool-row">
           <div><div class="tool-name">Google AI Studio / Vertex AI</div></div>
           <div class="tool-desc">Access Gemini models via API. AI Studio is free to experiment. Vertex AI is the enterprise-grade version on Google Cloud. Best if you're already on GCP.</div>
-          <div class="tool-price price-freemium">Free + enterprise<br><a href="https://aistudio.google.com" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div>
+          <div class="tool-price price-freemium">Free + enterprise<br><a href="https://aistudio.google.com" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div>
         </div>
         <div class="tool-row">
           <div><div class="tool-name">Azure OpenAI</div></div>
           <div class="tool-desc">OpenAI models hosted on Azure. Enterprise compliance (SOC 2, HIPAA, EU data residency), private networking, and SLAs. Required for many regulated industries. More expensive than OpenAI direct.</div>
-          <div class="tool-price price-paid">Enterprise pricing<br><a href="https://azure.microsoft.com/en-us/products/ai-services/openai-service" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div>
+          <div class="tool-price price-paid">Enterprise pricing<br><a href="https://azure.microsoft.com/en-us/products/ai-services/openai-service" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div>
         </div>
         <div class="tool-row">
           <div><div class="tool-name">AWS Bedrock</div></div>
           <div class="tool-desc">Access Claude, Llama, Titan, and other models via AWS. Fully managed, enterprise-grade. Great if you're already on AWS. Supports fine-tuning and RAG via Knowledge Bases.</div>
-          <div class="tool-price price-paid">Pay-per-token<br><a href="https://aws.amazon.com/bedrock/" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div>
+          <div class="tool-price price-paid">Pay-per-token<br><a href="https://aws.amazon.com/bedrock/" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div>
         </div>
       </div>
     </div>
@@ -323,7 +301,6 @@
     <!-- ===== FREE & OPEN SOURCE ===== -->
     <div id="tabLocalOSS" class="tab-panel">
       <div class="callout callout-tip">
-        <span class="callout-icon">💡</span>
         <p><strong>Run AI completely free and privately on your own machine.</strong> No API keys, no monthly bills, no data leaving your computer. These tools make it trivially easy.</p>
       </div>
       <div class="tool-grid" style="margin-top:20px;">
@@ -333,7 +310,7 @@
             <div style="margin-top:4px;"><span class="badge badge-beginner">Beginner</span></div>
           </div>
           <div class="tool-desc">Run Llama, Mistral, Phi, Gemma, and 100+ models locally with one command: <code>ollama run llama3</code>. macOS, Linux, Windows. Creates a local API compatible with OpenAI clients. Most popular local model runner.</div>
-          <div class="tool-price price-free">Free (open source)<br><a href="https://ollama.ai" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Download →</a></div>
+          <div class="tool-price price-free">Free (open source)<br><a href="https://ollama.ai" target="_blank" style="font-size:0.75rem; color:var(--black);">Download →</a></div>
         </div>
         <div class="tool-row">
           <div>
@@ -341,7 +318,7 @@
             <div style="margin-top:4px;"><span class="badge badge-beginner">Beginner</span></div>
           </div>
           <div class="tool-desc">Beautiful desktop app for discovering, downloading, and running local LLMs. No terminal needed — just a GUI. Built-in chat interface and local server. Best for non-developers who want local AI.</div>
-          <div class="tool-price price-free">Free<br><a href="https://lmstudio.ai" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Download →</a></div>
+          <div class="tool-price price-free">Free<br><a href="https://lmstudio.ai" target="_blank" style="font-size:0.75rem; color:var(--black);">Download →</a></div>
         </div>
         <div class="tool-row">
           <div>
@@ -349,7 +326,7 @@
             <div style="margin-top:4px;"><span class="badge badge-intermediate">Intermediate</span></div>
           </div>
           <div class="tool-desc">Self-hosted ChatGPT-style web interface. Works with Ollama, OpenAI API, and Anthropic API. Supports multiple users, conversation history, RAG on files, and image generation. 60K+ GitHub stars.</div>
-          <div class="tool-price price-free">Free (open source)<br><a href="https://github.com/open-webui/open-webui" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">GitHub →</a></div>
+          <div class="tool-price price-free">Free (open source)<br><a href="https://github.com/open-webui/open-webui" target="_blank" style="font-size:0.75rem; color:var(--black);">GitHub →</a></div>
         </div>
         <div class="tool-row">
           <div>
@@ -357,7 +334,7 @@
             <div style="margin-top:4px;"><span class="badge badge-beginner">Beginner</span></div>
           </div>
           <div class="tool-desc">Open-source, offline ChatGPT alternative. Desktop app that runs models locally. Privacy-first, no data leaves your device. Simple UI, good for individuals who want a self-contained AI assistant.</div>
-          <div class="tool-price price-free">Free (open source)<br><a href="https://jan.ai" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Download →</a></div>
+          <div class="tool-price price-free">Free (open source)<br><a href="https://jan.ai" target="_blank" style="font-size:0.75rem; color:var(--black);">Download →</a></div>
         </div>
         <div class="tool-row">
           <div>
@@ -365,7 +342,7 @@
             <div style="margin-top:4px;"><span class="badge badge-intermediate">Intermediate</span></div>
           </div>
           <div class="tool-desc">Open-source LLM app development platform. Visual workflow builder, RAG pipelines, agent orchestration, API publishing. Run on your own server with Docker. Excellent for building internal AI tools.</div>
-          <div class="tool-price price-free">Free (self-host)<br><a href="https://github.com/langgenius/dify" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">GitHub →</a></div>
+          <div class="tool-price price-free">Free (self-host)<br><a href="https://github.com/langgenius/dify" target="_blank" style="font-size:0.75rem; color:var(--black);">GitHub →</a></div>
         </div>
         <div class="tool-row">
           <div>
@@ -373,7 +350,7 @@
             <div style="margin-top:4px;"><span class="badge badge-advanced">Advanced</span></div>
           </div>
           <div class="tool-desc">Free, self-hosted, OpenAI-compatible REST API for running LLMs, image generation, speech-to-text, and more. Drop-in replacement for OpenAI API calls. Great for enterprise data privacy requirements.</div>
-          <div class="tool-price price-free">Free (open source)<br><a href="https://github.com/mudler/LocalAI" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">GitHub →</a></div>
+          <div class="tool-price price-free">Free (open source)<br><a href="https://github.com/mudler/LocalAI" target="_blank" style="font-size:0.75rem; color:var(--black);">GitHub →</a></div>
         </div>
       </div>
     </div>
@@ -381,26 +358,25 @@
     <!-- ===== SPECIALIZED APPS ===== -->
     <div id="tabSpecialized" class="tab-panel">
       <div class="callout callout-info">
-        <span class="callout-icon">ℹ️</span>
         <p>These are purpose-built AI applications for specific tasks. Often the fastest way to get value — no building required.</p>
       </div>
       <div class="section-title" style="font-size:1.1rem; margin:20px 0 16px;">Search &amp; Research</div>
       <div class="tool-grid" style="margin-bottom:28px;">
-        <div class="tool-row"><div><div class="tool-name">Perplexity AI</div></div><div class="tool-desc">AI search that cites every source. Replaces Google for research. Free tier is very generous.</div><div class="tool-price price-freemium">Free + $20/mo Pro<br><a href="https://perplexity.ai" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div></div>
-        <div class="tool-row"><div><div class="tool-name">You.com</div></div><div class="tool-desc">AI search engine with a customizable mix of web results, AI answers, and specialized search modes.</div><div class="tool-price price-freemium">Free + paid<br><a href="https://you.com" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div></div>
+        <div class="tool-row"><div><div class="tool-name">Perplexity AI</div></div><div class="tool-desc">AI search that cites every source. Replaces Google for research. Free tier is very generous.</div><div class="tool-price price-freemium">Free + $20/mo Pro<br><a href="https://perplexity.ai" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div></div>
+        <div class="tool-row"><div><div class="tool-name">You.com</div></div><div class="tool-desc">AI search engine with a customizable mix of web results, AI answers, and specialized search modes.</div><div class="tool-price price-freemium">Free + paid<br><a href="https://you.com" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div></div>
       </div>
       <div class="section-title" style="font-size:1.1rem; margin:0 0 16px;">Coding Assistants</div>
       <div class="tool-grid" style="margin-bottom:28px;">
-        <div class="tool-row"><div><div class="tool-name">Cursor</div></div><div class="tool-desc">AI-first code editor. Full codebase context, agent mode, inline edits. Used by millions of developers. Built on VS Code.</div><div class="tool-price price-freemium">Free + $20/mo Pro<br><a href="https://cursor.com" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div></div>
-        <div class="tool-row"><div><div class="tool-name">GitHub Copilot</div></div><div class="tool-desc">AI pair programmer integrated into VS Code, JetBrains, and more. Suggests code, explains errors, and has an agent mode for multi-file edits.</div><div class="tool-price price-paid">$10–19/mo<br><a href="https://github.com/features/copilot" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div></div>
-        <div class="tool-row"><div><div class="tool-name">Windsurf (Codeium)</div></div><div class="tool-desc">Free Cursor alternative. Agentic code editor with Cascade — an agent that plans and executes multi-step coding tasks across your codebase.</div><div class="tool-price price-freemium">Free + paid<br><a href="https://codeium.com/windsurf" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div></div>
-        <div class="tool-row"><div><div class="tool-name">v0 by Vercel</div></div><div class="tool-desc">Generate web UI components from a text description. Produces React / shadcn / Tailwind code instantly. Best rapid UI prototyping tool available.</div><div class="tool-price price-freemium">Free credits + paid<br><a href="https://v0.dev" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div></div>
+        <div class="tool-row"><div><div class="tool-name">Cursor</div></div><div class="tool-desc">AI-first code editor. Full codebase context, agent mode, inline edits. Used by millions of developers. Built on VS Code.</div><div class="tool-price price-freemium">Free + $20/mo Pro<br><a href="https://cursor.com" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div></div>
+        <div class="tool-row"><div><div class="tool-name">GitHub Copilot</div></div><div class="tool-desc">AI pair programmer integrated into VS Code, JetBrains, and more. Suggests code, explains errors, and has an agent mode for multi-file edits.</div><div class="tool-price price-paid">$10–19/mo<br><a href="https://github.com/features/copilot" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div></div>
+        <div class="tool-row"><div><div class="tool-name">Windsurf (Codeium)</div></div><div class="tool-desc">Free Cursor alternative. Agentic code editor with Cascade — an agent that plans and executes multi-step coding tasks across your codebase.</div><div class="tool-price price-freemium">Free + paid<br><a href="https://codeium.com/windsurf" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div></div>
+        <div class="tool-row"><div><div class="tool-name">v0 by Vercel</div></div><div class="tool-desc">Generate web UI components from a text description. Produces React / shadcn / Tailwind code instantly. Best rapid UI prototyping tool available.</div><div class="tool-price price-freemium">Free credits + paid<br><a href="https://v0.dev" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div></div>
       </div>
       <div class="section-title" style="font-size:1.1rem; margin:0 0 16px;">Productivity &amp; Writing</div>
       <div class="tool-grid">
-        <div class="tool-row"><div><div class="tool-name">Notion AI</div></div><div class="tool-desc">AI built directly into Notion. Summarize, draft, translate, and auto-fill databases. Great for teams already using Notion.</div><div class="tool-price price-paid">$10/mo addon<br><a href="https://notion.so/product/ai" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div></div>
-        <div class="tool-row"><div><div class="tool-name">Microsoft 365 Copilot</div></div><div class="tool-desc">AI across Word, Excel, PowerPoint, Outlook, and Teams. Summarizes emails, drafts documents, analyzes spreadsheets. Requires M365 Business/Enterprise.</div><div class="tool-price price-paid">$30/user/mo<br><a href="https://www.microsoft.com/en-us/microsoft-365/copilot" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div></div>
-        <div class="tool-row"><div><div class="tool-name">Google Gemini for Workspace</div></div><div class="tool-desc">AI in Gmail, Docs, Sheets, Slides, and Meet. Drafts emails, summarizes docs, generates images in Slides. Comparable to M365 Copilot for Google Workspace users.</div><div class="tool-price price-paid">$20/user/mo<br><a href="https://workspace.google.com/intl/en/products/gemini/" target="_blank" style="font-size:0.75rem; color:var(--teal-dark);">Visit →</a></div></div>
+        <div class="tool-row"><div><div class="tool-name">Notion AI</div></div><div class="tool-desc">AI built directly into Notion. Summarize, draft, translate, and auto-fill databases. Great for teams already using Notion.</div><div class="tool-price price-paid">$10/mo addon<br><a href="https://notion.so/product/ai" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div></div>
+        <div class="tool-row"><div><div class="tool-name">Microsoft 365 Copilot</div></div><div class="tool-desc">AI across Word, Excel, PowerPoint, Outlook, and Teams. Summarizes emails, drafts documents, analyzes spreadsheets. Requires M365 Business/Enterprise.</div><div class="tool-price price-paid">$30/user/mo<br><a href="https://www.microsoft.com/en-us/microsoft-365/copilot" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div></div>
+        <div class="tool-row"><div><div class="tool-name">Google Gemini for Workspace</div></div><div class="tool-desc">AI in Gmail, Docs, Sheets, Slides, and Meet. Drafts emails, summarizes docs, generates images in Slides. Comparable to M365 Copilot for Google Workspace users.</div><div class="tool-price price-paid">$20/user/mo<br><a href="https://workspace.google.com/intl/en/products/gemini/" target="_blank" style="font-size:0.75rem; color:var(--black);">Visit →</a></div></div>
       </div>
     </div>
 
@@ -408,7 +384,7 @@
     <div id="tabPlayground" class="tab-panel">
 
       <!-- COST CALCULATOR -->
-      <div class="section-title" style="font-size:1.2rem; margin-bottom:6px;">⚡ Cost &amp; Latency Calculator</div>
+      <div class="section-title" style="font-size:1.2rem; margin-bottom:6px;">Cost &amp; Latency Calculator</div>
       <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">Estimate the API cost and time for a multi-step agentic loop before you build it.</p>
 
       <div class="calc-box">
@@ -474,11 +450,10 @@
       </div>
 
       <!-- BENCHMARK TRACKER -->
-      <div class="section-title" style="font-size:1.2rem; margin:48px 0 6px;">📊 Agentic Benchmark Tracker</div>
+      <div class="section-title" style="font-size:1.2rem; margin:48px 0 6px;">Agentic Benchmark Tracker</div>
       <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:20px;">How the leading models perform on tasks that actually matter for agents — not just IQ tests. Updated Q1 2026.</p>
 
       <div class="callout callout-warning" style="margin-bottom:20px;">
-        <span class="callout-icon">⚠️</span>
         <p>Benchmarks are snapshots. Model providers update models frequently. Always run your own evals on your specific task before picking a model for production.</p>
       </div>
 
@@ -502,7 +477,7 @@
               <td><span class="bench-score-high">96%</span></td>
               <td><span class="bench-score-high">92%</span></td>
               <td><span class="bench-score-high">94%</span></td>
-              <td><span class="bench-score-high">⭐⭐⭐⭐</span></td>
+              <td><span class="bench-score-high"></span></td>
               <td><span class="bench-score-mid">Fast</span></td>
             </tr>
             <tr>
@@ -511,7 +486,7 @@
               <td><span class="bench-score-mid">88%</span></td>
               <td><span class="bench-score-high">91%</span></td>
               <td><span class="bench-score-high">92%</span></td>
-              <td><span class="bench-score-mid">⭐⭐⭐</span></td>
+              <td><span class="bench-score-mid"></span></td>
               <td><span class="bench-score-high">Fast</span></td>
             </tr>
             <tr>
@@ -520,7 +495,7 @@
               <td><span class="bench-score-mid">85%</span></td>
               <td><span class="bench-score-high">98%</span></td>
               <td><span class="bench-score-mid">88%</span></td>
-              <td><span class="bench-score-low">⭐⭐</span></td>
+              <td><span class="bench-score-low"></span></td>
               <td><span class="bench-score-low">Slow</span></td>
             </tr>
             <tr>
@@ -529,7 +504,7 @@
               <td><span class="bench-score-high">99%</span></td>
               <td><span class="bench-score-mid">86%</span></td>
               <td><span class="bench-score-mid">87%</span></td>
-              <td><span class="bench-score-mid">⭐⭐⭐</span></td>
+              <td><span class="bench-score-mid"></span></td>
               <td><span class="bench-score-mid">Medium</span></td>
             </tr>
             <tr>
@@ -538,7 +513,7 @@
               <td><span class="bench-score-mid">81%</span></td>
               <td><span class="bench-score-mid">79%</span></td>
               <td><span class="bench-score-mid">82%</span></td>
-              <td><span class="bench-score-high">⭐⭐⭐⭐⭐</span></td>
+              <td><span class="bench-score-high"></span></td>
               <td><span class="bench-score-high">Very Fast</span></td>
             </tr>
             <tr>
@@ -547,7 +522,7 @@
               <td><span class="bench-score-mid">77%</span></td>
               <td><span class="bench-score-mid">84%</span></td>
               <td><span class="bench-score-mid">83%</span></td>
-              <td><span class="bench-score-high">⭐⭐⭐⭐⭐ (free)</span></td>
+              <td><span class="bench-score-high">(free)</span></td>
               <td><span class="bench-score-mid">Varies</span></td>
             </tr>
             <tr>
@@ -556,7 +531,7 @@
               <td><span class="bench-score-mid">74%</span></td>
               <td><span class="bench-score-high">91%</span></td>
               <td><span class="bench-score-mid">80%</span></td>
-              <td><span class="bench-score-high">⭐⭐⭐⭐⭐ (free)</span></td>
+              <td><span class="bench-score-high">(free)</span></td>
               <td><span class="bench-score-low">Slow</span></td>
             </tr>
           </tbody>
@@ -564,30 +539,26 @@
       </div>
 
       <!-- VISUAL WORKFLOW BUILDER POINTER -->
-      <div class="section-title" style="font-size:1.2rem; margin:48px 0 6px;">🔗 Visual Workflow Builder</div>
+      <div class="section-title" style="font-size:1.2rem; margin:48px 0 6px;">Visual Workflow Builder</div>
       <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:20px;">Drag-and-drop sandboxes where you can wire together LLM nodes, tool nodes, and memory nodes to prototype multi-agent systems — no code required.</p>
 
       <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px;">
         <div class="card">
-          <div class="card-icon">🔷</div>
           <h3>Dify Workflow Canvas</h3>
           <p>Full visual canvas: LLM nodes, tool nodes, code nodes, condition branches, and loops. Build complex agentic pipelines and publish as an API or web app. Free self-hosted option.</p>
           <a href="https://dify.ai" target="_blank">Open Dify →</a>
         </div>
         <div class="card">
-          <div class="card-icon">🔀</div>
           <h3>n8n AI Workflow Builder</h3>
           <p>Connect any service with AI reasoning in the middle. Trigger on email, webhook, schedule — run Claude or GPT on the data — output to Slack, CRM, database. 400+ connectors.</p>
           <a href="https://n8n.io" target="_blank">Open n8n →</a>
         </div>
         <div class="card">
-          <div class="card-icon">🌊</div>
           <h3>Flowise — LangChain Visual</h3>
           <p>Open-source drag-and-drop UI for LangChain flows. Chain LLM nodes, retriever nodes, and agent nodes. Best for developers who want visual + code flexibility.</p>
           <a href="https://flowiseai.com" target="_blank">Open Flowise →</a>
         </div>
         <div class="card">
-          <div class="card-icon">🏗</div>
           <h3>OpenAI Agent Builder</h3>
           <p>Official OpenAI visual canvas for building agents with web search, code interpreter, file search, and handoffs. 75% less time vs. coding from scratch per OpenAI benchmarks.</p>
           <a href="https://openai.com/agent-platform/" target="_blank">Open Agent Builder →</a>

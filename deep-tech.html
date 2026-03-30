@@ -56,7 +56,7 @@
       white-space: nowrap;
       transition: color 0.2s, border-color 0.2s;
     }
-    .quick-nav a:hover { color: var(--purple); border-bottom-color: var(--purple); }
+    .quick-nav a:hover { color: var(--black); border-bottom-color: var(--black); }
 
     /* ---- PAPER CARD ---- */
     .paper-card {
@@ -73,7 +73,7 @@
     .paper-year {
       font-size: 0.7rem;
       font-weight: 700;
-      color: var(--purple);
+      color: var(--black);
       background: rgba(124,58,237,0.08);
       border: 1px solid rgba(124,58,237,0.2);
       border-radius: 6px;
@@ -84,14 +84,14 @@
     .paper-body h3 { font-size: 0.97rem; font-weight: 700; margin-bottom: 4px; color: var(--text); }
     .paper-body .paper-authors { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 6px; }
     .paper-body p { font-size: 0.85rem; color: #4a5568; line-height: 1.55; margin-bottom: 8px; }
-    .paper-body a { font-size: 0.82rem; color: var(--purple); font-weight: 600; text-decoration: none; }
+    .paper-body a { font-size: 0.82rem; color: var(--black); font-weight: 600; text-decoration: none; }
     .paper-body a:hover { text-decoration: underline; }
     .paper-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
     .paper-tag {
       font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 4px;
       background: var(--off-white); color: var(--text-muted); border: 1px solid var(--border);
     }
-    .paper-tag.must { background: rgba(0,212,240,0.08); color: var(--teal-dark); border-color: rgba(0,212,240,0.3); }
+    .paper-tag.must { background: rgba(0,212,240,0.08); color: var(--black); border-color: rgba(0,212,240,0.3); }
     .paper-tag.seminal { background: rgba(249,115,22,0.08); color: #c2410c; border-color: rgba(249,115,22,0.25); }
     .paper-tag.new { background: rgba(16,185,129,0.08); color: #065f46; border-color: rgba(16,185,129,0.25); }
 
@@ -111,12 +111,12 @@
     .benchmark-table tr:last-child td { border-bottom: none; }
     .benchmark-table tr:hover td { background: #f7f9fc; }
     .bm-name { font-weight: 700; color: var(--text); }
-    .bm-link { font-size: 0.78rem; color: var(--purple); }
-    .bm-link a { color: var(--purple); text-decoration: none; }
+    .bm-link { font-size: 0.78rem; color: var(--black); }
+    .bm-link a { color: var(--black); text-decoration: none; }
     .bm-link a:hover { text-decoration: underline; }
     .bm-badge { display: inline-block; font-size: 0.68rem; font-weight: 700; padding: 2px 7px; border-radius: 4px; }
-    .bm-badge.reasoning { background: rgba(124,58,237,0.1); color: var(--purple); }
-    .bm-badge.coding { background: rgba(0,212,240,0.1); color: var(--teal-dark); }
+    .bm-badge.reasoning { background: rgba(124,58,237,0.1); color: var(--black); }
+    .bm-badge.coding { background: rgba(0,212,240,0.1); color: var(--black); }
     .bm-badge.knowledge { background: rgba(249,115,22,0.1); color: #c2410c; }
     .bm-badge.agent { background: rgba(16,185,129,0.1); color: #065f46; }
     .bm-badge.safety { background: rgba(239,68,68,0.1); color: #b91c1c; }
@@ -127,20 +127,20 @@
     .concept-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-left: 4px solid var(--teal);
+      border-left: 4px solid var(--black);
       border-radius: var(--radius);
       padding: 20px 24px;
     }
-    .concept-card.purple { border-left-color: var(--purple); }
+    .concept-card.purple { border-left-color: var(--black); }
     .concept-card.orange { border-left-color: var(--orange); }
     .concept-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-    .concept-card .mono { font-family: 'Courier New', monospace; font-size: 0.82rem; color: var(--teal-dark); background: rgba(0,212,240,0.06); padding: 2px 7px; border-radius: 4px; }
+    .concept-card .mono { font-family: 'Courier New', monospace; font-size: 0.82rem; color: var(--black); background: rgba(0,212,240,0.06); padding: 2px 7px; border-radius: 4px; }
     .concept-card p { font-size: 0.875rem; color: #4a5568; line-height: 1.6; margin-top: 8px; }
     .concept-card ul { font-size: 0.875rem; color: #4a5568; line-height: 1.7; padding-left: 20px; margin-top: 8px; }
 
     /* ---- LEADERBOARD CARD ---- */
     .leaderboard-card {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      background: linear-gradient(135deg, var(--black) 0%, var(--navy-mid) 100%);
       border: 1px solid rgba(0,212,240,0.2);
       border-radius: var(--radius);
       padding: 22px 24px;
@@ -148,7 +148,7 @@
     }
     .leaderboard-card h3 { font-size: 1rem; font-weight: 700; color: var(--teal-light); margin-bottom: 6px; }
     .leaderboard-card p { font-size: 0.85rem; color: #94a3b8; line-height: 1.55; margin-bottom: 12px; }
-    .leaderboard-card a { display: inline-block; font-size: 0.82rem; font-weight: 700; color: var(--teal); text-decoration: none; border: 1px solid rgba(0,212,240,0.3); border-radius: 6px; padding: 5px 14px; }
+    .leaderboard-card a { display: inline-block; font-size: 0.82rem; font-weight: 700; color: var(--black); text-decoration: none; border: 1px solid rgba(0,212,240,0.3); border-radius: 6px; padding: 5px 14px; }
     .leaderboard-card a:hover { background: rgba(0,212,240,0.1); }
     .lb-stat { font-size: 1.4rem; font-weight: 800; color: #fff; }
     .lb-stat-label { font-size: 0.75rem; color: #64748b; }
@@ -170,7 +170,7 @@
     .blog-author-role { font-size: 0.75rem; color: var(--text-muted); }
     .blog-card h3 { font-size: 0.95rem; font-weight: 700; line-height: 1.4; }
     .blog-card p { font-size: 0.84rem; color: #4a5568; line-height: 1.55; }
-    .blog-card a { font-size: 0.82rem; color: var(--purple); font-weight: 600; text-decoration: none; }
+    .blog-card a { font-size: 0.82rem; color: var(--black); font-weight: 600; text-decoration: none; }
     .blog-card a:hover { text-decoration: underline; }
 
     /* ---- SECTION ANCHOR ---- */
@@ -189,26 +189,9 @@
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
       <span class="logo-icon">
-        <svg width="18" height="18" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="logo-g" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#00d4f0"/>
-              <stop offset="100%" stop-color="#b197fc"/>
-            </linearGradient>
-          </defs>
-          <line x1="14" y1="14" x2="14" y2="5" stroke="url(#logo-g)" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="14" y1="14" x2="22.5" y2="20" stroke="url(#logo-g)" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="14" y1="14" x2="5.5" y2="20" stroke="url(#logo-g)" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="14" y1="5" x2="22.5" y2="20" stroke="rgba(177,151,252,0.4)" stroke-width="1" stroke-linecap="round"/>
-          <line x1="22.5" y1="20" x2="5.5" y2="20" stroke="rgba(177,151,252,0.4)" stroke-width="1" stroke-linecap="round"/>
-          <line x1="5.5" y1="20" x2="14" y2="5" stroke="rgba(177,151,252,0.4)" stroke-width="1" stroke-linecap="round"/>
-          <circle cx="14" cy="5" r="2.5" fill="#00d4f0"/>
-          <circle cx="22.5" cy="20" r="2.5" fill="#b197fc"/>
-          <circle cx="5.5" cy="20" r="2.5" fill="#b197fc"/>
-          <circle cx="14" cy="14" r="3" fill="white"/>
-        </svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
-      Agent<span>Atlas</span>
+      AgentAtlas
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -222,7 +205,7 @@
 
 <!-- HERO -->
 <div class="dt-hero">
-  <div style="font-size:2.8rem; margin-bottom:12px;">⚗️</div>
+  <div style="font-size:2.8rem; margin-bottom:12px;"></div>
   <h1>Deep Tech &amp; <span>Research</span></h1>
   <p>Foundational papers, live benchmarks, architecture internals, agent reasoning patterns, and safety research — for engineers and researchers who want to go beyond the surface.</p>
   <div class="hero-tags">
@@ -240,14 +223,14 @@
 <!-- STICKY SECTION NAV -->
 <div class="quick-nav">
   <div class="quick-nav-inner">
-    <a href="#papers">📄 Seminal Papers</a>
-    <a href="#architecture">🏗 Architecture Internals</a>
-    <a href="#agent-patterns">🔁 Agent Patterns</a>
-    <a href="#benchmarks">📊 Benchmarks</a>
-    <a href="#leaderboards">🏆 Live Leaderboards</a>
-    <a href="#blogs">✍️ Expert Blogs</a>
-    <a href="#safety">🛡 Safety &amp; Alignment</a>
-    <a href="#llmops">⚙️ LLMOps &amp; Production</a>
+    <a href="#papers"> Seminal Papers</a>
+    <a href="#architecture"> Architecture Internals</a>
+    <a href="#agent-patterns"> Agent Patterns</a>
+    <a href="#benchmarks"> Benchmarks</a>
+    <a href="#leaderboards"> Live Leaderboards</a>
+    <a href="#blogs"> Expert Blogs</a>
+    <a href="#safety"> Safety &amp; Alignment</a>
+    <a href="#llmops"> LLMOps &amp; Production</a>
   </div>
 </div>
 
@@ -257,10 +240,10 @@
        1. SEMINAL PAPERS
   ============================================================ -->
   <section class="section section-anchor" id="papers">
-    <div class="section-title">📄 Seminal Papers — Must Read</div>
+    <div class="section-title"> Seminal Papers — Must Read</div>
     <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">The papers that shaped how modern LLMs and agents work. Not optional reading — these are the foundations everything else builds on.</p>
 
-    <div style="font-size:0.875rem; font-weight:700; color:var(--text-muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:.04em;">🏛 Foundational Architecture</div>
+    <div style="font-size:0.875rem; font-weight:700; color:var(--text-muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:.04em;"> Foundational Architecture</div>
     <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:32px;">
 
       <div class="paper-card">
@@ -331,7 +314,7 @@
 
     </div>
 
-    <div style="font-size:0.875rem; font-weight:700; color:var(--text-muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:.04em;">💡 Reasoning &amp; Prompting</div>
+    <div style="font-size:0.875rem; font-weight:700; color:var(--text-muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:.04em;"> Reasoning &amp; Prompting</div>
     <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:32px;">
 
       <div class="paper-card">
@@ -367,7 +350,7 @@
 
     </div>
 
-    <div style="font-size:0.875rem; font-weight:700; color:var(--text-muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:.04em;">🤖 Agents &amp; Tool Use</div>
+    <div style="font-size:0.875rem; font-weight:700; color:var(--text-muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:.04em;"> Agents &amp; Tool Use</div>
     <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:32px;">
 
       <div class="paper-card">
@@ -451,7 +434,7 @@
 
     </div>
 
-    <div style="font-size:0.875rem; font-weight:700; color:var(--text-muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:.04em;">📚 RAG &amp; Memory</div>
+    <div style="font-size:0.875rem; font-weight:700; color:var(--text-muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:.04em;"> RAG &amp; Memory</div>
     <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:8px;">
 
       <div class="paper-card">
@@ -493,7 +476,7 @@
        2. ARCHITECTURE INTERNALS
   ============================================================ -->
   <section class="section section-anchor" id="architecture">
-    <div class="section-title">🏗 Architecture Internals</div>
+    <div class="section-title"> Architecture Internals</div>
     <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">How LLMs actually work under the hood — the components, tradeoffs, and optimizations that matter for engineers.</p>
 
     <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:16px; margin-bottom:32px;">
@@ -588,7 +571,7 @@
     </div>
 
     <div class="callout callout-info" style="margin-bottom:0;">
-      <span class="callout-icon">📖</span>
+      <span class="callout-icon"></span>
       <p><strong>Deep read:</strong> Sebastian Raschka's <a href="https://sebastianraschka.com/blog/2025/coding-the-kv-cache-in-llms.html" target="_blank">Coding the KV Cache from Scratch</a> and Lilian Weng's <a href="https://lilianweng.github.io/posts/2023-01-27-the-transformer-family-v2/" target="_blank">The Transformer Family v2</a> are the two best technical deep-dives available for free.</p>
     </div>
   </section>
@@ -597,7 +580,7 @@
        3. AGENT PATTERNS
   ============================================================ -->
   <section class="section section-anchor" id="agent-patterns">
-    <div class="section-title">🔁 Agent Reasoning Patterns</div>
+    <div class="section-title"> Agent Reasoning Patterns</div>
     <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">The design patterns that separate well-behaved production agents from brittle demos. Each pattern trades off token cost, reliability, and task complexity.</p>
 
     <div style="overflow-x:auto; margin-bottom:24px;">
@@ -713,7 +696,7 @@
        4. BENCHMARKS
   ============================================================ -->
   <section class="section section-anchor" id="benchmarks">
-    <div class="section-title">📊 Benchmarks Explained</div>
+    <div class="section-title"> Benchmarks Explained</div>
     <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">What the model cards and leaderboards actually measure — and what they miss. Understand these before evaluating any LLM for production use.</p>
 
     <div style="background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; overflow-x:auto; margin-bottom:24px;">
@@ -817,7 +800,7 @@
     </div>
 
     <div class="callout callout-warning">
-      <span class="callout-icon">⚠️</span>
+      <span class="callout-icon"></span>
       <p><strong>Benchmark contamination is real.</strong> Many models are trained on data that includes benchmark test sets, inflating scores. Always cross-reference multiple benchmarks, prioritize human evaluation (Chatbot Arena), and test on your own task distribution before trusting published numbers.</p>
     </div>
   </section>
@@ -826,13 +809,13 @@
        5. LIVE LEADERBOARDS
   ============================================================ -->
   <section class="section section-anchor" id="leaderboards">
-    <div class="section-title">🏆 Live Leaderboards &amp; Trackers</div>
+    <div class="section-title"> Live Leaderboards &amp; Trackers</div>
     <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">Bookmark these. They update in real-time as new models are released and evaluated.</p>
 
     <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px;">
 
       <div class="leaderboard-card">
-        <h3>🥇 Chatbot Arena (LMSYS)</h3>
+        <h3> Chatbot Arena (LMSYS)</h3>
         <p>200+ models ranked by blind human preference votes. 2.5M+ votes. The only benchmark that can't be gamed — humans pick winners without knowing the model. Updated daily.</p>
         <div style="display:flex; gap:24px; margin-bottom:12px;">
           <div><div class="lb-stat">200+</div><div class="lb-stat-label">Models Ranked</div></div>
@@ -842,7 +825,7 @@
       </div>
 
       <div class="leaderboard-card">
-        <h3>🏗 BenchLM — 53 Benchmarks</h3>
+        <h3> BenchLM — 53 Benchmarks</h3>
         <p>Aggregates 152 models across 53 benchmarks: reasoning, coding, agents, knowledge, multimodal. Single composite score plus per-benchmark breakdowns. Updated continuously.</p>
         <div style="display:flex; gap:24px; margin-bottom:12px;">
           <div><div class="lb-stat">152</div><div class="lb-stat-label">Models</div></div>
@@ -852,7 +835,7 @@
       </div>
 
       <div class="leaderboard-card">
-        <h3>🧩 SWE-bench Verified</h3>
+        <h3> SWE-bench Verified</h3>
         <p>Live ranking of AI coding agents on real GitHub issue resolution. Best real-world proxy for software engineering capability. Watch scores climb month-over-month.</p>
         <div style="display:flex; gap:24px; margin-bottom:12px;">
           <div><div class="lb-stat">70%+</div><div class="lb-stat-label">Best Score (2025)</div></div>
@@ -862,7 +845,7 @@
       </div>
 
       <div class="leaderboard-card">
-        <h3>📐 HELM — Stanford</h3>
+        <h3> HELM — Stanford</h3>
         <p>Holistic multi-dimensional evaluation. Measures accuracy, calibration, robustness, fairness, bias, and toxicity across 42 scenarios. Best for comparing safety dimensions.</p>
         <div style="display:flex; gap:24px; margin-bottom:12px;">
           <div><div class="lb-stat">42</div><div class="lb-stat-label">Scenarios</div></div>
@@ -872,7 +855,7 @@
       </div>
 
       <div class="leaderboard-card">
-        <h3>📦 MTEB Embeddings</h3>
+        <h3> MTEB Embeddings</h3>
         <p>The definitive ranking for embedding models — pick the right one for your RAG pipeline. Covers retrieval, clustering, classification, and 5 other tasks.</p>
         <div style="display:flex; gap:24px; margin-bottom:12px;">
           <div><div class="lb-stat">56</div><div class="lb-stat-label">Datasets</div></div>
@@ -882,7 +865,7 @@
       </div>
 
       <div class="leaderboard-card">
-        <h3>💻 BigCode / HumanEval+</h3>
+        <h3> BigCode / HumanEval+</h3>
         <p>Open LLM coding leaderboard. Tracks models on HumanEval, MBPP, BigCodeBench. Useful for comparing open-source vs. proprietary coding performance.</p>
         <div style="display:flex; gap:24px; margin-bottom:12px;">
           <div><div class="lb-stat">1,140</div><div class="lb-stat-label">Test Tasks</div></div>
@@ -892,7 +875,7 @@
       </div>
 
       <div class="leaderboard-card">
-        <h3>🦙 Open LLM Leaderboard (HF)</h3>
+        <h3> Open LLM Leaderboard (HF)</h3>
         <p>Hugging Face's leaderboard tracking open-source model performance. Essential for comparing Llama, Mistral, Qwen, Gemma, DeepSeek and other open-weights models.</p>
         <div style="display:flex; gap:24px; margin-bottom:12px;">
           <div><div class="lb-stat">2000+</div><div class="lb-stat-label">Open Models</div></div>
@@ -901,7 +884,7 @@
       </div>
 
       <div class="leaderboard-card">
-        <h3>🕵️ Scale AI SEAL</h3>
+        <h3> Scale AI SEAL</h3>
         <p>Expert-validated evaluation across safety, instruction following, and reasoning. Uses human expert graders, not automated metrics. Hard to game.</p>
         <div style="display:flex; gap:24px; margin-bottom:12px;">
           <div><div class="lb-stat">Expert</div><div class="lb-stat-label">Graded</div></div>
@@ -916,7 +899,7 @@
        6. EXPERT BLOGS
   ============================================================ -->
   <section class="section section-anchor" id="blogs">
-    <div class="section-title">✍️ Expert Blogs &amp; Writing Worth Following</div>
+    <div class="section-title"> Expert Blogs &amp; Writing Worth Following</div>
     <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">The people whose writing consistently advances understanding — not just summarizing news.</p>
 
     <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px;">
@@ -1016,7 +999,7 @@
        7. SAFETY & ALIGNMENT
   ============================================================ -->
   <section class="section section-anchor" id="safety">
-    <div class="section-title">🛡 Safety, Alignment &amp; Interpretability</div>
+    <div class="section-title"> Safety, Alignment &amp; Interpretability</div>
     <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">The research ensuring powerful agents don't behave in unintended ways — increasingly important as agents take real-world actions.</p>
 
     <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; margin-bottom:24px;">
@@ -1116,7 +1099,7 @@
        8. LLMOps & PRODUCTION
   ============================================================ -->
   <section class="section section-anchor" id="llmops">
-    <div class="section-title">⚙️ LLMOps &amp; Production Engineering</div>
+    <div class="section-title"> LLMOps &amp; Production Engineering</div>
     <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">The gap between a working demo and a reliable production system. Infrastructure, evaluation, fine-tuning, and observability for real deployments.</p>
 
     <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; margin-bottom:24px;">
@@ -1172,39 +1155,39 @@
           <thead>
             <tr style="background:var(--off-white);">
               <th style="padding:10px 14px; text-align:left; border-bottom:2px solid var(--border);">Dimension</th>
-              <th style="padding:10px 14px; text-align:left; border-bottom:2px solid var(--border); color:var(--teal-dark);">RAG</th>
-              <th style="padding:10px 14px; text-align:left; border-bottom:2px solid var(--border); color:var(--purple);">Fine-Tuning</th>
+              <th style="padding:10px 14px; text-align:left; border-bottom:2px solid var(--border); color:var(--black);">RAG</th>
+              <th style="padding:10px 14px; text-align:left; border-bottom:2px solid var(--border); color:var(--black);">Fine-Tuning</th>
             </tr>
           </thead>
           <tbody>
             <tr style="border-bottom:1px solid var(--border);">
               <td style="padding:10px 14px; font-weight:600;">Knowledge freshness</td>
-              <td style="padding:10px 14px; color:#065f46;">✓ Real-time, always current</td>
+              <td style="padding:10px 14px; color:#065f46;"> Real-time, always current</td>
               <td style="padding:10px 14px; color:#92400e;">Baked in at training time</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);">
               <td style="padding:10px 14px; font-weight:600;">Knowledge size</td>
-              <td style="padding:10px 14px; color:#065f46;">✓ Unlimited (external DB)</td>
+              <td style="padding:10px 14px; color:#065f46;"> Unlimited (external DB)</td>
               <td style="padding:10px 14px; color:#92400e;">Limited by context/capacity</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);">
               <td style="padding:10px 14px; font-weight:600;">Response style / tone</td>
               <td style="padding:10px 14px; color:#92400e;">Harder to control</td>
-              <td style="padding:10px 14px; color:#065f46;">✓ Strong style consistency</td>
+              <td style="padding:10px 14px; color:#065f46;"> Strong style consistency</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);">
               <td style="padding:10px 14px; font-weight:600;">Task specialization</td>
               <td style="padding:10px 14px; color:#92400e;">General behavior</td>
-              <td style="padding:10px 14px; color:#065f46;">✓ Deep task expertise</td>
+              <td style="padding:10px 14px; color:#065f46;"> Deep task expertise</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);">
               <td style="padding:10px 14px; font-weight:600;">Citability / traceability</td>
-              <td style="padding:10px 14px; color:#065f46;">✓ Source attribution built-in</td>
+              <td style="padding:10px 14px; color:#065f46;"> Source attribution built-in</td>
               <td style="padding:10px 14px; color:#92400e;">Hard to attribute</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);">
               <td style="padding:10px 14px; font-weight:600;">Cost to update</td>
-              <td style="padding:10px 14px; color:#065f46;">✓ Update index only</td>
+              <td style="padding:10px 14px; color:#065f46;"> Update index only</td>
               <td style="padding:10px 14px; color:#92400e;">Retrain or re-fine-tune</td>
             </tr>
             <tr>

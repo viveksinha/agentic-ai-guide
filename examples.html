@@ -8,8 +8,8 @@
   <style>
     .filter-bar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:28px; }
     .filter-btn { background:white; border:1.5px solid var(--border); color:var(--text-muted); font-size:0.82rem; font-weight:600; padding:6px 14px; border-radius:20px; cursor:pointer; transition:all 0.2s; }
-    .filter-btn:hover { border-color:var(--teal-dark); color:var(--teal-dark); }
-    .filter-btn.active { background:var(--navy); border-color:var(--navy); color:white; }
+    .filter-btn:hover { border-color:var(--black); color:var(--black); }
+    .filter-btn.active { background:var(--black); border-color:var(--black); color:white; }
     .examples-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px; }
     .example-card[data-hidden="true"] { display:none; }
     .coming-soon { opacity:0.55; }
@@ -22,26 +22,9 @@
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
       <span class="logo-icon">
-        <svg width="18" height="18" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="logo-g" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#00d4f0"/>
-              <stop offset="100%" stop-color="#b197fc"/>
-            </linearGradient>
-          </defs>
-          <line x1="14" y1="14" x2="14" y2="5" stroke="url(#logo-g)" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="14" y1="14" x2="22.5" y2="20" stroke="url(#logo-g)" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="14" y1="14" x2="5.5" y2="20" stroke="url(#logo-g)" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="14" y1="5" x2="22.5" y2="20" stroke="rgba(177,151,252,0.4)" stroke-width="1" stroke-linecap="round"/>
-          <line x1="22.5" y1="20" x2="5.5" y2="20" stroke="rgba(177,151,252,0.4)" stroke-width="1" stroke-linecap="round"/>
-          <line x1="5.5" y1="20" x2="14" y2="5" stroke="rgba(177,151,252,0.4)" stroke-width="1" stroke-linecap="round"/>
-          <circle cx="14" cy="5" r="2.5" fill="#00d4f0"/>
-          <circle cx="22.5" cy="20" r="2.5" fill="#b197fc"/>
-          <circle cx="5.5" cy="20" r="2.5" fill="#b197fc"/>
-          <circle cx="14" cy="14" r="3" fill="white"/>
-        </svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
-      Agent<span>Atlas</span>
+      AgentAtlas
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -56,7 +39,7 @@
 <div class="page-header">
   <div class="page-header-inner">
     <div class="breadcrumb"><a href="index.html">Home</a> › Examples</div>
-    <h1>⚡ Examples</h1>
+    <h1>Examples</h1>
     <p>Real, working applications for every skill level. Each example includes the full code, step-by-step guide, and advanced extensions.</p>
   </div>
 </div>
@@ -67,30 +50,30 @@
   <section class="section" style="margin-bottom:32px;">
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px;">
       <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:16px; display:flex; align-items:center; gap:12px;">
-        <div style="width:36px; height:36px; background:#dcfce7; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0;">🟢</div>
+        <div style="width:36px; height:36px; background:var(--gray-100); border-radius:8px; flex-shrink:0;"></div>
         <div>
-          <div style="font-weight:700; font-size:0.9rem; color:var(--navy);">Beginner</div>
+          <div style="font-weight:700; font-size:0.9rem; color:var(--black);">Beginner</div>
           <div style="font-size:0.8rem; color:var(--text-muted);">No code. Done in &lt;30 min.</div>
         </div>
       </div>
       <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:16px; display:flex; align-items:center; gap:12px;">
-        <div style="width:36px; height:36px; background:#fef9c3; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0;">🟡</div>
+        <div style="width:36px; height:36px; background:var(--gray-100); border-radius:8px; flex-shrink:0;"></div>
         <div>
-          <div style="font-weight:700; font-size:0.9rem; color:var(--navy);">Intermediate</div>
+          <div style="font-weight:700; font-size:0.9rem; color:var(--black);">Intermediate</div>
           <div style="font-size:0.8rem; color:var(--text-muted);">Some Python. 1–3 hrs.</div>
         </div>
       </div>
       <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:16px; display:flex; align-items:center; gap:12px;">
-        <div style="width:36px; height:36px; background:#fce7f3; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0;">🔴</div>
+        <div style="width:36px; height:36px; background:var(--gray-100); border-radius:8px; flex-shrink:0;"></div>
         <div>
-          <div style="font-weight:700; font-size:0.9rem; color:var(--navy);">Advanced</div>
+          <div style="font-weight:700; font-size:0.9rem; color:var(--black);">Advanced</div>
           <div style="font-size:0.8rem; color:var(--text-muted);">Full-stack. Production-ready.</div>
         </div>
       </div>
       <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:16px; display:flex; align-items:center; gap:12px;">
-        <div style="width:36px; height:36px; background:#e0e7ff; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0;">🔷</div>
+        <div style="width:36px; height:36px; background:var(--gray-100); border-radius:8px; flex-shrink:0;"></div>
         <div>
-          <div style="font-weight:700; font-size:0.9rem; color:var(--navy);">No Code</div>
+          <div style="font-weight:700; font-size:0.9rem; color:var(--black);">No Code</div>
           <div style="font-size:0.8rem; color:var(--text-muted);">UI only. Any skill level.</div>
         </div>
       </div>
@@ -100,16 +83,16 @@
   <!-- FILTERS -->
   <div class="filter-bar">
     <button class="filter-btn active" onclick="filterExamples('all', this)">All</button>
-    <button class="filter-btn" onclick="filterExamples('beginner', this)">🟢 Beginner</button>
-    <button class="filter-btn" onclick="filterExamples('intermediate', this)">🟡 Intermediate</button>
-    <button class="filter-btn" onclick="filterExamples('advanced', this)">🔴 Advanced</button>
-    <button class="filter-btn" onclick="filterExamples('nocode', this)">🔷 No Code</button>
-    <button class="filter-btn" onclick="filterExamples('insurance', this)">🏢 Insurance</button>
-    <button class="filter-btn" onclick="filterExamples('sales', this)">💰 Sales</button>
-    <button class="filter-btn" onclick="filterExamples('hr', this)">👥 HR</button>
-    <button class="filter-btn" onclick="filterExamples('healthcare', this)">🏥 Healthcare</button>
-    <button class="filter-btn" onclick="filterExamples('legal', this)">⚖️ Legal</button>
-    <button class="filter-btn" onclick="filterExamples('finance', this)">📈 Finance</button>
+    <button class="filter-btn" onclick="filterExamples('beginner', this)">Beginner</button>
+    <button class="filter-btn" onclick="filterExamples('intermediate', this)">Intermediate</button>
+    <button class="filter-btn" onclick="filterExamples('advanced', this)">Advanced</button>
+    <button class="filter-btn" onclick="filterExamples('nocode', this)">No Code</button>
+    <button class="filter-btn" onclick="filterExamples('insurance', this)">Insurance</button>
+    <button class="filter-btn" onclick="filterExamples('sales', this)">Sales</button>
+    <button class="filter-btn" onclick="filterExamples('hr', this)">HR</button>
+    <button class="filter-btn" onclick="filterExamples('healthcare', this)">Healthcare</button>
+    <button class="filter-btn" onclick="filterExamples('legal', this)">Legal</button>
+    <button class="filter-btn" onclick="filterExamples('finance', this)">Finance</button>
   </div>
 
   <!-- EXAMPLES GRID -->
@@ -129,7 +112,7 @@
         </div>
       </div>
       <div class="example-card-meta">
-        <span>⏱ 5 min &nbsp;·&nbsp; Claude.ai</span>
+        <span>5 min &nbsp;·&nbsp; Claude.ai</span>
         <a href="#faq-detail">View Example →</a>
       </div>
     </div>
@@ -148,7 +131,7 @@
         </div>
       </div>
       <div class="example-card-meta">
-        <span>⏱ 1 hr &nbsp;·&nbsp; Copilot Studio</span>
+        <span>1 hr &nbsp;·&nbsp; Copilot Studio</span>
         <a href="#teams-detail">View Example →</a>
       </div>
     </div>
@@ -168,7 +151,7 @@
         </div>
       </div>
       <div class="example-card-meta">
-        <span>⏱ 2–3 hrs &nbsp;·&nbsp; Python</span>
+        <span>2–3 hrs &nbsp;·&nbsp; Python</span>
         <a href="example-insurance.html">View Example →</a>
       </div>
     </div>
@@ -188,7 +171,7 @@
         </div>
       </div>
       <div class="example-card-meta">
-        <span>⏱ 3 hrs &nbsp;·&nbsp; Python</span>
+        <span>3 hrs &nbsp;·&nbsp; Python</span>
         <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
       </div>
     </div>
@@ -207,7 +190,7 @@
         </div>
       </div>
       <div class="example-card-meta">
-        <span>⏱ 3 hrs &nbsp;·&nbsp; Python</span>
+        <span>3 hrs &nbsp;·&nbsp; Python</span>
         <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
       </div>
     </div>
@@ -226,7 +209,7 @@
         </div>
       </div>
       <div class="example-card-meta">
-        <span>⏱ 1 hr &nbsp;·&nbsp; Copilot Studio</span>
+        <span>1 hr &nbsp;·&nbsp; Copilot Studio</span>
         <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
       </div>
     </div>
@@ -246,7 +229,7 @@
         </div>
       </div>
       <div class="example-card-meta">
-        <span>⏱ 2 hrs &nbsp;·&nbsp; Python</span>
+        <span>2 hrs &nbsp;·&nbsp; Python</span>
         <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
       </div>
     </div>
@@ -265,7 +248,7 @@
         </div>
       </div>
       <div class="example-card-meta">
-        <span>⏱ Half day &nbsp;·&nbsp; Python + HTML</span>
+        <span>Half day &nbsp;·&nbsp; Python + HTML</span>
         <a href="example-insurance.html#widget">View in Insurance Example →</a>
       </div>
     </div>
@@ -284,7 +267,7 @@
         </div>
       </div>
       <div class="example-card-meta">
-        <span>⏱ 2 hrs &nbsp;·&nbsp; Python</span>
+        <span>2 hrs &nbsp;·&nbsp; Python</span>
         <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
       </div>
     </div>
@@ -303,7 +286,7 @@
         </div>
       </div>
       <div class="example-card-meta">
-        <span>⏱ 2–3 hrs &nbsp;·&nbsp; Python</span>
+        <span>2–3 hrs &nbsp;·&nbsp; Python</span>
         <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
       </div>
     </div>
@@ -322,7 +305,7 @@
         </div>
       </div>
       <div class="example-card-meta">
-        <span>⏱ 2 hrs &nbsp;·&nbsp; Python</span>
+        <span>2 hrs &nbsp;·&nbsp; Python</span>
         <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
       </div>
     </div>
@@ -341,7 +324,7 @@
         </div>
       </div>
       <div class="example-card-meta">
-        <span>⏱ 2 min &nbsp;·&nbsp; Claude.ai</span>
+        <span>2 min &nbsp;·&nbsp; Claude.ai</span>
         <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
       </div>
     </div>
@@ -358,7 +341,7 @@
         </div>
       </div>
       <div class="example-card-meta">
-        <span>⏱ 3–4 hrs &nbsp;·&nbsp; Python</span>
+        <span>3–4 hrs &nbsp;·&nbsp; Python</span>
         <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
       </div>
     </div>
@@ -375,7 +358,7 @@
         </div>
       </div>
       <div class="example-card-meta">
-        <span>⏱ 2–3 hrs &nbsp;·&nbsp; Python</span>
+        <span>2–3 hrs &nbsp;·&nbsp; Python</span>
         <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
       </div>
     </div>
@@ -392,7 +375,7 @@
         </div>
       </div>
       <div class="example-card-meta">
-        <span>⏱ Half day &nbsp;·&nbsp; Python</span>
+        <span>Half day &nbsp;·&nbsp; Python</span>
         <a href="#" style="color:var(--text-muted); cursor:default;">Coming Soon</a>
       </div>
     </div>
@@ -409,7 +392,7 @@
         </div>
       </div>
       <div class="example-card-meta">
-        <span>⏱ 2 hrs &nbsp;·&nbsp; n8n</span>
+        <span>2 hrs &nbsp;·&nbsp; n8n</span>
         <a href="#nocode-n8n">View Showcase →</a>
       </div>
     </div>
@@ -421,7 +404,7 @@
   <!-- FAQ CHATBOT DETAIL -->
   <section class="section" id="faq-detail" style="margin-top:60px; scroll-margin-top:80px;">
     <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
-      <span class="badge badge-beginner" style="font-size:0.8rem; padding:5px 12px;">🟢 Beginner · No Code · 5 min</span>
+      <span class="badge badge-beginner" style="font-size:0.8rem; padding:5px 12px;">Beginner · No Code · 5 min</span>
     </div>
     <div class="section-title">Example 1: FAQ Chatbot in 5 Minutes</div>
     <div class="section-subtitle">Use Claude Projects to create a working chatbot with zero setup. Works for any business — just describe it in plain English.</div>
@@ -469,7 +452,7 @@ Never make up information. Only answer based on what you know above.</code></pre
     </ol>
 
     <div class="callout callout-tip">
-      <span class="callout-icon">💡</span>
+      <span class="callout-icon"></span>
       <p><strong>Pro tip:</strong> Add an "Upload file" to the Project with your product documentation, policy PDF, or FAQ document. Claude will answer questions based on its contents — no extra setup needed.</p>
     </div>
   </section>
@@ -477,7 +460,7 @@ Never make up information. Only answer based on what you know above.</code></pre
   <!-- TEAMS BOT DETAIL -->
   <section class="section" id="teams-detail" style="scroll-margin-top:80px;">
     <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
-      <span class="badge badge-nocode" style="font-size:0.8rem; padding:5px 12px;">🔷 No Code · 1 hr · Copilot Studio</span>
+      <span class="badge badge-nocode" style="font-size:0.8rem; padding:5px 12px;">No Code · 1 hr · Copilot Studio</span>
     </div>
     <div class="section-title">Example 2: AI Agent in Microsoft Teams</div>
     <div class="section-subtitle">Build a fully connected agent inside Teams — no developer required. Connects to Outlook Calendar and Email through Copilot Studio's visual UI.</div>
@@ -491,22 +474,22 @@ Never make up information. Only answer based on what you know above.</code></pre
     </ol>
 
     <div class="callout callout-tip">
-      <span class="callout-icon">💡</span>
+      <span class="callout-icon"></span>
       <p><strong>Want Claude instead of GPT?</strong> In Agent Settings → Model, select <strong>Claude Sonnet</strong>. You get Claude's reasoning quality with Teams deployment — best of both worlds.</p>
     </div>
   </section>
 
   <!-- NO-CODE SHOWCASES -->
   <section class="section" id="nocode-showcases" style="scroll-margin-top:80px;">
-    <div class="section-title">🖱 No-Code Showcases</div>
+    <div class="section-title">No-Code Showcases</div>
     <div class="section-subtitle">Step-by-step walkthroughs using n8n, Dify, and Copilot Studio — see agents work without writing a line of code.</div>
 
     <div id="nocode-n8n" style="scroll-margin-top:80px;">
       <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); padding:24px 28px; box-shadow:var(--shadow); margin-bottom:24px;">
         <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
-          <div style="width:40px; height:40px; background:linear-gradient(135deg,rgba(0,212,240,0.15),rgba(177,151,252,0.15)); border:1px solid rgba(0,212,240,0.25); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.2rem;">🔀</div>
+          <div style="width:40px; height:40px; background:var(--gray-100); border-radius:8px; flex-shrink:0;"></div>
           <div>
-            <div style="font-weight:800; font-size:1.05rem; color:var(--navy);">n8n — Personal Email &amp; Calendar Assistant</div>
+            <div style="font-weight:800; font-size:1.05rem; color:var(--black);">n8n — Personal Email &amp; Calendar Assistant</div>
             <div style="font-size:0.8rem; color:var(--text-muted);">No Code · Beginner · ~2 hours</div>
           </div>
         </div>
@@ -518,7 +501,7 @@ Never make up information. Only answer based on what you know above.</code></pre
           <li class="step"><div class="step-num">5</div><div class="step-content"><h3>Send to Slack</h3><p>Add a <strong>Slack node</strong> → <strong>Send Message</strong>. Target your personal DM or a #daily-digest channel. Pass the Claude summary as the message body. Save and activate.</p></div></li>
         </ol>
         <div class="callout callout-tip">
-          <span class="callout-icon">💡</span>
+          <span class="callout-icon"></span>
           <p><strong>Extend it:</strong> Add a Google Calendar node before Claude to include today's meetings in the summary. Add a second Claude call to draft replies for the 3 most urgent emails.</p>
         </div>
       </div>
@@ -526,19 +509,19 @@ Never make up information. Only answer based on what you know above.</code></pre
 
     <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px;">
       <div class="card">
-        <div class="card-icon">🔷</div>
+        <div class="card-icon"></div>
         <h3>Dify — RAG Chatbot in 30 Minutes</h3>
         <p>Upload your company docs to Dify's knowledge base. Connect to Claude or GPT. Publish as a web widget. Your team can ask questions and get accurate, cited answers in real time — no hallucinations.</p>
         <a href="https://docs.dify.ai/guides/knowledge-base" target="_blank">Dify Knowledge Base Docs →</a>
       </div>
       <div class="card">
-        <div class="card-icon">🏗</div>
+        <div class="card-icon"></div>
         <h3>Dify — Multi-Step Research Agent</h3>
         <p>Use Dify's workflow canvas to build: web search → extract key points → fact-check with a second LLM call → format report → send to email. All visual, no code, ~1 hour to build.</p>
         <a href="https://dify.ai" target="_blank">Open Dify →</a>
       </div>
       <div class="card">
-        <div class="card-icon">🌀</div>
+        <div class="card-icon"></div>
         <h3>MindOS — Personal AI Brain</h3>
         <p>MindOS lets you create a persistent AI that knows your context: projects, contacts, goals, preferences. Ask it to draft based on past context, manage your to-dos, or research on your behalf.</p>
         <a href="https://mindos.com" target="_blank">Try MindOS →</a>
@@ -548,61 +531,61 @@ Never make up information. Only answer based on what you know above.</code></pre
 
   <!-- USE-CASE LIBRARY BY INDUSTRY -->
   <section class="section" style="scroll-margin-top:80px;">
-    <div class="section-title">🏭 Use-Case Library by Industry</div>
+    <div class="section-title">Use-Case Library by Industry</div>
     <div class="section-subtitle">Real deployments and patterns, organized by sector. Laymen read the use case; developers download the boilerplate.</div>
 
     <div style="margin-bottom:12px;">
       <div class="industry-row">
-        <div><div class="industry-name">🏥 Healthcare</div><div style="margin-top:6px;"><span class="badge badge-intermediate">Intermediate</span></div></div>
+        <div><div class="industry-name">Healthcare</div><div style="margin-top:6px;"><span class="badge badge-intermediate">Intermediate</span></div></div>
         <div class="industry-desc">
           <strong>Patient intake &amp; triage</strong> — Agents collect symptoms, triage urgency, and route to the right care team. <strong>Clinical documentation</strong> — ambient AI agents transcribe patient-doctor conversations and auto-fill EHR fields (used by Nuance DAX). <strong>Medication adherence</strong> — proactive reminder agents via SMS/WhatsApp with escalation paths.
         </div>
         <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-start;">
-          <a href="https://www.ibm.com/think/insights/ai-in-healthcare" target="_blank" style="font-size:0.8rem; font-weight:600; color:var(--teal-dark); text-decoration:none;">IBM Healthcare AI →</a>
+          <a href="https://www.ibm.com/think/insights/ai-in-healthcare" target="_blank" style="font-size:0.8rem; font-weight:600; color:var(--black); text-decoration:none;">IBM Healthcare AI →</a>
           <span style="font-size:0.75rem; color:var(--text-muted);">Boilerplate: Coming Soon</span>
         </div>
       </div>
       <div class="industry-row">
-        <div><div class="industry-name">⚖️ Legal</div><div style="margin-top:6px;"><span class="badge badge-intermediate">Intermediate</span></div></div>
+        <div><div class="industry-name">Legal</div><div style="margin-top:6px;"><span class="badge badge-intermediate">Intermediate</span></div></div>
         <div class="industry-desc">
           <strong>Contract review</strong> — Agents scan NDAs, MSAs, and vendor contracts for non-standard clauses, flagging risk and comparing vs. playbook. <strong>Due diligence</strong> — ingest 100s of documents and surface key risks in hours, not weeks. <strong>Legal research</strong> — cite-accurate answers to case law queries using RAG over legal databases.
         </div>
         <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-start;">
-          <a href="https://www.harvey.ai" target="_blank" style="font-size:0.8rem; font-weight:600; color:var(--teal-dark); text-decoration:none;">Harvey.ai Case Study →</a>
+          <a href="https://www.harvey.ai" target="_blank" style="font-size:0.8rem; font-weight:600; color:var(--black); text-decoration:none;">Harvey.ai Case Study →</a>
           <span style="font-size:0.75rem; color:var(--text-muted);">Boilerplate: Coming Soon</span>
         </div>
       </div>
       <div class="industry-row">
-        <div><div class="industry-name">📈 Finance</div><div style="margin-top:6px;"><span class="badge badge-advanced">Advanced</span></div></div>
+        <div><div class="industry-name">Finance</div><div style="margin-top:6px;"><span class="badge badge-advanced">Advanced</span></div></div>
         <div class="industry-desc">
           <strong>Earnings analysis</strong> — Agents parse 10-Ks, extract KPIs, and generate analyst memos. <strong>Fraud detection escalation</strong> — agents that analyze transaction patterns, flag anomalies, and route to human reviewers with context. <strong>Client portfolio summaries</strong> — daily automated briefs for advisors with personalized client insights.
         </div>
         <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-start;">
-          <a href="https://www.jpmorgan.com/technology/artificial-intelligence" target="_blank" style="font-size:0.8rem; font-weight:600; color:var(--teal-dark); text-decoration:none;">JPMorgan AI →</a>
+          <a href="https://www.jpmorgan.com/technology/artificial-intelligence" target="_blank" style="font-size:0.8rem; font-weight:600; color:var(--black); text-decoration:none;">JPMorgan AI →</a>
           <span style="font-size:0.75rem; color:var(--text-muted);">Boilerplate: Coming Soon</span>
         </div>
       </div>
       <div class="industry-row">
-        <div><div class="industry-name">🏢 Insurance</div><div style="margin-top:6px;"><span class="badge badge-intermediate">Intermediate</span></div></div>
+        <div><div class="industry-name">Insurance</div><div style="margin-top:6px;"><span class="badge badge-intermediate">Intermediate</span></div></div>
         <div class="industry-desc">
           <strong>Claims FNOL</strong> — Agents collect incident details, validate coverage, and route to adjusters automatically. <strong>Underwriting intake</strong> — process submissions, extract risk factors from documents, and pre-score applications. <strong>Policy renewal outreach</strong> — 30/14/7-day automated sequences with personalized policy summaries.
         </div>
         <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-start;">
-          <a href="example-insurance.html" style="font-size:0.8rem; font-weight:600; color:var(--teal-dark); text-decoration:none;">See Full Example →</a>
+          <a href="example-insurance.html" style="font-size:0.8rem; font-weight:600; color:var(--black); text-decoration:none;">See Full Example →</a>
         </div>
       </div>
       <div class="industry-row">
-        <div><div class="industry-name">💰 Sales &amp; Marketing</div><div style="margin-top:6px;"><span class="badge badge-beginner">Beginner</span></div></div>
+        <div><div class="industry-name">Sales &amp; Marketing</div><div style="margin-top:6px;"><span class="badge badge-beginner">Beginner</span></div></div>
         <div class="industry-desc">
           <strong>Lead qualification</strong> — Agents score inbound leads against ICP, route qualified ones to Slack, and log to CRM. <strong>Personalized outreach</strong> — research prospect LinkedIn + web presence, draft a tailored email, require human approval before sending. <strong>Competitive monitoring</strong> — daily agents that track competitor pricing/product changes and alert the sales team.
         </div>
         <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-start;">
-          <a href="https://building.theatlantic.com/building-ai-agents-in-practice-a-sales-outreach-agent-with-n8n-and-claude-ece434e0b5fc" target="_blank" style="font-size:0.8rem; font-weight:600; color:var(--teal-dark); text-decoration:none;">n8n Outreach Tutorial →</a>
+          <a href="https://building.theatlantic.com/building-ai-agents-in-practice-a-sales-outreach-agent-with-n8n-and-claude-ece434e0b5fc" target="_blank" style="font-size:0.8rem; font-weight:600; color:var(--black); text-decoration:none;">n8n Outreach Tutorial →</a>
           <span style="font-size:0.75rem; color:var(--text-muted);">Boilerplate: Coming Soon</span>
         </div>
       </div>
       <div class="industry-row">
-        <div><div class="industry-name">👥 HR &amp; People Ops</div><div style="margin-top:6px;"><span class="badge badge-beginner">Beginner</span></div></div>
+        <div><div class="industry-name">HR &amp; People Ops</div><div style="margin-top:6px;"><span class="badge badge-beginner">Beginner</span></div></div>
         <div class="industry-desc">
           <strong>Onboarding assistant</strong> — Guides new hires through their first week via Teams: intros, policy Q&amp;A, form collection, and meeting scheduling. <strong>Benefits navigator</strong> — answers employee questions about benefits, PTO policy, and open enrollment. <strong>Performance review aid</strong> — helps managers draft structured feedback from notes using consistent rubrics.
         </div>
@@ -615,7 +598,7 @@ Never make up information. Only answer based on what you know above.</code></pre
 
   <!-- RESPONSIBLE AI CHECKLIST -->
   <section class="section" id="responsible-ai" style="scroll-margin-top:80px;">
-    <div class="section-title">🛡 Responsible AI Deployment Checklist</div>
+    <div class="section-title">Responsible AI Deployment Checklist</div>
     <div class="section-subtitle">Vet whether an autonomous agent is safe to deploy. 12 questions every business should answer before going live.</div>
 
     <div style="background:white; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); margin-bottom:16px;">
@@ -683,7 +666,7 @@ Never make up information. Only answer based on what you know above.</code></pre
       </ul>
     </div>
     <div class="callout callout-tip">
-      <span class="callout-icon">💡</span>
+      <span class="callout-icon"></span>
       <p><strong>Score yourself:</strong> 12/12 = production-ready. 8–11 = address gaps before launch. Below 8 = high risk — don't deploy yet. This checklist is a starting point; regulated industries (healthcare, finance, legal) require additional domain-specific compliance steps.</p>
     </div>
   </section>
