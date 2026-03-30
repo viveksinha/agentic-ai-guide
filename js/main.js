@@ -2,6 +2,46 @@
 //  AGENTIC AI GUIDE — Main JS
 // ============================================================
 
+// ---- THEME (dark / light) ----
+(function () {
+  const STORAGE_KEY = 'aa-theme';
+  const root = document.documentElement;
+
+  // Resolve the theme to apply on load:
+  //   1. User's saved preference wins
+  //   2. Otherwise respect OS preference
+  function getInitialTheme() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === 'dark' || saved === 'light') return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    localStorage.setItem(STORAGE_KEY, theme);
+  }
+
+  // Apply immediately (before DOMContentLoaded) to avoid flash
+  applyTheme(getInitialTheme());
+
+  // Wire up the button once DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('themeToggle');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+
+    // Also respond to OS-level changes (only if user hasn't set a preference)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (!localStorage.getItem(STORAGE_KEY)) {
+        applyTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  });
+})();
+
 // Mark active nav link
 document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname.split('/').pop() || 'index.html';
