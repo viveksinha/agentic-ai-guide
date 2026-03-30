@@ -152,7 +152,7 @@ OUTLOOK_TENANT_ID     = <span class="str">"your-tenant-id"</span>
 
     event         = calendar.new_event()
     event.subject = <span class="str">f"Annuity Consultation — {customer_name}"</span>
-    event.body    = <span class="str">"Follow-up call booked via Fidelity Annuity Assistant."</span>
+    event.body    = <span class="str">"Follow-up call booked via Meridian Life Annuity Assistant."</span>
     event.start   = start_time
     event.end     = end_time
     event.attendees.add(customer_email)
@@ -198,25 +198,25 @@ SENDER_APP_PW = <span class="str">"your-app-password"</span>  <span class="cm">#
     <span class="str">"""Sends a conversation summary email to the customer."""</span>
 
     message            = MIMEMultipart(<span class="str">"alternative"</span>)
-    message[<span class="str">"Subject"</span>] = <span class="str">"Your Fidelity Annuity Consultation Summary"</span>
+    message[<span class="str">"Subject"</span>] = <span class="str">"Your Meridian Life Annuity Consultation Summary"</span>
     message[<span class="str">"From"</span>]    = SENDER_EMAIL
     message[<span class="str">"To"</span>]      = customer_email
 
     email_body = <span class="str">f"""
 Hi {customer_name},
 
-Thank you for chatting with our Fidelity Annuity Assistant today.
+Thank you for chatting with our Meridian Life Annuity Assistant today.
 
 Here's a summary of our conversation:
 
 {summary}
 
 Next Steps:
-- A Fidelity advisor will reach out within 1 business day.
+- A Meridian Life advisor will reach out within 1 business day.
 - You can also call us at 1-800-FIDELITY anytime.
 
 Warm regards,
-Fidelity Insurance Team
+Meridian Life Insurance Team
     """</span>
 
     message.attach(MIMEText(email_body, <span class="str">"plain"</span>))
@@ -278,7 +278,7 @@ CORS(app)
 client = anthropic.Anthropic(api_key=<span class="str">"your-api-key-here"</span>)
 
 SYSTEM_PROMPT = <span class="str">"""
-You are an annuity advisor assistant for Fidelity Insurance.
+You are an annuity advisor assistant for Meridian Life Insurance.
 [Paste your full agent instructions here]
 """</span>
 
@@ -336,7 +336,7 @@ conversations = {}  <span class="cm"># In production, use a database like Redis<
 
   &lt;div style=<span class="str">"background:#003087; color:white; padding:14px;
                border-radius:12px 12px 0 0; font-weight:bold;"</span>&gt;
-    Fidelity Annuity Assistant
+    Meridian Life Annuity Assistant
   &lt;/div&gt;
 
   &lt;div id=<span class="str">"messages"</span>
@@ -431,9 +431,9 @@ conversations = {}  <span class="cm"># In production, use a database like Redis<
           <p>Click <strong>"Create"</strong> → <strong>"New Agent"</strong>. Describe your agent in plain English:</p>
           <div class="code-block" style="margin-top:12px;">
             <div class="code-header"><span class="code-lang">Example description (type this into Copilot Studio)</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-            <pre><code>You are an annuity advisor assistant for Fidelity Insurance.
+            <pre><code>You are an annuity advisor assistant for Meridian Life Insurance.
 Ask customers about their age, retirement timeline, investment amount,
-and risk tolerance. Recommend the right Fidelity annuity product.
+and risk tolerance. Recommend the right Meridian Life annuity product.
 Offer to connect them with an advisor and send a summary email.</code></pre>
           </div>
         </div>

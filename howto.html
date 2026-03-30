@@ -26,7 +26,7 @@
   <div class="page-header-inner">
     <div class="breadcrumb"><a href="index.html">Home</a> › How-To Guide</div>
     <h1>⚡ Build Your First Agent</h1>
-    <p>A step-by-step guide to building a Fidelity Annuity Advisor agent. Two paths: zero code in 5 minutes, or a full custom app with Python.</p>
+    <p>A step-by-step guide to building a Meridian Life Annuity Advisor agent. Two paths: zero code in 5 minutes, or a full custom app with Python.</p>
   </div>
 </div>
 
@@ -41,7 +41,7 @@
       <div style="background:#fff0f0; border:1px solid #ffd0d0; border-radius:var(--radius); padding:20px;">
         <h3 style="color:#c0392b; font-size:0.9rem; font-weight:700; text-transform:uppercase; margin-bottom:12px;">❌ Without Agent (Today)</h3>
         <ul style="list-style:none; font-size:0.9rem; color:var(--text); line-height:2;">
-          <li>Customer calls or emails Fidelity</li>
+          <li>Customer calls or emails Meridian Life</li>
           <li>Rep manually asks 4–6 follow-up questions</li>
           <li>Rep looks up matching products</li>
           <li>Rep estimates rough income figures</li>
@@ -64,7 +64,7 @@
 
     <div class="callout callout-info">
       <span class="callout-icon">ℹ️</span>
-      <p><strong>Fidelity's annuity products:</strong> Fixed Annuity (guaranteed returns, 3–10 year horizon), Deferred Income Annuity (guaranteed lifetime income, $10K min), Variable Annuity (market-linked growth, 60+ fund choices). The agent recommends among these based on the customer's answers.</p>
+      <p><strong>Meridian Life's annuity products:</strong> Fixed Annuity (guaranteed returns, 3–10 year horizon), Deferred Income Annuity (guaranteed lifetime income, $10K min), Variable Annuity (market-linked growth, 60+ fund choices). The agent recommends among these based on the customer's answers.</p>
     </div>
   </section>
 
@@ -74,7 +74,7 @@
     <div class="section-subtitle">A real conversation the agent would have with a customer.</div>
 
     <div class="convo">
-      <div class="convo-header">Fidelity Annuity Assistant</div>
+      <div class="convo-header">Meridian Life Annuity Assistant</div>
       <div class="convo-body">
         <div class="msg msg-agent">Hi! I can help you find the right annuity. What's on your mind?</div>
         <div class="msg msg-user">I have some savings and want guaranteed income when I retire</div>
@@ -86,7 +86,7 @@
         <div class="msg msg-user">Around $75,000</div>
         <div class="msg msg-agent">Thanks! Last question — do you prefer completely guaranteed, fixed monthly income, or are you open to some market involvement for potentially higher returns?</div>
         <div class="msg msg-user">I want something safe and predictable</div>
-        <div class="msg msg-agent">Based on what you've shared, a <strong>Deferred Income Annuity</strong> looks like a strong fit. With $75,000 invested now and a 7-year wait before payments begin, you could receive guaranteed lifetime income starting around retirement — no market risk, no surprises.<br><br>Would you like me to schedule a call with a Fidelity advisor to get exact numbers?</div>
+        <div class="msg msg-agent">Based on what you've shared, a <strong>Deferred Income Annuity</strong> looks like a strong fit. With $75,000 invested now and a 7-year wait before payments begin, you could receive guaranteed lifetime income starting around retirement — no market risk, no surprises.<br><br>Would you like me to schedule a call with a Meridian Life advisor to get exact numbers?</div>
         <div class="msg msg-user">Yes please</div>
         <div class="msg msg-agent">I've booked a 30-minute call for you and sent a calendar invite to your email. An advisor will reach out within 1 business day to confirm. I've also sent you a summary of our conversation — check your inbox!</div>
       </div>
@@ -122,7 +122,7 @@
             <div class="step-num">2</div>
             <div class="step-content">
               <h3>Create a New Project</h3>
-              <p>Click <strong>"Projects"</strong> in the left sidebar → <strong>"New Project"</strong> → name it <em>"Fidelity Annuity Advisor"</em>.</p>
+              <p>Click <strong>"Projects"</strong> in the left sidebar → <strong>"New Project"</strong> → name it <em>"Meridian Life Annuity Advisor"</em>.</p>
             </div>
           </li>
           <li class="step">
@@ -139,7 +139,7 @@
             <span class="code-lang">Agent Instructions (Plain English — paste into Claude Project)</span>
             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
           </div>
-          <pre><code>You are an annuity advisor assistant for Fidelity Insurance.
+          <pre><code>You are an annuity advisor assistant for Meridian Life Insurance.
 Your job is to help customers figure out which annuity product fits their needs.
 
 Ask the customer these questions one at a time (don't ask all at once):
@@ -148,17 +148,17 @@ Ask the customer these questions one at a time (don't ask all at once):
 3. How much do they have to invest?
 4. Do they want guaranteed fixed income, or are they okay with some market risk?
 
-Based on their answers, recommend one of these Fidelity products:
+Based on their answers, recommend one of these Meridian Life products:
 
 - Fixed Annuity: guaranteed returns, low risk, 3-10 year horizon, minimum $5,000
 - Deferred Income Annuity: guaranteed lifetime income starting 2+ years from now, minimum $10,000
 - Variable Annuity: market-linked growth with 60+ fund choices, for people comfortable with some risk, minimum $10,000
 
 After your recommendation, always end with:
-"Would you like me to schedule a call with a Fidelity advisor to get exact numbers?"
+"Would you like me to schedule a call with a Meridian Life advisor to get exact numbers?"
 
 Be warm, simple, and avoid financial jargon. Keep responses short — 2-4 sentences max.
-Never give specific dollar amounts for future income — say "a Fidelity advisor can calculate your exact figures."</code></pre>
+Never give specific dollar amounts for future income — say "a Meridian Life advisor can calculate your exact figures."</code></pre>
         </div>
 
         <ol class="steps" style="margin-top:8px;">
@@ -233,7 +233,7 @@ Never give specific dollar amounts for future income — say "a Fidelity advisor
 client = anthropic.Anthropic(api_key=<span class="str">"your-api-key-here"</span>)
 
 SYSTEM_PROMPT = <span class="str">"""
-You are an annuity advisor assistant for Fidelity Insurance.
+You are an annuity advisor assistant for Meridian Life Insurance.
 Your job is to help customers figure out which annuity product fits their needs.
 
 Ask the customer these questions one at a time (don't ask all at once):
@@ -242,17 +242,17 @@ Ask the customer these questions one at a time (don't ask all at once):
 3. How much do they have to invest?
 4. Do they want guaranteed fixed income, or are they okay with some market risk?
 
-Based on their answers, recommend one of these Fidelity products:
+Based on their answers, recommend one of these Meridian Life products:
 - Fixed Annuity: for people who want guaranteed returns, low risk, 3-10 year horizon
 - Deferred Income Annuity: for people who want guaranteed lifetime income starting in 2+ years
 - Variable Annuity: for people okay with market exposure for higher potential growth
 
-Always end with: "Would you like me to schedule a call with a Fidelity advisor?"
+Always end with: "Would you like me to schedule a call with a Meridian Life advisor?"
 Be warm, simple, and avoid financial jargon. Keep responses short.
 """</span>
 
 <span class="kw">def</span> <span class="fn">run_annuity_agent</span>():
-    <span class="fn">print</span>(<span class="str">"Fidelity Annuity Assistant"</span>)
+    <span class="fn">print</span>(<span class="str">"Meridian Life Annuity Assistant"</span>)
     <span class="fn">print</span>(<span class="str">"-" * 40</span>)
     <span class="fn">print</span>(<span class="str">"Agent: Hi! I can help you find the right annuity. What's on your mind?\n"</span>)
 
