@@ -1,0 +1,94 @@
+/* ============================================================
+   Website product UX — starter tokens (house defaults)
+   Extend: accent hue, localStorage key in head script, max-width.
+   Fonts: load DM Sans, Fraunces, DM Mono via Google Fonts in HTML.
+   Theme: set data-theme on <html> before this file loads (see SKILL.md).
+   ============================================================ */
+
+:root {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+
+  --bg: #0c0b0e;
+  --surface: #16151a;
+  --surface2: #1e1d23;
+  --surface3: #27262d;
+  --border: #2e2d35;
+  --border-strong: #3e3d47;
+  --text: #e8e6f0;
+  --text-secondary: #9b97a8;
+  --text-dim: #6b6778;
+  --accent: #818cf8;
+  --accent-light: rgba(99, 102, 241, 0.15);
+  --accent-strong: rgba(99, 102, 241, 0.3);
+
+  --green: #34d399;
+  --green-bg: rgba(52, 211, 153, 0.12);
+  --green-border: rgba(52, 211, 153, 0.25);
+  --yellow: #fbbf24;
+  --yellow-bg: rgba(251, 191, 36, 0.12);
+  --yellow-border: rgba(251, 191, 36, 0.25);
+  --red: #f87171;
+  --red-bg: rgba(248, 113, 113, 0.12);
+  --red-border: rgba(248, 113, 113, 0.25);
+
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 20px;
+  --hero-gradient: linear-gradient(135deg, #1a1830 0%, #0c0b0e 50%, #101523 100%);
+
+  --table-sticky-top: 0px;
+  --transition: 160ms ease;
+}
+
+:root[data-theme="light"] {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface2: #f3f1ee;
+  --surface3: #ebe8e4;
+  --border: #e5e2dc;
+  --border-strong: #d1cdc5;
+  --text: #1a1816;
+  --text-secondary: #6b6560;
+  --text-dim: #9b9590;
+  --accent: #6366f1;
+  --accent-light: rgba(99, 102, 241, 0.08);
+  --accent-strong: rgba(99, 102, 241, 0.18);
+
+  --green: #16a34a;
+  --green-bg: #dcfce7;
+  --green-border: #bbf7d0;
+  --yellow: #ca8a04;
+  --yellow-bg: #fef9c3;
+  --yellow-border: #fef08a;
+  --red: #dc2626;
+  --red-bg: #fee2e2;
+  --red-border: #fecaca;
+
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --hero-gradient: linear-gradient(135deg, #eeeaf8 0%, #faf9f7 50%, #e8eeff 100%);
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
